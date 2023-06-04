@@ -1,7 +1,7 @@
 grammar MyGrammar;
 
 program : statements;
-statements : (statement NEWLINE)*;
+statements : (statement NEWLINE? EOF)*;
 
 
 statement
@@ -11,6 +11,7 @@ statement
     | 'if' condition 'then' statement 'else' statement #statement_if_else
     | 'while' condition ':' statement #statement_while
     | 'for' IDENTIFIER EQ number COLON number 'do' statement #statement_for
+    | 'for' IDENTIFIER EQ number COLON number '{' statements '}' #statementForLines
     | 'loop' IDENTIFIER COLON number 'do' statement #statement_loop
     | methodCall #CallMethod
     | 'print' methodCallArguments #StatementPrintMethod

@@ -214,6 +214,9 @@ func (v *Visitor) VisitMethodCallArguments(ctx *parsing.MethodCallArgumentsConte
 				panic(err)
 			}
 			args = append(args, value)
+		} else if expr.MethodCall() != nil {
+			value := v.Visit(expr.MethodCall())
+			args = append(args, value)
 		}
 	}
 	return args
