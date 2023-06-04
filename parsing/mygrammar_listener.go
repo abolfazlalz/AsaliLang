@@ -13,9 +13,6 @@ type MyGrammarListener interface {
 	// EnterStatements is called when entering the statements production.
 	EnterStatements(c *StatementsContext)
 
-	// EnterEmptyLine is called when entering the EmptyLine production.
-	EnterEmptyLine(c *EmptyLineContext)
-
 	// EnterStatementDefineVariable is called when entering the statementDefineVariable production.
 	EnterStatementDefineVariable(c *StatementDefineVariableContext)
 
@@ -99,9 +96,6 @@ type MyGrammarListener interface {
 
 	// ExitStatements is called when exiting the statements production.
 	ExitStatements(c *StatementsContext)
-
-	// ExitEmptyLine is called when exiting the EmptyLine production.
-	ExitEmptyLine(c *EmptyLineContext)
 
 	// ExitStatementDefineVariable is called when exiting the statementDefineVariable production.
 	ExitStatementDefineVariable(c *StatementDefineVariableContext)

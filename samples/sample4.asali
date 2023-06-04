@@ -1,0 +1,7 @@
+a= 4
+while a > 0 do begin
+    if a % 2 == 1 then
+        print “a is odd: ”, a;
+    else
+        print “a is even: ”, a;
+a = a - 1; end

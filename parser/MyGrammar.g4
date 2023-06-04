@@ -5,8 +5,7 @@ statements : (statement NEWLINE)*;
 
 
 statement
-    : #EmptyLine
-    | IDENTIFIER EQ variableSetterTypes #statementDefineVariable
+    : IDENTIFIER EQ variableSetterTypes #statementDefineVariable
     | 'begin' statements 'end' #statement_begin_end
     | 'if' condition 'then' statement #statement_if
     | 'if' condition 'then' statement 'else' statement #statement_if_else

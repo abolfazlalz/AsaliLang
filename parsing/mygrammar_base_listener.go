@@ -32,12 +32,6 @@ func (s *BaseMyGrammarListener) EnterStatements(ctx *StatementsContext) {}
 // ExitStatements is called when production statements is exited.
 func (s *BaseMyGrammarListener) ExitStatements(ctx *StatementsContext) {}
 
-// EnterEmptyLine is called when production EmptyLine is entered.
-func (s *BaseMyGrammarListener) EnterEmptyLine(ctx *EmptyLineContext) {}
-
-// ExitEmptyLine is called when production EmptyLine is exited.
-func (s *BaseMyGrammarListener) ExitEmptyLine(ctx *EmptyLineContext) {}
-
 // EnterStatementDefineVariable is called when production statementDefineVariable is entered.
 func (s *BaseMyGrammarListener) EnterStatementDefineVariable(ctx *StatementDefineVariableContext) {}
 

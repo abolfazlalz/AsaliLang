@@ -13,9 +13,6 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#statements.
 	VisitStatements(ctx *StatementsContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#EmptyLine.
-	VisitEmptyLine(ctx *EmptyLineContext) interface{}
-
 	// Visit a parse tree produced by MyGrammarParser#statementDefineVariable.
 	VisitStatementDefineVariable(ctx *StatementDefineVariableContext) interface{}
 

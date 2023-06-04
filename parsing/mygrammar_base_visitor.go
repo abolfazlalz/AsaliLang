@@ -15,10 +15,6 @@ func (v *BaseMyGrammarVisitor) VisitStatements(ctx *StatementsContext) interface
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitEmptyLine(ctx *EmptyLineContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseMyGrammarVisitor) VisitStatementDefineVariable(ctx *StatementDefineVariableContext) interface{} {
 	return v.VisitChildren(ctx)
 }
