@@ -30,7 +30,8 @@ func main() {
 	p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 	p.BuildParseTrees = true
 	tree := p.Program()
+	//visitor.Visit(tree)
 	v := project.NewVisitor()
-	//tree.Accept(&v)
+	tree.Accept(v)
 	v.Visit(tree)
 }

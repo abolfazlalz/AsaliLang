@@ -13,8 +13,11 @@ type MyGrammarListener interface {
 	// EnterStatements is called when entering the statements production.
 	EnterStatements(c *StatementsContext)
 
-	// EnterStatement_def_var is called when entering the statement_def_var production.
-	EnterStatement_def_var(c *Statement_def_varContext)
+	// EnterEmptyLine is called when entering the EmptyLine production.
+	EnterEmptyLine(c *EmptyLineContext)
+
+	// EnterStatementDefineVariable is called when entering the statementDefineVariable production.
+	EnterStatementDefineVariable(c *StatementDefineVariableContext)
 
 	// EnterStatement_begin_end is called when entering the statement_begin_end production.
 	EnterStatement_begin_end(c *Statement_begin_endContext)
@@ -34,44 +37,62 @@ type MyGrammarListener interface {
 	// EnterStatement_loop is called when entering the statement_loop production.
 	EnterStatement_loop(c *Statement_loopContext)
 
-	// EnterStatement_print is called when entering the statement_print production.
-	EnterStatement_print(c *Statement_printContext)
+	// EnterCallMethod is called when entering the CallMethod production.
+	EnterCallMethod(c *CallMethodContext)
 
-	// EnterStatement_print_1 is called when entering the statement_print_1 production.
-	EnterStatement_print_1(c *Statement_print_1Context)
+	// EnterStatementPrintMethod is called when entering the StatementPrintMethod production.
+	EnterStatementPrintMethod(c *StatementPrintMethodContext)
+
+	// EnterMethodCall is called when entering the methodCall production.
+	EnterMethodCall(c *MethodCallContext)
+
+	// EnterVariableSetterTypes is called when entering the variableSetterTypes production.
+	EnterVariableSetterTypes(c *VariableSetterTypesContext)
+
+	// EnterMethodCallArguments is called when entering the methodCallArguments production.
+	EnterMethodCallArguments(c *MethodCallArgumentsContext)
+
+	// EnterExpression is called when entering the expression production.
+	EnterExpression(c *ExpressionContext)
 
 	// EnterCondition_def is called when entering the condition_def production.
 	EnterCondition_def(c *Condition_defContext)
 
-	// EnterPriority1_number is called when entering the priority1_number production.
-	EnterPriority1_number(c *Priority1_numberContext)
+	// EnterPowerExprDefault is called when entering the powerExprDefault production.
+	EnterPowerExprDefault(c *PowerExprDefaultContext)
 
-	// EnterPriority1_multiple is called when entering the priority1_multiple production.
-	EnterPriority1_multiple(c *Priority1_multipleContext)
+	// EnterPowerExprPower is called when entering the powerExprPower production.
+	EnterPowerExprPower(c *PowerExprPowerContext)
 
-	// EnterPriority1_divide is called when entering the priority1_divide production.
-	EnterPriority1_divide(c *Priority1_divideContext)
+	// EnterMultipleExprDivide is called when entering the multipleExprDivide production.
+	EnterMultipleExprDivide(c *MultipleExprDivideContext)
 
-	// EnterPriority2_plus is called when entering the priority2_plus production.
-	EnterPriority2_plus(c *Priority2_plusContext)
+	// EnterMultipleExprMulti is called when entering the multipleExprMulti production.
+	EnterMultipleExprMulti(c *MultipleExprMultiContext)
 
-	// EnterPriority2_def is called when entering the priority2_def production.
-	EnterPriority2_def(c *Priority2_defContext)
+	// EnterMultipleExprDefault is called when entering the multipleExprDefault production.
+	EnterMultipleExprDefault(c *MultipleExprDefaultContext)
 
-	// EnterPriority2_minus is called when entering the priority2_minus production.
-	EnterPriority2_minus(c *Priority2_minusContext)
+	// EnterSumExprPlus is called when entering the sumExprPlus production.
+	EnterSumExprPlus(c *SumExprPlusContext)
 
-	// EnterNumber_def is called when entering the number_def production.
-	EnterNumber_def(c *Number_defContext)
+	// EnterSumExprMinus is called when entering the sumExprMinus production.
+	EnterSumExprMinus(c *SumExprMinusContext)
 
-	// EnterNumber_minus is called when entering the number_minus production.
-	EnterNumber_minus(c *Number_minusContext)
+	// EnterSumExprDefault is called when entering the sumExprDefault production.
+	EnterSumExprDefault(c *SumExprDefaultContext)
 
-	// EnterNumber_identifier is called when entering the number_identifier production.
-	EnterNumber_identifier(c *Number_identifierContext)
+	// EnterNumberDefault is called when entering the numberDefault production.
+	EnterNumberDefault(c *NumberDefaultContext)
 
-	// EnterNumber_paran is called when entering the number_paran production.
-	EnterNumber_paran(c *Number_paranContext)
+	// EnterNumberMinus is called when entering the NumberMinus production.
+	EnterNumberMinus(c *NumberMinusContext)
+
+	// EnterNumberIdentifier is called when entering the NumberIdentifier production.
+	EnterNumberIdentifier(c *NumberIdentifierContext)
+
+	// EnterNumberParentheses is called when entering the NumberParentheses production.
+	EnterNumberParentheses(c *NumberParenthesesContext)
 
 	// ExitProgram is called when exiting the program production.
 	ExitProgram(c *ProgramContext)
@@ -79,8 +100,11 @@ type MyGrammarListener interface {
 	// ExitStatements is called when exiting the statements production.
 	ExitStatements(c *StatementsContext)
 
-	// ExitStatement_def_var is called when exiting the statement_def_var production.
-	ExitStatement_def_var(c *Statement_def_varContext)
+	// ExitEmptyLine is called when exiting the EmptyLine production.
+	ExitEmptyLine(c *EmptyLineContext)
+
+	// ExitStatementDefineVariable is called when exiting the statementDefineVariable production.
+	ExitStatementDefineVariable(c *StatementDefineVariableContext)
 
 	// ExitStatement_begin_end is called when exiting the statement_begin_end production.
 	ExitStatement_begin_end(c *Statement_begin_endContext)
@@ -100,42 +124,60 @@ type MyGrammarListener interface {
 	// ExitStatement_loop is called when exiting the statement_loop production.
 	ExitStatement_loop(c *Statement_loopContext)
 
-	// ExitStatement_print is called when exiting the statement_print production.
-	ExitStatement_print(c *Statement_printContext)
+	// ExitCallMethod is called when exiting the CallMethod production.
+	ExitCallMethod(c *CallMethodContext)
 
-	// ExitStatement_print_1 is called when exiting the statement_print_1 production.
-	ExitStatement_print_1(c *Statement_print_1Context)
+	// ExitStatementPrintMethod is called when exiting the StatementPrintMethod production.
+	ExitStatementPrintMethod(c *StatementPrintMethodContext)
+
+	// ExitMethodCall is called when exiting the methodCall production.
+	ExitMethodCall(c *MethodCallContext)
+
+	// ExitVariableSetterTypes is called when exiting the variableSetterTypes production.
+	ExitVariableSetterTypes(c *VariableSetterTypesContext)
+
+	// ExitMethodCallArguments is called when exiting the methodCallArguments production.
+	ExitMethodCallArguments(c *MethodCallArgumentsContext)
+
+	// ExitExpression is called when exiting the expression production.
+	ExitExpression(c *ExpressionContext)
 
 	// ExitCondition_def is called when exiting the condition_def production.
 	ExitCondition_def(c *Condition_defContext)
 
-	// ExitPriority1_number is called when exiting the priority1_number production.
-	ExitPriority1_number(c *Priority1_numberContext)
+	// ExitPowerExprDefault is called when exiting the powerExprDefault production.
+	ExitPowerExprDefault(c *PowerExprDefaultContext)
 
-	// ExitPriority1_multiple is called when exiting the priority1_multiple production.
-	ExitPriority1_multiple(c *Priority1_multipleContext)
+	// ExitPowerExprPower is called when exiting the powerExprPower production.
+	ExitPowerExprPower(c *PowerExprPowerContext)
 
-	// ExitPriority1_divide is called when exiting the priority1_divide production.
-	ExitPriority1_divide(c *Priority1_divideContext)
+	// ExitMultipleExprDivide is called when exiting the multipleExprDivide production.
+	ExitMultipleExprDivide(c *MultipleExprDivideContext)
 
-	// ExitPriority2_plus is called when exiting the priority2_plus production.
-	ExitPriority2_plus(c *Priority2_plusContext)
+	// ExitMultipleExprMulti is called when exiting the multipleExprMulti production.
+	ExitMultipleExprMulti(c *MultipleExprMultiContext)
 
-	// ExitPriority2_def is called when exiting the priority2_def production.
-	ExitPriority2_def(c *Priority2_defContext)
+	// ExitMultipleExprDefault is called when exiting the multipleExprDefault production.
+	ExitMultipleExprDefault(c *MultipleExprDefaultContext)
 
-	// ExitPriority2_minus is called when exiting the priority2_minus production.
-	ExitPriority2_minus(c *Priority2_minusContext)
+	// ExitSumExprPlus is called when exiting the sumExprPlus production.
+	ExitSumExprPlus(c *SumExprPlusContext)
 
-	// ExitNumber_def is called when exiting the number_def production.
-	ExitNumber_def(c *Number_defContext)
+	// ExitSumExprMinus is called when exiting the sumExprMinus production.
+	ExitSumExprMinus(c *SumExprMinusContext)
 
-	// ExitNumber_minus is called when exiting the number_minus production.
-	ExitNumber_minus(c *Number_minusContext)
+	// ExitSumExprDefault is called when exiting the sumExprDefault production.
+	ExitSumExprDefault(c *SumExprDefaultContext)
 
-	// ExitNumber_identifier is called when exiting the number_identifier production.
-	ExitNumber_identifier(c *Number_identifierContext)
+	// ExitNumberDefault is called when exiting the numberDefault production.
+	ExitNumberDefault(c *NumberDefaultContext)
 
-	// ExitNumber_paran is called when exiting the number_paran production.
-	ExitNumber_paran(c *Number_paranContext)
+	// ExitNumberMinus is called when exiting the NumberMinus production.
+	ExitNumberMinus(c *NumberMinusContext)
+
+	// ExitNumberIdentifier is called when exiting the NumberIdentifier production.
+	ExitNumberIdentifier(c *NumberIdentifierContext)
+
+	// ExitNumberParentheses is called when exiting the NumberParentheses production.
+	ExitNumberParentheses(c *NumberParenthesesContext)
 }

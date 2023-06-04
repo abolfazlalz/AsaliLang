@@ -13,8 +13,11 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#statements.
 	VisitStatements(ctx *StatementsContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#statement_def_var.
-	VisitStatement_def_var(ctx *Statement_def_varContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#EmptyLine.
+	VisitEmptyLine(ctx *EmptyLineContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#statementDefineVariable.
+	VisitStatementDefineVariable(ctx *StatementDefineVariableContext) interface{}
 
 	// Visit a parse tree produced by MyGrammarParser#statement_begin_end.
 	VisitStatement_begin_end(ctx *Statement_begin_endContext) interface{}
@@ -34,42 +37,60 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#statement_loop.
 	VisitStatement_loop(ctx *Statement_loopContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#statement_print.
-	VisitStatement_print(ctx *Statement_printContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#CallMethod.
+	VisitCallMethod(ctx *CallMethodContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#statement_print_1.
-	VisitStatement_print_1(ctx *Statement_print_1Context) interface{}
+	// Visit a parse tree produced by MyGrammarParser#StatementPrintMethod.
+	VisitStatementPrintMethod(ctx *StatementPrintMethodContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#methodCall.
+	VisitMethodCall(ctx *MethodCallContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#variableSetterTypes.
+	VisitVariableSetterTypes(ctx *VariableSetterTypesContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#methodCallArguments.
+	VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#expression.
+	VisitExpression(ctx *ExpressionContext) interface{}
 
 	// Visit a parse tree produced by MyGrammarParser#condition_def.
 	VisitCondition_def(ctx *Condition_defContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#priority1_number.
-	VisitPriority1_number(ctx *Priority1_numberContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#powerExprDefault.
+	VisitPowerExprDefault(ctx *PowerExprDefaultContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#priority1_multiple.
-	VisitPriority1_multiple(ctx *Priority1_multipleContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#powerExprPower.
+	VisitPowerExprPower(ctx *PowerExprPowerContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#priority1_divide.
-	VisitPriority1_divide(ctx *Priority1_divideContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#multipleExprDivide.
+	VisitMultipleExprDivide(ctx *MultipleExprDivideContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#priority2_plus.
-	VisitPriority2_plus(ctx *Priority2_plusContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#multipleExprMulti.
+	VisitMultipleExprMulti(ctx *MultipleExprMultiContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#priority2_def.
-	VisitPriority2_def(ctx *Priority2_defContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#multipleExprDefault.
+	VisitMultipleExprDefault(ctx *MultipleExprDefaultContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#priority2_minus.
-	VisitPriority2_minus(ctx *Priority2_minusContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#sumExprPlus.
+	VisitSumExprPlus(ctx *SumExprPlusContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#number_def.
-	VisitNumber_def(ctx *Number_defContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#sumExprMinus.
+	VisitSumExprMinus(ctx *SumExprMinusContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#number_minus.
-	VisitNumber_minus(ctx *Number_minusContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#sumExprDefault.
+	VisitSumExprDefault(ctx *SumExprDefaultContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#number_identifier.
-	VisitNumber_identifier(ctx *Number_identifierContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#numberDefault.
+	VisitNumberDefault(ctx *NumberDefaultContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#number_paran.
-	VisitNumber_paran(ctx *Number_paranContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#NumberMinus.
+	VisitNumberMinus(ctx *NumberMinusContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#NumberIdentifier.
+	VisitNumberIdentifier(ctx *NumberIdentifierContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#NumberParentheses.
+	VisitNumberParentheses(ctx *NumberParenthesesContext) interface{}
 }
