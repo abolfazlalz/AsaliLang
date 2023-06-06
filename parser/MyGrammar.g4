@@ -1,26 +1,39 @@
 grammar MyGrammar;
 
-program : statements;
-statements : (statement NEWLINE? EOF)*;
+program : statements EOF;
+statements : statement*;
 
 
 statement
-    : IDENTIFIER EQ variableSetterTypes #statementDefineVariable
-    | 'begin' statements 'end' #statement_begin_end
-    | 'if' condition 'then' statement #statement_if
-    | 'if' condition 'then' statement 'else' statement #statement_if_else
-    | 'while' condition ':' statement #statement_while
-    | 'for' IDENTIFIER EQ number COLON number 'do' statement #statement_for
-    | 'for' IDENTIFIER EQ number COLON number '{' statements '}' #statementForLines
-    | 'loop' IDENTIFIER COLON number 'do' statement #statement_loop
-    | methodCall #CallMethod
-    | 'print' methodCallArguments #StatementPrintMethod
+    : assignmentStatement #assignmentStatementBlock
+    | ifStatement #ifStatementBlock
+    | whileStatement #whileStatementBlock
+    | methodCall #methodCallBlock
+    | printStatement #printStatementBlock
     ;
 
+assignmentStatement
+    : IDENTIFIER ASSIGN variableSetterTypes SEMICOLON
+    ;
+
+printStatement
+    : PRINT variableSetterTypes
+    ;
+
+blockStatement
+    : BEGIN statements END
+    ;
+
+whileStatement
+    : WHILE expression DO statement END
+    ;
 
 methodCall
-    : IDENTIFIER '(' methodCallArguments ')'
+    : IDENTIFIER OPARAN methodCallArguments CPARAN SEMICOLON
     ;
+
+ifStatement
+    : IF expression THEN statement;
 
 variableSetterTypes
     : IDENTIFIER
@@ -38,14 +51,11 @@ expression
     | IDENTIFIER
     | methodCall
     | INTEGER
+    | sumExpr
     ;
 
 STRING
     : '"' ~('"')* '"'
-    ;
-
-condition :
-    sumExpr CONDITION_OP sumExpr #condition_def
     ;
 
 powerExpr : number #powerExprDefault
@@ -65,13 +75,14 @@ sumExpr : multipleExpr #sumExprDefault
 number : INTEGER #numberDefault
     | MINUS number #NumberMinus
     | IDENTIFIER #NumberIdentifier
-    | OPEN_PARAN sumExpr CLOSE_PARAN #NumberParentheses
+    | OPARAN sumExpr CPARAN #NumberParentheses
     ;
 
 IDENTIFIER : [a-zA-Z_][a-zA-Z_0-9]*;
 
 INTEGER : [0-9]+;
-EQ : '=';
+
+ASSIGN : '=';
 
 COLON : ':';
 COMMA : ',';
@@ -82,20 +93,35 @@ MULTI : '*';
 DIVIDE : '/';
 POWERBY : '^';
 
-EQUALBY : '==';
+IF : 'if';
+ElSE : 'else';
+DO : 'do';
+BEGIN : 'begin';
+END : 'end';
+THEN : 'then';
+WHILE : 'while';
+FOR : 'for';
+LOOP : 'loop';
+PRINT : 'print';
+
+TRUE : 'true';
+FALSE : 'false';
+EQ : '==';
 NOTEQUALBY : '!=';
 LT : '<';
 GT : '>';
 
 COT : '"';
 
-OPEN_PARAN : '(';
-CLOSE_PARAN : ')';
+SEMICOLON : ';';
+OPARAN : '(';
+CPARAN : ')';
+OBRAC : '{';
+CBRAC : '}';
 
-CONDITION_OP : LT | GT | EQUALBY | NOTEQUALBY;
 
-NEWLINE : [;][\r\n]+;
+CONDITION_OP : LT | GT | EQ | NOTEQUALBY;
 
 NEXT_PARAM : [,]+;
 
-EMPTY : [ \t] -> channel(HIDDEN);
+EMPTY : [ \t\n] -> channel(HIDDEN);

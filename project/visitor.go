@@ -4,7 +4,9 @@ import (
 	"asalicompiler/parsing"
 	"fmt"
 	"github.com/antlr4-go/antlr/v4"
+	"log"
 	"math"
+	"reflect"
 	"strconv"
 	"strings"
 )
@@ -28,8 +30,8 @@ func (v *Visitor) Visit(tree antlr.ParseTree) interface{} {
 	switch val := tree.(type) {
 	case *parsing.ProgramContext:
 		return v.VisitProgram(val)
-	case *parsing.StatementDefineVariableContext:
-		return v.VisitStatementDefineVariable(val)
+	case *parsing.AssignmentStatementContext:
+		return v.VisitAssignmentStatement(val)
 	case *parsing.NumberDefaultContext:
 		return v.VisitNumberDefault(val)
 	case *parsing.NumberIdentifierContext:
@@ -54,24 +56,40 @@ func (v *Visitor) Visit(tree antlr.ParseTree) interface{} {
 		return v.VisitSumExprMinus(val)
 	case *parsing.NumberParenthesesContext:
 		return v.VisitNumberParentheses(val)
-	case *parsing.CallMethodContext:
-		return v.VisitCallMethod(val)
-	case *parsing.StatementPrintMethodContext:
+	case *parsing.PrintStatementContext:
 		return v.VisitStatementPrintMethod(val)
 	case *parsing.MethodCallArgumentsContext:
 		return v.VisitMethodCallArguments(val)
 	case *parsing.MethodCallContext:
 		return v.VisitMethodCall(val)
+	case *parsing.IfStatementContext:
+		fmt.Println("e")
+		return v.VisitStatementIf(val)
+	case *parsing.BlockStatementContext:
+		return v.VisitBlockStatement(val)
+	case *parsing.ExpressionContext:
+		return v.VisitExpression(val)
 	default:
-		panic(fmt.Sprintf("Invalid context\nName: %s", val.GetText()))
+		panic(fmt.Sprintf("Invalid context\nReflect Check: %s\nName: %s", reflect.TypeOf(val), val.GetText()))
+		//return v.BaseMyGrammarVisitor.Visit(tree)
 	}
 }
 
 func (v *Visitor) VisitProgram(ctx *parsing.ProgramContext) float64 {
 	for _, statement := range ctx.Statements().AllStatement() {
+		for _, child := range statement.GetChildren() {
+			v.Visit(child.(antlr.ParseTree))
+		}
+	}
+	fmt.Println(v.vars)
+	return 1
+}
+
+func (v *Visitor) VisitBlockStatement(ctx *parsing.BlockStatementContext) interface{} {
+	for _, statement := range ctx.Statements().AllStatement() {
 		v.Visit(statement)
 	}
-	return 1
+	return nil
 }
 
 func (v *Visitor) VisitPowerExprDefault(ctx *parsing.PowerExprDefaultContext) float64 {
@@ -145,7 +163,7 @@ func (v *Visitor) VisitSumExprMinus(ctx *parsing.SumExprMinusContext) float64 {
 	return second - first
 }
 
-func (v *Visitor) VisitStatementDefineVariable(ctx *parsing.StatementDefineVariableContext) interface{} {
+func (v *Visitor) VisitAssignmentStatement(ctx *parsing.AssignmentStatementContext) interface{} {
 	var value interface{}
 	setter := ctx.VariableSetterTypes()
 	if setter.SumExpr() != nil {
@@ -164,10 +182,6 @@ func (v *Visitor) VisitNumberParentheses(ctx *parsing.NumberParenthesesContext) 
 	return v.Visit(ctx.SumExpr()).(float64)
 }
 
-func (v *Visitor) VisitCallMethod(ctx *parsing.CallMethodContext) interface{} {
-	return v.Visit(ctx.MethodCall())
-}
-
 func (v *Visitor) VisitMethodCall(ctx *parsing.MethodCallContext) interface{} {
 	methodName := ctx.IDENTIFIER().GetText()
 	args := v.Visit(ctx.MethodCallArguments()).([]interface{})
@@ -177,49 +191,59 @@ func (v *Visitor) VisitMethodCall(ctx *parsing.MethodCallContext) interface{} {
 			v.notEnoughArgs(methodName, args, 1)
 		}
 		return math.Sin(args[0].(float64))
-	}
-	if methodName == "cos" {
+	} else if methodName == "cos" {
 		if len(args) < 1 {
 			v.notEnoughArgs(methodName, args, 1)
 		}
 		return math.Cos(args[0].(float64))
+	} else if methodName == "log" {
+		argsStr := make([]string, len(args))
+		for i, arg := range args {
+			argsStr[i] = fmt.Sprintf("%v", arg)
+		}
+		log.Println(strings.Join(argsStr, " "))
 	}
 	return nil
 }
 
-func (v *Visitor) VisitStatementPrintMethod(ctx *parsing.StatementPrintMethodContext) interface{} {
-	args, ok := v.Visit(ctx.MethodCallArguments()).([]interface{})
-	if !ok {
-		panic("Invalid arguments types")
-	}
-	argsStr := make([]string, len(args))
-	for i, arg := range args {
-		argsStr[i] = fmt.Sprintf("%v", arg)
-	}
-	fmt.Println(strings.Join(argsStr, " "))
+func (v *Visitor) VisitStatementPrintMethod(ctx *parsing.PrintStatementContext) interface{} {
+	//args, ok := v.Visit(ctx.MethodCallArguments()).([]interface{})
+	//if !ok {
+	//	panic("Invalid arguments types")
+	//}
+	//argsStr := make([]string, len(args))
+	//for i, arg := range args {
+	//	argsStr[i] = fmt.Sprintf("%v", arg)
+	//}
+	//fmt.Println(strings.Join(argsStr, " "))
 	return 0
 }
 
 func (v *Visitor) VisitMethodCallArguments(ctx *parsing.MethodCallArgumentsContext) []interface{} {
 	args := make([]interface{}, 0)
 	for _, expr := range ctx.AllExpression() {
-		if expr.IDENTIFIER() != nil {
-			variable := v.getVariableValue(expr.IDENTIFIER().GetText())
-			args = append(args, variable)
-		} else if expr.STRING() != nil {
-			args = append(args, v.getStringValue(expr.STRING().GetText()))
-		} else if expr.INTEGER() != nil {
-			value, err := strconv.ParseFloat(expr.INTEGER().GetText(), 64)
-			if err != nil {
-				panic(err)
-			}
-			args = append(args, value)
-		} else if expr.MethodCall() != nil {
-			value := v.Visit(expr.MethodCall())
-			args = append(args, value)
-		}
+		args = append(args, v.Visit(expr))
 	}
 	return args
+}
+
+func (v *Visitor) VisitExpression(ctx *parsing.ExpressionContext) interface{} {
+	if ctx.IDENTIFIER() != nil {
+		return v.getVariableValue(ctx.IDENTIFIER().GetText())
+	} else if ctx.STRING() != nil {
+		return v.getStringValue(ctx.STRING().GetText())
+	} else if ctx.INTEGER() != nil {
+		value, err := strconv.ParseFloat(ctx.INTEGER().GetText(), 64)
+		if err != nil {
+			panic(err)
+		}
+		return value
+	} else if ctx.MethodCall() != nil {
+		return v.Visit(ctx.MethodCall())
+	} else if ctx.SumExpr() != nil {
+		return v.Visit(ctx.SumExpr())
+	}
+	return nil
 }
 
 func (v *Visitor) getVariableValue(key string) interface{} {
@@ -245,4 +269,8 @@ func (v *Visitor) notEnoughArgs(methodName string, args []interface{}, required 
 	if required > len(args) {
 		panic(fmt.Sprintf("Not enough arguments for \"%s\" method.", methodName))
 	}
+}
+
+func (v *Visitor) VisitStatementIf(ctx *parsing.IfStatementContext) interface{} {
+	return 0
 }

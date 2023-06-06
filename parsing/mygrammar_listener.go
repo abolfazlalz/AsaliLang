@@ -13,35 +13,38 @@ type MyGrammarListener interface {
 	// EnterStatements is called when entering the statements production.
 	EnterStatements(c *StatementsContext)
 
-	// EnterStatementDefineVariable is called when entering the statementDefineVariable production.
-	EnterStatementDefineVariable(c *StatementDefineVariableContext)
+	// EnterAssignmentStatementBlock is called when entering the assignmentStatementBlock production.
+	EnterAssignmentStatementBlock(c *AssignmentStatementBlockContext)
 
-	// EnterStatement_begin_end is called when entering the statement_begin_end production.
-	EnterStatement_begin_end(c *Statement_begin_endContext)
+	// EnterIfStatementBlock is called when entering the ifStatementBlock production.
+	EnterIfStatementBlock(c *IfStatementBlockContext)
 
-	// EnterStatement_if is called when entering the statement_if production.
-	EnterStatement_if(c *Statement_ifContext)
+	// EnterWhileStatementBlock is called when entering the whileStatementBlock production.
+	EnterWhileStatementBlock(c *WhileStatementBlockContext)
 
-	// EnterStatement_if_else is called when entering the statement_if_else production.
-	EnterStatement_if_else(c *Statement_if_elseContext)
+	// EnterMethodCallBlock is called when entering the methodCallBlock production.
+	EnterMethodCallBlock(c *MethodCallBlockContext)
 
-	// EnterStatement_while is called when entering the statement_while production.
-	EnterStatement_while(c *Statement_whileContext)
+	// EnterPrintStatementBlock is called when entering the printStatementBlock production.
+	EnterPrintStatementBlock(c *PrintStatementBlockContext)
 
-	// EnterStatement_for is called when entering the statement_for production.
-	EnterStatement_for(c *Statement_forContext)
+	// EnterAssignmentStatement is called when entering the assignmentStatement production.
+	EnterAssignmentStatement(c *AssignmentStatementContext)
 
-	// EnterStatement_loop is called when entering the statement_loop production.
-	EnterStatement_loop(c *Statement_loopContext)
+	// EnterPrintStatement is called when entering the printStatement production.
+	EnterPrintStatement(c *PrintStatementContext)
 
-	// EnterCallMethod is called when entering the CallMethod production.
-	EnterCallMethod(c *CallMethodContext)
+	// EnterBlockStatement is called when entering the blockStatement production.
+	EnterBlockStatement(c *BlockStatementContext)
 
-	// EnterStatementPrintMethod is called when entering the StatementPrintMethod production.
-	EnterStatementPrintMethod(c *StatementPrintMethodContext)
+	// EnterWhileStatement is called when entering the whileStatement production.
+	EnterWhileStatement(c *WhileStatementContext)
 
 	// EnterMethodCall is called when entering the methodCall production.
 	EnterMethodCall(c *MethodCallContext)
+
+	// EnterIfStatement is called when entering the ifStatement production.
+	EnterIfStatement(c *IfStatementContext)
 
 	// EnterVariableSetterTypes is called when entering the variableSetterTypes production.
 	EnterVariableSetterTypes(c *VariableSetterTypesContext)
@@ -51,9 +54,6 @@ type MyGrammarListener interface {
 
 	// EnterExpression is called when entering the expression production.
 	EnterExpression(c *ExpressionContext)
-
-	// EnterCondition_def is called when entering the condition_def production.
-	EnterCondition_def(c *Condition_defContext)
 
 	// EnterPowerExprDefault is called when entering the powerExprDefault production.
 	EnterPowerExprDefault(c *PowerExprDefaultContext)
@@ -97,35 +97,38 @@ type MyGrammarListener interface {
 	// ExitStatements is called when exiting the statements production.
 	ExitStatements(c *StatementsContext)
 
-	// ExitStatementDefineVariable is called when exiting the statementDefineVariable production.
-	ExitStatementDefineVariable(c *StatementDefineVariableContext)
+	// ExitAssignmentStatementBlock is called when exiting the assignmentStatementBlock production.
+	ExitAssignmentStatementBlock(c *AssignmentStatementBlockContext)
 
-	// ExitStatement_begin_end is called when exiting the statement_begin_end production.
-	ExitStatement_begin_end(c *Statement_begin_endContext)
+	// ExitIfStatementBlock is called when exiting the ifStatementBlock production.
+	ExitIfStatementBlock(c *IfStatementBlockContext)
 
-	// ExitStatement_if is called when exiting the statement_if production.
-	ExitStatement_if(c *Statement_ifContext)
+	// ExitWhileStatementBlock is called when exiting the whileStatementBlock production.
+	ExitWhileStatementBlock(c *WhileStatementBlockContext)
 
-	// ExitStatement_if_else is called when exiting the statement_if_else production.
-	ExitStatement_if_else(c *Statement_if_elseContext)
+	// ExitMethodCallBlock is called when exiting the methodCallBlock production.
+	ExitMethodCallBlock(c *MethodCallBlockContext)
 
-	// ExitStatement_while is called when exiting the statement_while production.
-	ExitStatement_while(c *Statement_whileContext)
+	// ExitPrintStatementBlock is called when exiting the printStatementBlock production.
+	ExitPrintStatementBlock(c *PrintStatementBlockContext)
 
-	// ExitStatement_for is called when exiting the statement_for production.
-	ExitStatement_for(c *Statement_forContext)
+	// ExitAssignmentStatement is called when exiting the assignmentStatement production.
+	ExitAssignmentStatement(c *AssignmentStatementContext)
 
-	// ExitStatement_loop is called when exiting the statement_loop production.
-	ExitStatement_loop(c *Statement_loopContext)
+	// ExitPrintStatement is called when exiting the printStatement production.
+	ExitPrintStatement(c *PrintStatementContext)
 
-	// ExitCallMethod is called when exiting the CallMethod production.
-	ExitCallMethod(c *CallMethodContext)
+	// ExitBlockStatement is called when exiting the blockStatement production.
+	ExitBlockStatement(c *BlockStatementContext)
 
-	// ExitStatementPrintMethod is called when exiting the StatementPrintMethod production.
-	ExitStatementPrintMethod(c *StatementPrintMethodContext)
+	// ExitWhileStatement is called when exiting the whileStatement production.
+	ExitWhileStatement(c *WhileStatementContext)
 
 	// ExitMethodCall is called when exiting the methodCall production.
 	ExitMethodCall(c *MethodCallContext)
+
+	// ExitIfStatement is called when exiting the ifStatement production.
+	ExitIfStatement(c *IfStatementContext)
 
 	// ExitVariableSetterTypes is called when exiting the variableSetterTypes production.
 	ExitVariableSetterTypes(c *VariableSetterTypesContext)
@@ -135,9 +138,6 @@ type MyGrammarListener interface {
 
 	// ExitExpression is called when exiting the expression production.
 	ExitExpression(c *ExpressionContext)
-
-	// ExitCondition_def is called when exiting the condition_def production.
-	ExitCondition_def(c *Condition_defContext)
 
 	// ExitPowerExprDefault is called when exiting the powerExprDefault production.
 	ExitPowerExprDefault(c *PowerExprDefaultContext)

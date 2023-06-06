@@ -32,65 +32,71 @@ func (s *BaseMyGrammarListener) EnterStatements(ctx *StatementsContext) {}
 // ExitStatements is called when production statements is exited.
 func (s *BaseMyGrammarListener) ExitStatements(ctx *StatementsContext) {}
 
-// EnterStatementDefineVariable is called when production statementDefineVariable is entered.
-func (s *BaseMyGrammarListener) EnterStatementDefineVariable(ctx *StatementDefineVariableContext) {}
+// EnterAssignmentStatementBlock is called when production assignmentStatementBlock is entered.
+func (s *BaseMyGrammarListener) EnterAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) {}
 
-// ExitStatementDefineVariable is called when production statementDefineVariable is exited.
-func (s *BaseMyGrammarListener) ExitStatementDefineVariable(ctx *StatementDefineVariableContext) {}
+// ExitAssignmentStatementBlock is called when production assignmentStatementBlock is exited.
+func (s *BaseMyGrammarListener) ExitAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) {}
 
-// EnterStatement_begin_end is called when production statement_begin_end is entered.
-func (s *BaseMyGrammarListener) EnterStatement_begin_end(ctx *Statement_begin_endContext) {}
+// EnterIfStatementBlock is called when production ifStatementBlock is entered.
+func (s *BaseMyGrammarListener) EnterIfStatementBlock(ctx *IfStatementBlockContext) {}
 
-// ExitStatement_begin_end is called when production statement_begin_end is exited.
-func (s *BaseMyGrammarListener) ExitStatement_begin_end(ctx *Statement_begin_endContext) {}
+// ExitIfStatementBlock is called when production ifStatementBlock is exited.
+func (s *BaseMyGrammarListener) ExitIfStatementBlock(ctx *IfStatementBlockContext) {}
 
-// EnterStatement_if is called when production statement_if is entered.
-func (s *BaseMyGrammarListener) EnterStatement_if(ctx *Statement_ifContext) {}
+// EnterWhileStatementBlock is called when production whileStatementBlock is entered.
+func (s *BaseMyGrammarListener) EnterWhileStatementBlock(ctx *WhileStatementBlockContext) {}
 
-// ExitStatement_if is called when production statement_if is exited.
-func (s *BaseMyGrammarListener) ExitStatement_if(ctx *Statement_ifContext) {}
+// ExitWhileStatementBlock is called when production whileStatementBlock is exited.
+func (s *BaseMyGrammarListener) ExitWhileStatementBlock(ctx *WhileStatementBlockContext) {}
 
-// EnterStatement_if_else is called when production statement_if_else is entered.
-func (s *BaseMyGrammarListener) EnterStatement_if_else(ctx *Statement_if_elseContext) {}
+// EnterMethodCallBlock is called when production methodCallBlock is entered.
+func (s *BaseMyGrammarListener) EnterMethodCallBlock(ctx *MethodCallBlockContext) {}
 
-// ExitStatement_if_else is called when production statement_if_else is exited.
-func (s *BaseMyGrammarListener) ExitStatement_if_else(ctx *Statement_if_elseContext) {}
+// ExitMethodCallBlock is called when production methodCallBlock is exited.
+func (s *BaseMyGrammarListener) ExitMethodCallBlock(ctx *MethodCallBlockContext) {}
 
-// EnterStatement_while is called when production statement_while is entered.
-func (s *BaseMyGrammarListener) EnterStatement_while(ctx *Statement_whileContext) {}
+// EnterPrintStatementBlock is called when production printStatementBlock is entered.
+func (s *BaseMyGrammarListener) EnterPrintStatementBlock(ctx *PrintStatementBlockContext) {}
 
-// ExitStatement_while is called when production statement_while is exited.
-func (s *BaseMyGrammarListener) ExitStatement_while(ctx *Statement_whileContext) {}
+// ExitPrintStatementBlock is called when production printStatementBlock is exited.
+func (s *BaseMyGrammarListener) ExitPrintStatementBlock(ctx *PrintStatementBlockContext) {}
 
-// EnterStatement_for is called when production statement_for is entered.
-func (s *BaseMyGrammarListener) EnterStatement_for(ctx *Statement_forContext) {}
+// EnterAssignmentStatement is called when production assignmentStatement is entered.
+func (s *BaseMyGrammarListener) EnterAssignmentStatement(ctx *AssignmentStatementContext) {}
 
-// ExitStatement_for is called when production statement_for is exited.
-func (s *BaseMyGrammarListener) ExitStatement_for(ctx *Statement_forContext) {}
+// ExitAssignmentStatement is called when production assignmentStatement is exited.
+func (s *BaseMyGrammarListener) ExitAssignmentStatement(ctx *AssignmentStatementContext) {}
 
-// EnterStatement_loop is called when production statement_loop is entered.
-func (s *BaseMyGrammarListener) EnterStatement_loop(ctx *Statement_loopContext) {}
+// EnterPrintStatement is called when production printStatement is entered.
+func (s *BaseMyGrammarListener) EnterPrintStatement(ctx *PrintStatementContext) {}
 
-// ExitStatement_loop is called when production statement_loop is exited.
-func (s *BaseMyGrammarListener) ExitStatement_loop(ctx *Statement_loopContext) {}
+// ExitPrintStatement is called when production printStatement is exited.
+func (s *BaseMyGrammarListener) ExitPrintStatement(ctx *PrintStatementContext) {}
 
-// EnterCallMethod is called when production CallMethod is entered.
-func (s *BaseMyGrammarListener) EnterCallMethod(ctx *CallMethodContext) {}
+// EnterBlockStatement is called when production blockStatement is entered.
+func (s *BaseMyGrammarListener) EnterBlockStatement(ctx *BlockStatementContext) {}
 
-// ExitCallMethod is called when production CallMethod is exited.
-func (s *BaseMyGrammarListener) ExitCallMethod(ctx *CallMethodContext) {}
+// ExitBlockStatement is called when production blockStatement is exited.
+func (s *BaseMyGrammarListener) ExitBlockStatement(ctx *BlockStatementContext) {}
 
-// EnterStatementPrintMethod is called when production StatementPrintMethod is entered.
-func (s *BaseMyGrammarListener) EnterStatementPrintMethod(ctx *StatementPrintMethodContext) {}
+// EnterWhileStatement is called when production whileStatement is entered.
+func (s *BaseMyGrammarListener) EnterWhileStatement(ctx *WhileStatementContext) {}
 
-// ExitStatementPrintMethod is called when production StatementPrintMethod is exited.
-func (s *BaseMyGrammarListener) ExitStatementPrintMethod(ctx *StatementPrintMethodContext) {}
+// ExitWhileStatement is called when production whileStatement is exited.
+func (s *BaseMyGrammarListener) ExitWhileStatement(ctx *WhileStatementContext) {}
 
 // EnterMethodCall is called when production methodCall is entered.
 func (s *BaseMyGrammarListener) EnterMethodCall(ctx *MethodCallContext) {}
 
 // ExitMethodCall is called when production methodCall is exited.
 func (s *BaseMyGrammarListener) ExitMethodCall(ctx *MethodCallContext) {}
+
+// EnterIfStatement is called when production ifStatement is entered.
+func (s *BaseMyGrammarListener) EnterIfStatement(ctx *IfStatementContext) {}
+
+// ExitIfStatement is called when production ifStatement is exited.
+func (s *BaseMyGrammarListener) ExitIfStatement(ctx *IfStatementContext) {}
 
 // EnterVariableSetterTypes is called when production variableSetterTypes is entered.
 func (s *BaseMyGrammarListener) EnterVariableSetterTypes(ctx *VariableSetterTypesContext) {}
@@ -109,12 +115,6 @@ func (s *BaseMyGrammarListener) EnterExpression(ctx *ExpressionContext) {}
 
 // ExitExpression is called when production expression is exited.
 func (s *BaseMyGrammarListener) ExitExpression(ctx *ExpressionContext) {}
-
-// EnterCondition_def is called when production condition_def is entered.
-func (s *BaseMyGrammarListener) EnterCondition_def(ctx *Condition_defContext) {}
-
-// ExitCondition_def is called when production condition_def is exited.
-func (s *BaseMyGrammarListener) ExitCondition_def(ctx *Condition_defContext) {}
 
 // EnterPowerExprDefault is called when production powerExprDefault is entered.
 func (s *BaseMyGrammarListener) EnterPowerExprDefault(ctx *PowerExprDefaultContext) {}

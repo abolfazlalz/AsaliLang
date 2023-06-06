@@ -15,43 +15,47 @@ func (v *BaseMyGrammarVisitor) VisitStatements(ctx *StatementsContext) interface
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatementDefineVariable(ctx *StatementDefineVariableContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatement_begin_end(ctx *Statement_begin_endContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitIfStatementBlock(ctx *IfStatementBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatement_if(ctx *Statement_ifContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitWhileStatementBlock(ctx *WhileStatementBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatement_if_else(ctx *Statement_if_elseContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitMethodCallBlock(ctx *MethodCallBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatement_while(ctx *Statement_whileContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitPrintStatementBlock(ctx *PrintStatementBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatement_for(ctx *Statement_forContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitAssignmentStatement(ctx *AssignmentStatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatement_loop(ctx *Statement_loopContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitPrintStatement(ctx *PrintStatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitCallMethod(ctx *CallMethodContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitBlockStatement(ctx *BlockStatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatementPrintMethod(ctx *StatementPrintMethodContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitWhileStatement(ctx *WhileStatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseMyGrammarVisitor) VisitMethodCall(ctx *MethodCallContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseMyGrammarVisitor) VisitIfStatement(ctx *IfStatementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -64,10 +68,6 @@ func (v *BaseMyGrammarVisitor) VisitMethodCallArguments(ctx *MethodCallArguments
 }
 
 func (v *BaseMyGrammarVisitor) VisitExpression(ctx *ExpressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseMyGrammarVisitor) VisitCondition_def(ctx *Condition_defContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
