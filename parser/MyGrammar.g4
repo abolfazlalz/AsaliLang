@@ -1,127 +1,124 @@
 grammar MyGrammar;
 
-program : statements EOF;
-statements : statement*;
+parse
+ : block EOF
+ ;
 
+block
+ : stat*
+ ;
 
-statement
-    : assignmentStatement #assignmentStatementBlock
-    | ifStatement #ifStatementBlock
-    | whileStatement #whileStatementBlock
-    | methodCall #methodCallBlock
-    | printStatement #printStatementBlock
-    ;
+stat
+ : assignment
+ | if_stat
+ | while_stat
+ | log
+ | OTHER {fmt.Println("unknown char: " + $OTHER.text);}
+ ;
 
-assignmentStatement
-    : IDENTIFIER ASSIGN variableSetterTypes SEMICOLON
-    ;
+assignment
+ : ID ASSIGN expr SCOL
+ ;
 
-printStatement
-    : PRINT variableSetterTypes
-    ;
+if_stat
+ : IF condition_block (ELSE IF condition_block)* (ELSE stat_block)?
+ ;
 
-blockStatement
-    : BEGIN statements END
-    ;
+condition_block
+ : expr stat_block
+ ;
 
-whileStatement
-    : WHILE expression DO statement END
-    ;
+stat_block
+ : OBRACE block CBRACE
+ | stat
+ ;
 
-methodCall
-    : IDENTIFIER OPARAN methodCallArguments CPARAN SEMICOLON
-    ;
+while_stat
+ : WHILE expr stat_block
+ ;
 
-ifStatement
-    : IF expression THEN statement;
+log
+ : LOG expr SCOL
+ ;
 
-variableSetterTypes
-    : IDENTIFIER
-    | methodCall
-    | sumExpr
-    ;
+expr
+ :<assoc=right> expr POW expr           #powExpr
+ | MINUS expr                           #unaryMinusExpr
+ | NOT expr                             #notExpr
+ | expr op=(MULT | DIV | MOD) expr      #multiplicationExpr
+ | expr op=(PLUS | MINUS) expr          #additiveExpr
+ | expr op=(LTEQ | GTEQ | LT | GT) expr #relationalExpr
+ | expr op=(EQ | NEQ) expr              #equalityExpr
+ | expr AND expr                        #andExpr
+ | expr OR expr                         #orExpr
+ | atom                                 #atomExpr
+ ;
 
-methodCallArguments
-    : // No arguments
-    | expression (',' expression)*  // Some arguments
-    ;
+atom
+ : OPAR expr CPAR #parExpr
+ | (INT | FLOAT)  #numberAtom
+ | (TRUE | FALSE) #booleanAtom
+ | ID             #idAtom
+ | STRING         #stringAtom
+ | NIL            #nilAtom
+ ;
 
-expression
-    : STRING
-    | IDENTIFIER
-    | methodCall
-    | INTEGER
-    | sumExpr
-    ;
-
-STRING
-    : '"' ~('"')* '"'
-    ;
-
-powerExpr : number #powerExprDefault
-    | number POWERBY powerExpr #powerExprPower
-    ;
-
-multipleExpr : powerExpr #multipleExprDefault
-    | multipleExpr MULTI powerExpr #multipleExprMulti
-    | multipleExpr DIVIDE powerExpr #multipleExprDivide
-    ;
-
-sumExpr : multipleExpr #sumExprDefault
-    | sumExpr PLUS multipleExpr #sumExprPlus
-    | sumExpr MINUS multipleExpr #sumExprMinus
-    ;
-
-number : INTEGER #numberDefault
-    | MINUS number #NumberMinus
-    | IDENTIFIER #NumberIdentifier
-    | OPARAN sumExpr CPARAN #NumberParentheses
-    ;
-
-IDENTIFIER : [a-zA-Z_][a-zA-Z_0-9]*;
-
-INTEGER : [0-9]+;
-
-ASSIGN : '=';
-
-COLON : ':';
-COMMA : ',';
-
+OR : '||';
+AND : '&&';
+EQ : '==';
+NEQ : '!=';
+GT : '>';
+LT : '<';
+GTEQ : '>=';
+LTEQ : '<=';
 PLUS : '+';
 MINUS : '-';
-MULTI : '*';
-DIVIDE : '/';
-POWERBY : '^';
+MULT : '*';
+DIV : '/';
+MOD : '%';
+POW : '^';
+NOT : '!';
 
-IF : 'if';
-ElSE : 'else';
-DO : 'do';
-BEGIN : 'begin';
-END : 'end';
-THEN : 'then';
-WHILE : 'while';
-FOR : 'for';
-LOOP : 'loop';
-PRINT : 'print';
+SCOL : ';';
+ASSIGN : '=';
+OPAR : '(';
+CPAR : ')';
+OBRACE : '{';
+CBRACE : '}';
 
 TRUE : 'true';
 FALSE : 'false';
-EQ : '==';
-NOTEQUALBY : '!=';
-LT : '<';
-GT : '>';
+NIL : 'nil';
+IF : 'if';
+ELSE : 'else';
+WHILE : 'while';
+LOG : 'log';
 
-COT : '"';
+ID
+ : [a-zA-Z_] [a-zA-Z_0-9]*
+ ;
 
-SEMICOLON : ';';
-OPARAN : '(';
-CPARAN : ')';
-OBRAC : '{';
-CBRAC : '}';
+INT
+ : [0-9]+
+ ;
 
+FLOAT
+ : [0-9]+ '.' [0-9]*
+ | '.' [0-9]+
+ ;
 
-CONDITION_OP : LT | GT | EQ | NOTEQUALBY;
+STRING
+ : '"' (~["\r\n] | '""')* '"'
+ ;
 
-NEXT_PARAM : [,]+;
+COMMENT
+ : '#' ~[\r\n]* -> skip
+ ;
 
-EMPTY : [ \t\n] -> channel(HIDDEN);
+SPACE
+ : [ \t\r\n] -> skip
+ ;
+
+OTHER
+ : .
+ ;

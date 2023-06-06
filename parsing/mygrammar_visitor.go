@@ -7,87 +7,78 @@ import "github.com/antlr4-go/antlr/v4"
 type MyGrammarVisitor interface {
 	antlr.ParseTreeVisitor
 
-	// Visit a parse tree produced by MyGrammarParser#program.
-	VisitProgram(ctx *ProgramContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#parse.
+	VisitParse(ctx *ParseContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#statements.
-	VisitStatements(ctx *StatementsContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#block.
+	VisitBlock(ctx *BlockContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#assignmentStatementBlock.
-	VisitAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#stat.
+	VisitStat(ctx *StatContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#ifStatementBlock.
-	VisitIfStatementBlock(ctx *IfStatementBlockContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#assignment.
+	VisitAssignment(ctx *AssignmentContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#whileStatementBlock.
-	VisitWhileStatementBlock(ctx *WhileStatementBlockContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#if_stat.
+	VisitIf_stat(ctx *If_statContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#methodCallBlock.
-	VisitMethodCallBlock(ctx *MethodCallBlockContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#condition_block.
+	VisitCondition_block(ctx *Condition_blockContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#printStatementBlock.
-	VisitPrintStatementBlock(ctx *PrintStatementBlockContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#stat_block.
+	VisitStat_block(ctx *Stat_blockContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#assignmentStatement.
-	VisitAssignmentStatement(ctx *AssignmentStatementContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#while_stat.
+	VisitWhile_stat(ctx *While_statContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#printStatement.
-	VisitPrintStatement(ctx *PrintStatementContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#log.
+	VisitLog(ctx *LogContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#blockStatement.
-	VisitBlockStatement(ctx *BlockStatementContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#notExpr.
+	VisitNotExpr(ctx *NotExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#whileStatement.
-	VisitWhileStatement(ctx *WhileStatementContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#unaryMinusExpr.
+	VisitUnaryMinusExpr(ctx *UnaryMinusExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#methodCall.
-	VisitMethodCall(ctx *MethodCallContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#multiplicationExpr.
+	VisitMultiplicationExpr(ctx *MultiplicationExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#ifStatement.
-	VisitIfStatement(ctx *IfStatementContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#atomExpr.
+	VisitAtomExpr(ctx *AtomExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#variableSetterTypes.
-	VisitVariableSetterTypes(ctx *VariableSetterTypesContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#orExpr.
+	VisitOrExpr(ctx *OrExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#methodCallArguments.
-	VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#additiveExpr.
+	VisitAdditiveExpr(ctx *AdditiveExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#expression.
-	VisitExpression(ctx *ExpressionContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#powExpr.
+	VisitPowExpr(ctx *PowExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#powerExprDefault.
-	VisitPowerExprDefault(ctx *PowerExprDefaultContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#relationalExpr.
+	VisitRelationalExpr(ctx *RelationalExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#powerExprPower.
-	VisitPowerExprPower(ctx *PowerExprPowerContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#equalityExpr.
+	VisitEqualityExpr(ctx *EqualityExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#multipleExprDivide.
-	VisitMultipleExprDivide(ctx *MultipleExprDivideContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#andExpr.
+	VisitAndExpr(ctx *AndExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#multipleExprMulti.
-	VisitMultipleExprMulti(ctx *MultipleExprMultiContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#parExpr.
+	VisitParExpr(ctx *ParExprContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#multipleExprDefault.
-	VisitMultipleExprDefault(ctx *MultipleExprDefaultContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#numberAtom.
+	VisitNumberAtom(ctx *NumberAtomContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#sumExprPlus.
-	VisitSumExprPlus(ctx *SumExprPlusContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#booleanAtom.
+	VisitBooleanAtom(ctx *BooleanAtomContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#sumExprMinus.
-	VisitSumExprMinus(ctx *SumExprMinusContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#idAtom.
+	VisitIdAtom(ctx *IdAtomContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#sumExprDefault.
-	VisitSumExprDefault(ctx *SumExprDefaultContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#stringAtom.
+	VisitStringAtom(ctx *StringAtomContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#numberDefault.
-	VisitNumberDefault(ctx *NumberDefaultContext) interface{}
-
-	// Visit a parse tree produced by MyGrammarParser#NumberMinus.
-	VisitNumberMinus(ctx *NumberMinusContext) interface{}
-
-	// Visit a parse tree produced by MyGrammarParser#NumberIdentifier.
-	VisitNumberIdentifier(ctx *NumberIdentifierContext) interface{}
-
-	// Visit a parse tree produced by MyGrammarParser#NumberParentheses.
-	VisitNumberParentheses(ctx *NumberParenthesesContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#nilAtom.
+	VisitNilAtom(ctx *NilAtomContext) interface{}
 }

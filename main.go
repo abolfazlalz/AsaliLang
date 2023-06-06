@@ -16,7 +16,8 @@ func main() {
 	p := parsing.NewMyGrammarParser(stream)
 	p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 	p.BuildParseTrees = true
-	tree := p.Program()
+	tree := p.Parse()
 	v := project.NewVisitor()
+	//tree.Accept(v)
 	v.Visit(tree)
 }

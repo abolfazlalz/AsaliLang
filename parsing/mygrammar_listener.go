@@ -7,171 +7,153 @@ import "github.com/antlr4-go/antlr/v4"
 type MyGrammarListener interface {
 	antlr.ParseTreeListener
 
-	// EnterProgram is called when entering the program production.
-	EnterProgram(c *ProgramContext)
+	// EnterParse is called when entering the parse production.
+	EnterParse(c *ParseContext)
 
-	// EnterStatements is called when entering the statements production.
-	EnterStatements(c *StatementsContext)
+	// EnterBlock is called when entering the block production.
+	EnterBlock(c *BlockContext)
 
-	// EnterAssignmentStatementBlock is called when entering the assignmentStatementBlock production.
-	EnterAssignmentStatementBlock(c *AssignmentStatementBlockContext)
+	// EnterStat is called when entering the stat production.
+	EnterStat(c *StatContext)
 
-	// EnterIfStatementBlock is called when entering the ifStatementBlock production.
-	EnterIfStatementBlock(c *IfStatementBlockContext)
+	// EnterAssignment is called when entering the assignment production.
+	EnterAssignment(c *AssignmentContext)
 
-	// EnterWhileStatementBlock is called when entering the whileStatementBlock production.
-	EnterWhileStatementBlock(c *WhileStatementBlockContext)
+	// EnterIf_stat is called when entering the if_stat production.
+	EnterIf_stat(c *If_statContext)
 
-	// EnterMethodCallBlock is called when entering the methodCallBlock production.
-	EnterMethodCallBlock(c *MethodCallBlockContext)
+	// EnterCondition_block is called when entering the condition_block production.
+	EnterCondition_block(c *Condition_blockContext)
 
-	// EnterPrintStatementBlock is called when entering the printStatementBlock production.
-	EnterPrintStatementBlock(c *PrintStatementBlockContext)
+	// EnterStat_block is called when entering the stat_block production.
+	EnterStat_block(c *Stat_blockContext)
 
-	// EnterAssignmentStatement is called when entering the assignmentStatement production.
-	EnterAssignmentStatement(c *AssignmentStatementContext)
+	// EnterWhile_stat is called when entering the while_stat production.
+	EnterWhile_stat(c *While_statContext)
 
-	// EnterPrintStatement is called when entering the printStatement production.
-	EnterPrintStatement(c *PrintStatementContext)
+	// EnterLog is called when entering the log production.
+	EnterLog(c *LogContext)
 
-	// EnterBlockStatement is called when entering the blockStatement production.
-	EnterBlockStatement(c *BlockStatementContext)
+	// EnterNotExpr is called when entering the notExpr production.
+	EnterNotExpr(c *NotExprContext)
 
-	// EnterWhileStatement is called when entering the whileStatement production.
-	EnterWhileStatement(c *WhileStatementContext)
+	// EnterUnaryMinusExpr is called when entering the unaryMinusExpr production.
+	EnterUnaryMinusExpr(c *UnaryMinusExprContext)
 
-	// EnterMethodCall is called when entering the methodCall production.
-	EnterMethodCall(c *MethodCallContext)
+	// EnterMultiplicationExpr is called when entering the multiplicationExpr production.
+	EnterMultiplicationExpr(c *MultiplicationExprContext)
 
-	// EnterIfStatement is called when entering the ifStatement production.
-	EnterIfStatement(c *IfStatementContext)
+	// EnterAtomExpr is called when entering the atomExpr production.
+	EnterAtomExpr(c *AtomExprContext)
 
-	// EnterVariableSetterTypes is called when entering the variableSetterTypes production.
-	EnterVariableSetterTypes(c *VariableSetterTypesContext)
+	// EnterOrExpr is called when entering the orExpr production.
+	EnterOrExpr(c *OrExprContext)
 
-	// EnterMethodCallArguments is called when entering the methodCallArguments production.
-	EnterMethodCallArguments(c *MethodCallArgumentsContext)
+	// EnterAdditiveExpr is called when entering the additiveExpr production.
+	EnterAdditiveExpr(c *AdditiveExprContext)
 
-	// EnterExpression is called when entering the expression production.
-	EnterExpression(c *ExpressionContext)
+	// EnterPowExpr is called when entering the powExpr production.
+	EnterPowExpr(c *PowExprContext)
 
-	// EnterPowerExprDefault is called when entering the powerExprDefault production.
-	EnterPowerExprDefault(c *PowerExprDefaultContext)
+	// EnterRelationalExpr is called when entering the relationalExpr production.
+	EnterRelationalExpr(c *RelationalExprContext)
 
-	// EnterPowerExprPower is called when entering the powerExprPower production.
-	EnterPowerExprPower(c *PowerExprPowerContext)
+	// EnterEqualityExpr is called when entering the equalityExpr production.
+	EnterEqualityExpr(c *EqualityExprContext)
 
-	// EnterMultipleExprDivide is called when entering the multipleExprDivide production.
-	EnterMultipleExprDivide(c *MultipleExprDivideContext)
+	// EnterAndExpr is called when entering the andExpr production.
+	EnterAndExpr(c *AndExprContext)
 
-	// EnterMultipleExprMulti is called when entering the multipleExprMulti production.
-	EnterMultipleExprMulti(c *MultipleExprMultiContext)
+	// EnterParExpr is called when entering the parExpr production.
+	EnterParExpr(c *ParExprContext)
 
-	// EnterMultipleExprDefault is called when entering the multipleExprDefault production.
-	EnterMultipleExprDefault(c *MultipleExprDefaultContext)
+	// EnterNumberAtom is called when entering the numberAtom production.
+	EnterNumberAtom(c *NumberAtomContext)
 
-	// EnterSumExprPlus is called when entering the sumExprPlus production.
-	EnterSumExprPlus(c *SumExprPlusContext)
+	// EnterBooleanAtom is called when entering the booleanAtom production.
+	EnterBooleanAtom(c *BooleanAtomContext)
 
-	// EnterSumExprMinus is called when entering the sumExprMinus production.
-	EnterSumExprMinus(c *SumExprMinusContext)
+	// EnterIdAtom is called when entering the idAtom production.
+	EnterIdAtom(c *IdAtomContext)
 
-	// EnterSumExprDefault is called when entering the sumExprDefault production.
-	EnterSumExprDefault(c *SumExprDefaultContext)
+	// EnterStringAtom is called when entering the stringAtom production.
+	EnterStringAtom(c *StringAtomContext)
 
-	// EnterNumberDefault is called when entering the numberDefault production.
-	EnterNumberDefault(c *NumberDefaultContext)
+	// EnterNilAtom is called when entering the nilAtom production.
+	EnterNilAtom(c *NilAtomContext)
 
-	// EnterNumberMinus is called when entering the NumberMinus production.
-	EnterNumberMinus(c *NumberMinusContext)
+	// ExitParse is called when exiting the parse production.
+	ExitParse(c *ParseContext)
 
-	// EnterNumberIdentifier is called when entering the NumberIdentifier production.
-	EnterNumberIdentifier(c *NumberIdentifierContext)
+	// ExitBlock is called when exiting the block production.
+	ExitBlock(c *BlockContext)
 
-	// EnterNumberParentheses is called when entering the NumberParentheses production.
-	EnterNumberParentheses(c *NumberParenthesesContext)
+	// ExitStat is called when exiting the stat production.
+	ExitStat(c *StatContext)
 
-	// ExitProgram is called when exiting the program production.
-	ExitProgram(c *ProgramContext)
+	// ExitAssignment is called when exiting the assignment production.
+	ExitAssignment(c *AssignmentContext)
 
-	// ExitStatements is called when exiting the statements production.
-	ExitStatements(c *StatementsContext)
+	// ExitIf_stat is called when exiting the if_stat production.
+	ExitIf_stat(c *If_statContext)
 
-	// ExitAssignmentStatementBlock is called when exiting the assignmentStatementBlock production.
-	ExitAssignmentStatementBlock(c *AssignmentStatementBlockContext)
+	// ExitCondition_block is called when exiting the condition_block production.
+	ExitCondition_block(c *Condition_blockContext)
 
-	// ExitIfStatementBlock is called when exiting the ifStatementBlock production.
-	ExitIfStatementBlock(c *IfStatementBlockContext)
+	// ExitStat_block is called when exiting the stat_block production.
+	ExitStat_block(c *Stat_blockContext)
 
-	// ExitWhileStatementBlock is called when exiting the whileStatementBlock production.
-	ExitWhileStatementBlock(c *WhileStatementBlockContext)
+	// ExitWhile_stat is called when exiting the while_stat production.
+	ExitWhile_stat(c *While_statContext)
 
-	// ExitMethodCallBlock is called when exiting the methodCallBlock production.
-	ExitMethodCallBlock(c *MethodCallBlockContext)
+	// ExitLog is called when exiting the log production.
+	ExitLog(c *LogContext)
 
-	// ExitPrintStatementBlock is called when exiting the printStatementBlock production.
-	ExitPrintStatementBlock(c *PrintStatementBlockContext)
+	// ExitNotExpr is called when exiting the notExpr production.
+	ExitNotExpr(c *NotExprContext)
 
-	// ExitAssignmentStatement is called when exiting the assignmentStatement production.
-	ExitAssignmentStatement(c *AssignmentStatementContext)
+	// ExitUnaryMinusExpr is called when exiting the unaryMinusExpr production.
+	ExitUnaryMinusExpr(c *UnaryMinusExprContext)
 
-	// ExitPrintStatement is called when exiting the printStatement production.
-	ExitPrintStatement(c *PrintStatementContext)
+	// ExitMultiplicationExpr is called when exiting the multiplicationExpr production.
+	ExitMultiplicationExpr(c *MultiplicationExprContext)
 
-	// ExitBlockStatement is called when exiting the blockStatement production.
-	ExitBlockStatement(c *BlockStatementContext)
+	// ExitAtomExpr is called when exiting the atomExpr production.
+	ExitAtomExpr(c *AtomExprContext)
 
-	// ExitWhileStatement is called when exiting the whileStatement production.
-	ExitWhileStatement(c *WhileStatementContext)
+	// ExitOrExpr is called when exiting the orExpr production.
+	ExitOrExpr(c *OrExprContext)
 
-	// ExitMethodCall is called when exiting the methodCall production.
-	ExitMethodCall(c *MethodCallContext)
+	// ExitAdditiveExpr is called when exiting the additiveExpr production.
+	ExitAdditiveExpr(c *AdditiveExprContext)
 
-	// ExitIfStatement is called when exiting the ifStatement production.
-	ExitIfStatement(c *IfStatementContext)
+	// ExitPowExpr is called when exiting the powExpr production.
+	ExitPowExpr(c *PowExprContext)
 
-	// ExitVariableSetterTypes is called when exiting the variableSetterTypes production.
-	ExitVariableSetterTypes(c *VariableSetterTypesContext)
+	// ExitRelationalExpr is called when exiting the relationalExpr production.
+	ExitRelationalExpr(c *RelationalExprContext)
 
-	// ExitMethodCallArguments is called when exiting the methodCallArguments production.
-	ExitMethodCallArguments(c *MethodCallArgumentsContext)
+	// ExitEqualityExpr is called when exiting the equalityExpr production.
+	ExitEqualityExpr(c *EqualityExprContext)
 
-	// ExitExpression is called when exiting the expression production.
-	ExitExpression(c *ExpressionContext)
+	// ExitAndExpr is called when exiting the andExpr production.
+	ExitAndExpr(c *AndExprContext)
 
-	// ExitPowerExprDefault is called when exiting the powerExprDefault production.
-	ExitPowerExprDefault(c *PowerExprDefaultContext)
+	// ExitParExpr is called when exiting the parExpr production.
+	ExitParExpr(c *ParExprContext)
 
-	// ExitPowerExprPower is called when exiting the powerExprPower production.
-	ExitPowerExprPower(c *PowerExprPowerContext)
+	// ExitNumberAtom is called when exiting the numberAtom production.
+	ExitNumberAtom(c *NumberAtomContext)
 
-	// ExitMultipleExprDivide is called when exiting the multipleExprDivide production.
-	ExitMultipleExprDivide(c *MultipleExprDivideContext)
+	// ExitBooleanAtom is called when exiting the booleanAtom production.
+	ExitBooleanAtom(c *BooleanAtomContext)
 
-	// ExitMultipleExprMulti is called when exiting the multipleExprMulti production.
-	ExitMultipleExprMulti(c *MultipleExprMultiContext)
+	// ExitIdAtom is called when exiting the idAtom production.
+	ExitIdAtom(c *IdAtomContext)
 
-	// ExitMultipleExprDefault is called when exiting the multipleExprDefault production.
-	ExitMultipleExprDefault(c *MultipleExprDefaultContext)
+	// ExitStringAtom is called when exiting the stringAtom production.
+	ExitStringAtom(c *StringAtomContext)
 
-	// ExitSumExprPlus is called when exiting the sumExprPlus production.
-	ExitSumExprPlus(c *SumExprPlusContext)
-
-	// ExitSumExprMinus is called when exiting the sumExprMinus production.
-	ExitSumExprMinus(c *SumExprMinusContext)
-
-	// ExitSumExprDefault is called when exiting the sumExprDefault production.
-	ExitSumExprDefault(c *SumExprDefaultContext)
-
-	// ExitNumberDefault is called when exiting the numberDefault production.
-	ExitNumberDefault(c *NumberDefaultContext)
-
-	// ExitNumberMinus is called when exiting the NumberMinus production.
-	ExitNumberMinus(c *NumberMinusContext)
-
-	// ExitNumberIdentifier is called when exiting the NumberIdentifier production.
-	ExitNumberIdentifier(c *NumberIdentifierContext)
-
-	// ExitNumberParentheses is called when exiting the NumberParentheses production.
-	ExitNumberParentheses(c *NumberParenthesesContext)
+	// ExitNilAtom is called when exiting the nilAtom production.
+	ExitNilAtom(c *NilAtomContext)
 }

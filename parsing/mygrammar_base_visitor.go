@@ -7,114 +7,102 @@ type BaseMyGrammarVisitor struct {
 	*antlr.BaseParseTreeVisitor
 }
 
-func (v *BaseMyGrammarVisitor) VisitProgram(ctx *ProgramContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitParse(ctx *ParseContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitStatements(ctx *StatementsContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitBlock(ctx *BlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitStat(ctx *StatContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitIfStatementBlock(ctx *IfStatementBlockContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitAssignment(ctx *AssignmentContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitWhileStatementBlock(ctx *WhileStatementBlockContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitIf_stat(ctx *If_statContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitMethodCallBlock(ctx *MethodCallBlockContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitCondition_block(ctx *Condition_blockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitPrintStatementBlock(ctx *PrintStatementBlockContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitStat_block(ctx *Stat_blockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitAssignmentStatement(ctx *AssignmentStatementContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitWhile_stat(ctx *While_statContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitPrintStatement(ctx *PrintStatementContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitLog(ctx *LogContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitBlockStatement(ctx *BlockStatementContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitNotExpr(ctx *NotExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitWhileStatement(ctx *WhileStatementContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitUnaryMinusExpr(ctx *UnaryMinusExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitMethodCall(ctx *MethodCallContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitMultiplicationExpr(ctx *MultiplicationExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitIfStatement(ctx *IfStatementContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitAtomExpr(ctx *AtomExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitVariableSetterTypes(ctx *VariableSetterTypesContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitOrExpr(ctx *OrExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitAdditiveExpr(ctx *AdditiveExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitExpression(ctx *ExpressionContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitPowExpr(ctx *PowExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitPowerExprDefault(ctx *PowerExprDefaultContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitRelationalExpr(ctx *RelationalExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitPowerExprPower(ctx *PowerExprPowerContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitEqualityExpr(ctx *EqualityExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitMultipleExprDivide(ctx *MultipleExprDivideContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitAndExpr(ctx *AndExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitMultipleExprMulti(ctx *MultipleExprMultiContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitParExpr(ctx *ParExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitMultipleExprDefault(ctx *MultipleExprDefaultContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitNumberAtom(ctx *NumberAtomContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitSumExprPlus(ctx *SumExprPlusContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitBooleanAtom(ctx *BooleanAtomContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitSumExprMinus(ctx *SumExprMinusContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitIdAtom(ctx *IdAtomContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitSumExprDefault(ctx *SumExprDefaultContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitStringAtom(ctx *StringAtomContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitNumberDefault(ctx *NumberDefaultContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseMyGrammarVisitor) VisitNumberMinus(ctx *NumberMinusContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseMyGrammarVisitor) VisitNumberIdentifier(ctx *NumberIdentifierContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseMyGrammarVisitor) VisitNumberParentheses(ctx *NumberParenthesesContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitNilAtom(ctx *NilAtomContext) interface{} {
 	return v.VisitChildren(ctx)
 }

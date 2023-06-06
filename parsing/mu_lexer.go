@@ -14,14 +14,14 @@ var _ = fmt.Printf
 var _ = sync.Once{}
 var _ = unicode.IsLetter
 
-type MyGrammarLexer struct {
+type MuLexer struct {
 	*antlr.BaseLexer
 	channelNames []string
 	modeNames    []string
 	// TODO: EOF string
 }
 
-var MyGrammarLexerLexerStaticData struct {
+var MuLexerLexerStaticData struct {
 	once                   sync.Once
 	serializedATN          []int32
 	ChannelNames           []string
@@ -34,8 +34,8 @@ var MyGrammarLexerLexerStaticData struct {
 	decisionToDFA          []*antlr.DFA
 }
 
-func mygrammarlexerLexerInit() {
-	staticData := &MyGrammarLexerLexerStaticData
+func mulexerLexerInit() {
+	staticData := &MuLexerLexerStaticData
 	staticData.ChannelNames = []string{
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN",
 	}
@@ -166,21 +166,21 @@ func mygrammarlexerLexerInit() {
 	}
 }
 
-// MyGrammarLexerInit initializes any static state used to implement MyGrammarLexer. By default the
+// MuLexerInit initializes any static state used to implement MuLexer. By default the
 // static state used to implement the lexer is lazily initialized during the first call to
-// NewMyGrammarLexer(). You can call this function if you wish to initialize the static state ahead
+// NewMuLexer(). You can call this function if you wish to initialize the static state ahead
 // of time.
-func MyGrammarLexerInit() {
-	staticData := &MyGrammarLexerLexerStaticData
-	staticData.once.Do(mygrammarlexerLexerInit)
+func MuLexerInit() {
+	staticData := &MuLexerLexerStaticData
+	staticData.once.Do(mulexerLexerInit)
 }
 
-// NewMyGrammarLexer produces a new lexer instance for the optional input antlr.CharStream.
-func NewMyGrammarLexer(input antlr.CharStream) *MyGrammarLexer {
-	MyGrammarLexerInit()
-	l := new(MyGrammarLexer)
+// NewMuLexer produces a new lexer instance for the optional input antlr.CharStream.
+func NewMuLexer(input antlr.CharStream) *MuLexer {
+	MuLexerInit()
+	l := new(MuLexer)
 	l.BaseLexer = antlr.NewBaseLexer(input)
-	staticData := &MyGrammarLexerLexerStaticData
+	staticData := &MuLexerLexerStaticData
 	l.Interpreter = antlr.NewLexerATNSimulator(l, staticData.atn, staticData.decisionToDFA, staticData.PredictionContextCache)
 	l.channelNames = staticData.ChannelNames
 	l.modeNames = staticData.ModeNames
@@ -193,41 +193,41 @@ func NewMyGrammarLexer(input antlr.CharStream) *MyGrammarLexer {
 	return l
 }
 
-// MyGrammarLexer tokens.
+// MuLexer tokens.
 const (
-	MyGrammarLexerOR      = 1
-	MyGrammarLexerAND     = 2
-	MyGrammarLexerEQ      = 3
-	MyGrammarLexerNEQ     = 4
-	MyGrammarLexerGT      = 5
-	MyGrammarLexerLT      = 6
-	MyGrammarLexerGTEQ    = 7
-	MyGrammarLexerLTEQ    = 8
-	MyGrammarLexerPLUS    = 9
-	MyGrammarLexerMINUS   = 10
-	MyGrammarLexerMULT    = 11
-	MyGrammarLexerDIV     = 12
-	MyGrammarLexerMOD     = 13
-	MyGrammarLexerPOW     = 14
-	MyGrammarLexerNOT     = 15
-	MyGrammarLexerSCOL    = 16
-	MyGrammarLexerASSIGN  = 17
-	MyGrammarLexerOPAR    = 18
-	MyGrammarLexerCPAR    = 19
-	MyGrammarLexerOBRACE  = 20
-	MyGrammarLexerCBRACE  = 21
-	MyGrammarLexerTRUE    = 22
-	MyGrammarLexerFALSE   = 23
-	MyGrammarLexerNIL     = 24
-	MyGrammarLexerIF      = 25
-	MyGrammarLexerELSE    = 26
-	MyGrammarLexerWHILE   = 27
-	MyGrammarLexerLOG     = 28
-	MyGrammarLexerID      = 29
-	MyGrammarLexerINT     = 30
-	MyGrammarLexerFLOAT   = 31
-	MyGrammarLexerSTRING  = 32
-	MyGrammarLexerCOMMENT = 33
-	MyGrammarLexerSPACE   = 34
-	MyGrammarLexerOTHER   = 35
+	MuLexerOR      = 1
+	MuLexerAND     = 2
+	MuLexerEQ      = 3
+	MuLexerNEQ     = 4
+	MuLexerGT      = 5
+	MuLexerLT      = 6
+	MuLexerGTEQ    = 7
+	MuLexerLTEQ    = 8
+	MuLexerPLUS    = 9
+	MuLexerMINUS   = 10
+	MuLexerMULT    = 11
+	MuLexerDIV     = 12
+	MuLexerMOD     = 13
+	MuLexerPOW     = 14
+	MuLexerNOT     = 15
+	MuLexerSCOL    = 16
+	MuLexerASSIGN  = 17
+	MuLexerOPAR    = 18
+	MuLexerCPAR    = 19
+	MuLexerOBRACE  = 20
+	MuLexerCBRACE  = 21
+	MuLexerTRUE    = 22
+	MuLexerFALSE   = 23
+	MuLexerNIL     = 24
+	MuLexerIF      = 25
+	MuLexerELSE    = 26
+	MuLexerWHILE   = 27
+	MuLexerLOG     = 28
+	MuLexerID      = 29
+	MuLexerINT     = 30
+	MuLexerFLOAT   = 31
+	MuLexerSTRING  = 32
+	MuLexerCOMMENT = 33
+	MuLexerSPACE   = 34
+	MuLexerOTHER   = 35
 )

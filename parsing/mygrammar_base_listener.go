@@ -20,170 +20,152 @@ func (s *BaseMyGrammarListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseMyGrammarListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
-// EnterProgram is called when production program is entered.
-func (s *BaseMyGrammarListener) EnterProgram(ctx *ProgramContext) {}
+// EnterParse is called when production parse is entered.
+func (s *BaseMyGrammarListener) EnterParse(ctx *ParseContext) {}
 
-// ExitProgram is called when production program is exited.
-func (s *BaseMyGrammarListener) ExitProgram(ctx *ProgramContext) {}
+// ExitParse is called when production parse is exited.
+func (s *BaseMyGrammarListener) ExitParse(ctx *ParseContext) {}
 
-// EnterStatements is called when production statements is entered.
-func (s *BaseMyGrammarListener) EnterStatements(ctx *StatementsContext) {}
+// EnterBlock is called when production block is entered.
+func (s *BaseMyGrammarListener) EnterBlock(ctx *BlockContext) {}
 
-// ExitStatements is called when production statements is exited.
-func (s *BaseMyGrammarListener) ExitStatements(ctx *StatementsContext) {}
+// ExitBlock is called when production block is exited.
+func (s *BaseMyGrammarListener) ExitBlock(ctx *BlockContext) {}
 
-// EnterAssignmentStatementBlock is called when production assignmentStatementBlock is entered.
-func (s *BaseMyGrammarListener) EnterAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) {}
+// EnterStat is called when production stat is entered.
+func (s *BaseMyGrammarListener) EnterStat(ctx *StatContext) {}
 
-// ExitAssignmentStatementBlock is called when production assignmentStatementBlock is exited.
-func (s *BaseMyGrammarListener) ExitAssignmentStatementBlock(ctx *AssignmentStatementBlockContext) {}
+// ExitStat is called when production stat is exited.
+func (s *BaseMyGrammarListener) ExitStat(ctx *StatContext) {}
 
-// EnterIfStatementBlock is called when production ifStatementBlock is entered.
-func (s *BaseMyGrammarListener) EnterIfStatementBlock(ctx *IfStatementBlockContext) {}
+// EnterAssignment is called when production assignment is entered.
+func (s *BaseMyGrammarListener) EnterAssignment(ctx *AssignmentContext) {}
 
-// ExitIfStatementBlock is called when production ifStatementBlock is exited.
-func (s *BaseMyGrammarListener) ExitIfStatementBlock(ctx *IfStatementBlockContext) {}
+// ExitAssignment is called when production assignment is exited.
+func (s *BaseMyGrammarListener) ExitAssignment(ctx *AssignmentContext) {}
 
-// EnterWhileStatementBlock is called when production whileStatementBlock is entered.
-func (s *BaseMyGrammarListener) EnterWhileStatementBlock(ctx *WhileStatementBlockContext) {}
+// EnterIf_stat is called when production if_stat is entered.
+func (s *BaseMyGrammarListener) EnterIf_stat(ctx *If_statContext) {}
 
-// ExitWhileStatementBlock is called when production whileStatementBlock is exited.
-func (s *BaseMyGrammarListener) ExitWhileStatementBlock(ctx *WhileStatementBlockContext) {}
+// ExitIf_stat is called when production if_stat is exited.
+func (s *BaseMyGrammarListener) ExitIf_stat(ctx *If_statContext) {}
 
-// EnterMethodCallBlock is called when production methodCallBlock is entered.
-func (s *BaseMyGrammarListener) EnterMethodCallBlock(ctx *MethodCallBlockContext) {}
+// EnterCondition_block is called when production condition_block is entered.
+func (s *BaseMyGrammarListener) EnterCondition_block(ctx *Condition_blockContext) {}
 
-// ExitMethodCallBlock is called when production methodCallBlock is exited.
-func (s *BaseMyGrammarListener) ExitMethodCallBlock(ctx *MethodCallBlockContext) {}
+// ExitCondition_block is called when production condition_block is exited.
+func (s *BaseMyGrammarListener) ExitCondition_block(ctx *Condition_blockContext) {}
 
-// EnterPrintStatementBlock is called when production printStatementBlock is entered.
-func (s *BaseMyGrammarListener) EnterPrintStatementBlock(ctx *PrintStatementBlockContext) {}
+// EnterStat_block is called when production stat_block is entered.
+func (s *BaseMyGrammarListener) EnterStat_block(ctx *Stat_blockContext) {}
 
-// ExitPrintStatementBlock is called when production printStatementBlock is exited.
-func (s *BaseMyGrammarListener) ExitPrintStatementBlock(ctx *PrintStatementBlockContext) {}
+// ExitStat_block is called when production stat_block is exited.
+func (s *BaseMyGrammarListener) ExitStat_block(ctx *Stat_blockContext) {}
 
-// EnterAssignmentStatement is called when production assignmentStatement is entered.
-func (s *BaseMyGrammarListener) EnterAssignmentStatement(ctx *AssignmentStatementContext) {}
+// EnterWhile_stat is called when production while_stat is entered.
+func (s *BaseMyGrammarListener) EnterWhile_stat(ctx *While_statContext) {}
 
-// ExitAssignmentStatement is called when production assignmentStatement is exited.
-func (s *BaseMyGrammarListener) ExitAssignmentStatement(ctx *AssignmentStatementContext) {}
+// ExitWhile_stat is called when production while_stat is exited.
+func (s *BaseMyGrammarListener) ExitWhile_stat(ctx *While_statContext) {}
 
-// EnterPrintStatement is called when production printStatement is entered.
-func (s *BaseMyGrammarListener) EnterPrintStatement(ctx *PrintStatementContext) {}
+// EnterLog is called when production log is entered.
+func (s *BaseMyGrammarListener) EnterLog(ctx *LogContext) {}
 
-// ExitPrintStatement is called when production printStatement is exited.
-func (s *BaseMyGrammarListener) ExitPrintStatement(ctx *PrintStatementContext) {}
+// ExitLog is called when production log is exited.
+func (s *BaseMyGrammarListener) ExitLog(ctx *LogContext) {}
 
-// EnterBlockStatement is called when production blockStatement is entered.
-func (s *BaseMyGrammarListener) EnterBlockStatement(ctx *BlockStatementContext) {}
+// EnterNotExpr is called when production notExpr is entered.
+func (s *BaseMyGrammarListener) EnterNotExpr(ctx *NotExprContext) {}
 
-// ExitBlockStatement is called when production blockStatement is exited.
-func (s *BaseMyGrammarListener) ExitBlockStatement(ctx *BlockStatementContext) {}
+// ExitNotExpr is called when production notExpr is exited.
+func (s *BaseMyGrammarListener) ExitNotExpr(ctx *NotExprContext) {}
 
-// EnterWhileStatement is called when production whileStatement is entered.
-func (s *BaseMyGrammarListener) EnterWhileStatement(ctx *WhileStatementContext) {}
+// EnterUnaryMinusExpr is called when production unaryMinusExpr is entered.
+func (s *BaseMyGrammarListener) EnterUnaryMinusExpr(ctx *UnaryMinusExprContext) {}
 
-// ExitWhileStatement is called when production whileStatement is exited.
-func (s *BaseMyGrammarListener) ExitWhileStatement(ctx *WhileStatementContext) {}
+// ExitUnaryMinusExpr is called when production unaryMinusExpr is exited.
+func (s *BaseMyGrammarListener) ExitUnaryMinusExpr(ctx *UnaryMinusExprContext) {}
 
-// EnterMethodCall is called when production methodCall is entered.
-func (s *BaseMyGrammarListener) EnterMethodCall(ctx *MethodCallContext) {}
+// EnterMultiplicationExpr is called when production multiplicationExpr is entered.
+func (s *BaseMyGrammarListener) EnterMultiplicationExpr(ctx *MultiplicationExprContext) {}
 
-// ExitMethodCall is called when production methodCall is exited.
-func (s *BaseMyGrammarListener) ExitMethodCall(ctx *MethodCallContext) {}
+// ExitMultiplicationExpr is called when production multiplicationExpr is exited.
+func (s *BaseMyGrammarListener) ExitMultiplicationExpr(ctx *MultiplicationExprContext) {}
 
-// EnterIfStatement is called when production ifStatement is entered.
-func (s *BaseMyGrammarListener) EnterIfStatement(ctx *IfStatementContext) {}
+// EnterAtomExpr is called when production atomExpr is entered.
+func (s *BaseMyGrammarListener) EnterAtomExpr(ctx *AtomExprContext) {}
 
-// ExitIfStatement is called when production ifStatement is exited.
-func (s *BaseMyGrammarListener) ExitIfStatement(ctx *IfStatementContext) {}
+// ExitAtomExpr is called when production atomExpr is exited.
+func (s *BaseMyGrammarListener) ExitAtomExpr(ctx *AtomExprContext) {}
 
-// EnterVariableSetterTypes is called when production variableSetterTypes is entered.
-func (s *BaseMyGrammarListener) EnterVariableSetterTypes(ctx *VariableSetterTypesContext) {}
+// EnterOrExpr is called when production orExpr is entered.
+func (s *BaseMyGrammarListener) EnterOrExpr(ctx *OrExprContext) {}
 
-// ExitVariableSetterTypes is called when production variableSetterTypes is exited.
-func (s *BaseMyGrammarListener) ExitVariableSetterTypes(ctx *VariableSetterTypesContext) {}
+// ExitOrExpr is called when production orExpr is exited.
+func (s *BaseMyGrammarListener) ExitOrExpr(ctx *OrExprContext) {}
 
-// EnterMethodCallArguments is called when production methodCallArguments is entered.
-func (s *BaseMyGrammarListener) EnterMethodCallArguments(ctx *MethodCallArgumentsContext) {}
+// EnterAdditiveExpr is called when production additiveExpr is entered.
+func (s *BaseMyGrammarListener) EnterAdditiveExpr(ctx *AdditiveExprContext) {}
 
-// ExitMethodCallArguments is called when production methodCallArguments is exited.
-func (s *BaseMyGrammarListener) ExitMethodCallArguments(ctx *MethodCallArgumentsContext) {}
+// ExitAdditiveExpr is called when production additiveExpr is exited.
+func (s *BaseMyGrammarListener) ExitAdditiveExpr(ctx *AdditiveExprContext) {}
 
-// EnterExpression is called when production expression is entered.
-func (s *BaseMyGrammarListener) EnterExpression(ctx *ExpressionContext) {}
+// EnterPowExpr is called when production powExpr is entered.
+func (s *BaseMyGrammarListener) EnterPowExpr(ctx *PowExprContext) {}
 
-// ExitExpression is called when production expression is exited.
-func (s *BaseMyGrammarListener) ExitExpression(ctx *ExpressionContext) {}
+// ExitPowExpr is called when production powExpr is exited.
+func (s *BaseMyGrammarListener) ExitPowExpr(ctx *PowExprContext) {}
 
-// EnterPowerExprDefault is called when production powerExprDefault is entered.
-func (s *BaseMyGrammarListener) EnterPowerExprDefault(ctx *PowerExprDefaultContext) {}
+// EnterRelationalExpr is called when production relationalExpr is entered.
+func (s *BaseMyGrammarListener) EnterRelationalExpr(ctx *RelationalExprContext) {}
 
-// ExitPowerExprDefault is called when production powerExprDefault is exited.
-func (s *BaseMyGrammarListener) ExitPowerExprDefault(ctx *PowerExprDefaultContext) {}
+// ExitRelationalExpr is called when production relationalExpr is exited.
+func (s *BaseMyGrammarListener) ExitRelationalExpr(ctx *RelationalExprContext) {}
 
-// EnterPowerExprPower is called when production powerExprPower is entered.
-func (s *BaseMyGrammarListener) EnterPowerExprPower(ctx *PowerExprPowerContext) {}
+// EnterEqualityExpr is called when production equalityExpr is entered.
+func (s *BaseMyGrammarListener) EnterEqualityExpr(ctx *EqualityExprContext) {}
 
-// ExitPowerExprPower is called when production powerExprPower is exited.
-func (s *BaseMyGrammarListener) ExitPowerExprPower(ctx *PowerExprPowerContext) {}
+// ExitEqualityExpr is called when production equalityExpr is exited.
+func (s *BaseMyGrammarListener) ExitEqualityExpr(ctx *EqualityExprContext) {}
 
-// EnterMultipleExprDivide is called when production multipleExprDivide is entered.
-func (s *BaseMyGrammarListener) EnterMultipleExprDivide(ctx *MultipleExprDivideContext) {}
+// EnterAndExpr is called when production andExpr is entered.
+func (s *BaseMyGrammarListener) EnterAndExpr(ctx *AndExprContext) {}
 
-// ExitMultipleExprDivide is called when production multipleExprDivide is exited.
-func (s *BaseMyGrammarListener) ExitMultipleExprDivide(ctx *MultipleExprDivideContext) {}
+// ExitAndExpr is called when production andExpr is exited.
+func (s *BaseMyGrammarListener) ExitAndExpr(ctx *AndExprContext) {}
 
-// EnterMultipleExprMulti is called when production multipleExprMulti is entered.
-func (s *BaseMyGrammarListener) EnterMultipleExprMulti(ctx *MultipleExprMultiContext) {}
+// EnterParExpr is called when production parExpr is entered.
+func (s *BaseMyGrammarListener) EnterParExpr(ctx *ParExprContext) {}
 
-// ExitMultipleExprMulti is called when production multipleExprMulti is exited.
-func (s *BaseMyGrammarListener) ExitMultipleExprMulti(ctx *MultipleExprMultiContext) {}
+// ExitParExpr is called when production parExpr is exited.
+func (s *BaseMyGrammarListener) ExitParExpr(ctx *ParExprContext) {}
 
-// EnterMultipleExprDefault is called when production multipleExprDefault is entered.
-func (s *BaseMyGrammarListener) EnterMultipleExprDefault(ctx *MultipleExprDefaultContext) {}
+// EnterNumberAtom is called when production numberAtom is entered.
+func (s *BaseMyGrammarListener) EnterNumberAtom(ctx *NumberAtomContext) {}
 
-// ExitMultipleExprDefault is called when production multipleExprDefault is exited.
-func (s *BaseMyGrammarListener) ExitMultipleExprDefault(ctx *MultipleExprDefaultContext) {}
+// ExitNumberAtom is called when production numberAtom is exited.
+func (s *BaseMyGrammarListener) ExitNumberAtom(ctx *NumberAtomContext) {}
 
-// EnterSumExprPlus is called when production sumExprPlus is entered.
-func (s *BaseMyGrammarListener) EnterSumExprPlus(ctx *SumExprPlusContext) {}
+// EnterBooleanAtom is called when production booleanAtom is entered.
+func (s *BaseMyGrammarListener) EnterBooleanAtom(ctx *BooleanAtomContext) {}
 
-// ExitSumExprPlus is called when production sumExprPlus is exited.
-func (s *BaseMyGrammarListener) ExitSumExprPlus(ctx *SumExprPlusContext) {}
+// ExitBooleanAtom is called when production booleanAtom is exited.
+func (s *BaseMyGrammarListener) ExitBooleanAtom(ctx *BooleanAtomContext) {}
 
-// EnterSumExprMinus is called when production sumExprMinus is entered.
-func (s *BaseMyGrammarListener) EnterSumExprMinus(ctx *SumExprMinusContext) {}
+// EnterIdAtom is called when production idAtom is entered.
+func (s *BaseMyGrammarListener) EnterIdAtom(ctx *IdAtomContext) {}
 
-// ExitSumExprMinus is called when production sumExprMinus is exited.
-func (s *BaseMyGrammarListener) ExitSumExprMinus(ctx *SumExprMinusContext) {}
+// ExitIdAtom is called when production idAtom is exited.
+func (s *BaseMyGrammarListener) ExitIdAtom(ctx *IdAtomContext) {}
 
-// EnterSumExprDefault is called when production sumExprDefault is entered.
-func (s *BaseMyGrammarListener) EnterSumExprDefault(ctx *SumExprDefaultContext) {}
+// EnterStringAtom is called when production stringAtom is entered.
+func (s *BaseMyGrammarListener) EnterStringAtom(ctx *StringAtomContext) {}
 
-// ExitSumExprDefault is called when production sumExprDefault is exited.
-func (s *BaseMyGrammarListener) ExitSumExprDefault(ctx *SumExprDefaultContext) {}
+// ExitStringAtom is called when production stringAtom is exited.
+func (s *BaseMyGrammarListener) ExitStringAtom(ctx *StringAtomContext) {}
 
-// EnterNumberDefault is called when production numberDefault is entered.
-func (s *BaseMyGrammarListener) EnterNumberDefault(ctx *NumberDefaultContext) {}
+// EnterNilAtom is called when production nilAtom is entered.
+func (s *BaseMyGrammarListener) EnterNilAtom(ctx *NilAtomContext) {}
 
-// ExitNumberDefault is called when production numberDefault is exited.
-func (s *BaseMyGrammarListener) ExitNumberDefault(ctx *NumberDefaultContext) {}
-
-// EnterNumberMinus is called when production NumberMinus is entered.
-func (s *BaseMyGrammarListener) EnterNumberMinus(ctx *NumberMinusContext) {}
-
-// ExitNumberMinus is called when production NumberMinus is exited.
-func (s *BaseMyGrammarListener) ExitNumberMinus(ctx *NumberMinusContext) {}
-
-// EnterNumberIdentifier is called when production NumberIdentifier is entered.
-func (s *BaseMyGrammarListener) EnterNumberIdentifier(ctx *NumberIdentifierContext) {}
-
-// ExitNumberIdentifier is called when production NumberIdentifier is exited.
-func (s *BaseMyGrammarListener) ExitNumberIdentifier(ctx *NumberIdentifierContext) {}
-
-// EnterNumberParentheses is called when production NumberParentheses is entered.
-func (s *BaseMyGrammarListener) EnterNumberParentheses(ctx *NumberParenthesesContext) {}
-
-// ExitNumberParentheses is called when production NumberParentheses is exited.
-func (s *BaseMyGrammarListener) ExitNumberParentheses(ctx *NumberParenthesesContext) {}
+// ExitNilAtom is called when production nilAtom is exited.
+func (s *BaseMyGrammarListener) ExitNilAtom(ctx *NilAtomContext) {}
