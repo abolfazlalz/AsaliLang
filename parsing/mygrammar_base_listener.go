@@ -44,11 +44,11 @@ func (s *BaseMyGrammarListener) EnterAssignment(ctx *AssignmentContext) {}
 // ExitAssignment is called when production assignment is exited.
 func (s *BaseMyGrammarListener) ExitAssignment(ctx *AssignmentContext) {}
 
-// EnterIf_stat is called when production if_stat is entered.
-func (s *BaseMyGrammarListener) EnterIf_stat(ctx *If_statContext) {}
+// EnterIfStat is called when production ifStat is entered.
+func (s *BaseMyGrammarListener) EnterIfStat(ctx *IfStatContext) {}
 
-// ExitIf_stat is called when production if_stat is exited.
-func (s *BaseMyGrammarListener) ExitIf_stat(ctx *If_statContext) {}
+// ExitIfStat is called when production ifStat is exited.
+func (s *BaseMyGrammarListener) ExitIfStat(ctx *IfStatContext) {}
 
 // EnterCondition_block is called when production condition_block is entered.
 func (s *BaseMyGrammarListener) EnterCondition_block(ctx *Condition_blockContext) {}

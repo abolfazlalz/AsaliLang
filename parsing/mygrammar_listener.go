@@ -19,8 +19,8 @@ type MyGrammarListener interface {
 	// EnterAssignment is called when entering the assignment production.
 	EnterAssignment(c *AssignmentContext)
 
-	// EnterIf_stat is called when entering the if_stat production.
-	EnterIf_stat(c *If_statContext)
+	// EnterIfStat is called when entering the ifStat production.
+	EnterIfStat(c *IfStatContext)
 
 	// EnterCondition_block is called when entering the condition_block production.
 	EnterCondition_block(c *Condition_blockContext)
@@ -100,8 +100,8 @@ type MyGrammarListener interface {
 	// ExitAssignment is called when exiting the assignment production.
 	ExitAssignment(c *AssignmentContext)
 
-	// ExitIf_stat is called when exiting the if_stat production.
-	ExitIf_stat(c *If_statContext)
+	// ExitIfStat is called when exiting the ifStat production.
+	ExitIfStat(c *IfStatContext)
 
 	// ExitCondition_block is called when exiting the condition_block production.
 	ExitCondition_block(c *Condition_blockContext)

@@ -23,7 +23,7 @@ func (v *BaseMyGrammarVisitor) VisitAssignment(ctx *AssignmentContext) interface
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitIf_stat(ctx *If_statContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitIfStat(ctx *IfStatContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

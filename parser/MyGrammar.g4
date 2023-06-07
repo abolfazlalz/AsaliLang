@@ -10,7 +10,7 @@ block
 
 stat
  : assignment
- | if_stat
+ | ifStat
  | whileStat
  | log
  | forStat
@@ -22,7 +22,7 @@ assignment
  : ID ASSIGN expr SCOL
  ;
 
-if_stat
+ifStat
  : IF condition_block (ELSE IF condition_block)* (ELSE stat_block)?
  ;
 
@@ -34,6 +34,7 @@ stat_block
  : OBRACE block CBRACE
  | DO? BEGIN block END
  | stat
+ | THEN block
  ;
 
 whileStat
@@ -101,6 +102,7 @@ CBRACE : '}';
 BEGIN : 'begin';
 END : 'end';
 DO : 'do';
+THEN : 'then';
 
 TRUE : 'true';
 FALSE : 'false';

@@ -19,8 +19,8 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#assignment.
 	VisitAssignment(ctx *AssignmentContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#if_stat.
-	VisitIf_stat(ctx *If_statContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#ifStat.
+	VisitIfStat(ctx *IfStatContext) interface{}
 
 	// Visit a parse tree produced by MyGrammarParser#condition_block.
 	VisitCondition_block(ctx *Condition_blockContext) interface{}
