@@ -4,7 +4,6 @@ import (
 	"asalicompiler/parsing"
 	"fmt"
 	"github.com/antlr4-go/antlr/v4"
-	"log"
 	"math"
 	"strconv"
 	"strings"
@@ -59,6 +58,10 @@ func (v *Visitor) VisitStat(ctx *parsing.StatContext) interface{} {
 func (v *Visitor) VisitAssignment(ctx *parsing.AssignmentContext) interface{} {
 	v.vars[ctx.ID().GetText()] = v.Visit(ctx.Expr())
 	return nil
+}
+
+func (v *Visitor) VisitMethodCallExpr(ctx *parsing.MethodCallExprContext) interface{} {
+	return v.Visit(ctx.MethodCall())
 }
 
 func (v *Visitor) VisitPowExpr(ctx *parsing.PowExprContext) interface{} {
@@ -194,9 +197,28 @@ func (v *Visitor) VisitBooleanAtom(ctx *parsing.BooleanAtomContext) interface{} 
 	return ctx.TRUE() != nil
 }
 
-func (v *Visitor) VisitLog(ctx *parsing.LogContext) interface{} {
-	log.Print(v.Visit(ctx.Expr()))
+func (v *Visitor) VisitMethodCall(ctx *parsing.MethodCallContext) interface{} {
+	args := v.Visit(ctx.MethodCallArguments()).([]interface{})
+	methodName := ctx.ID().GetText()
+	if methodName == "print" {
+		v.method.print(args...)
+	} else if methodName == "sin" {
+		return v.method.sin(args...)
+	}
 	return nil
+}
+
+func (v *Visitor) VisitMethodCallArguments(ctx *parsing.MethodCallArgumentsContext) interface{} {
+	exprList := ctx.AllExpr()
+	result := make([]interface{}, len(exprList))
+	for i, exprList := range exprList {
+		result[i] = v.Visit(exprList)
+	}
+	return result
+}
+
+func (v *Visitor) VisitMethodCallStat(ctx *parsing.MethodCallStatContext) interface{} {
+	return v.Visit(ctx.MethodCall())
 }
 
 func (v *Visitor) VisitForStat(ctx *parsing.ForStatContext) interface{} {

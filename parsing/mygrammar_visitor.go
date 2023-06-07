@@ -37,8 +37,17 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#loopStat.
 	VisitLoopStat(ctx *LoopStatContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#log.
-	VisitLog(ctx *LogContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#methodCallStat.
+	VisitMethodCallStat(ctx *MethodCallStatContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#methodCall.
+	VisitMethodCall(ctx *MethodCallContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#methodCallArguments.
+	VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{}
+
+	// Visit a parse tree produced by MyGrammarParser#methodCallExpr.
+	VisitMethodCallExpr(ctx *MethodCallExprContext) interface{}
 
 	// Visit a parse tree produced by MyGrammarParser#notExpr.
 	VisitNotExpr(ctx *NotExprContext) interface{}

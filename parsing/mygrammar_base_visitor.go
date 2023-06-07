@@ -47,7 +47,19 @@ func (v *BaseMyGrammarVisitor) VisitLoopStat(ctx *LoopStatContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitLog(ctx *LogContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitMethodCallStat(ctx *MethodCallStatContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseMyGrammarVisitor) VisitMethodCall(ctx *MethodCallContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseMyGrammarVisitor) VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseMyGrammarVisitor) VisitMethodCallExpr(ctx *MethodCallExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

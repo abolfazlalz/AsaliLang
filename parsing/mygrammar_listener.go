@@ -37,8 +37,17 @@ type MyGrammarListener interface {
 	// EnterLoopStat is called when entering the loopStat production.
 	EnterLoopStat(c *LoopStatContext)
 
-	// EnterLog is called when entering the log production.
-	EnterLog(c *LogContext)
+	// EnterMethodCallStat is called when entering the methodCallStat production.
+	EnterMethodCallStat(c *MethodCallStatContext)
+
+	// EnterMethodCall is called when entering the methodCall production.
+	EnterMethodCall(c *MethodCallContext)
+
+	// EnterMethodCallArguments is called when entering the methodCallArguments production.
+	EnterMethodCallArguments(c *MethodCallArgumentsContext)
+
+	// EnterMethodCallExpr is called when entering the methodCallExpr production.
+	EnterMethodCallExpr(c *MethodCallExprContext)
 
 	// EnterNotExpr is called when entering the notExpr production.
 	EnterNotExpr(c *NotExprContext)
@@ -118,8 +127,17 @@ type MyGrammarListener interface {
 	// ExitLoopStat is called when exiting the loopStat production.
 	ExitLoopStat(c *LoopStatContext)
 
-	// ExitLog is called when exiting the log production.
-	ExitLog(c *LogContext)
+	// ExitMethodCallStat is called when exiting the methodCallStat production.
+	ExitMethodCallStat(c *MethodCallStatContext)
+
+	// ExitMethodCall is called when exiting the methodCall production.
+	ExitMethodCall(c *MethodCallContext)
+
+	// ExitMethodCallArguments is called when exiting the methodCallArguments production.
+	ExitMethodCallArguments(c *MethodCallArgumentsContext)
+
+	// ExitMethodCallExpr is called when exiting the methodCallExpr production.
+	ExitMethodCallExpr(c *MethodCallExprContext)
 
 	// ExitNotExpr is called when exiting the notExpr production.
 	ExitNotExpr(c *NotExprContext)

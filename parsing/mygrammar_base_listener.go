@@ -80,11 +80,29 @@ func (s *BaseMyGrammarListener) EnterLoopStat(ctx *LoopStatContext) {}
 // ExitLoopStat is called when production loopStat is exited.
 func (s *BaseMyGrammarListener) ExitLoopStat(ctx *LoopStatContext) {}
 
-// EnterLog is called when production log is entered.
-func (s *BaseMyGrammarListener) EnterLog(ctx *LogContext) {}
+// EnterMethodCallStat is called when production methodCallStat is entered.
+func (s *BaseMyGrammarListener) EnterMethodCallStat(ctx *MethodCallStatContext) {}
 
-// ExitLog is called when production log is exited.
-func (s *BaseMyGrammarListener) ExitLog(ctx *LogContext) {}
+// ExitMethodCallStat is called when production methodCallStat is exited.
+func (s *BaseMyGrammarListener) ExitMethodCallStat(ctx *MethodCallStatContext) {}
+
+// EnterMethodCall is called when production methodCall is entered.
+func (s *BaseMyGrammarListener) EnterMethodCall(ctx *MethodCallContext) {}
+
+// ExitMethodCall is called when production methodCall is exited.
+func (s *BaseMyGrammarListener) ExitMethodCall(ctx *MethodCallContext) {}
+
+// EnterMethodCallArguments is called when production methodCallArguments is entered.
+func (s *BaseMyGrammarListener) EnterMethodCallArguments(ctx *MethodCallArgumentsContext) {}
+
+// ExitMethodCallArguments is called when production methodCallArguments is exited.
+func (s *BaseMyGrammarListener) ExitMethodCallArguments(ctx *MethodCallArgumentsContext) {}
+
+// EnterMethodCallExpr is called when production methodCallExpr is entered.
+func (s *BaseMyGrammarListener) EnterMethodCallExpr(ctx *MethodCallExprContext) {}
+
+// ExitMethodCallExpr is called when production methodCallExpr is exited.
+func (s *BaseMyGrammarListener) ExitMethodCallExpr(ctx *MethodCallExprContext) {}
 
 // EnterNotExpr is called when production notExpr is entered.
 func (s *BaseMyGrammarListener) EnterNotExpr(ctx *NotExprContext) {}

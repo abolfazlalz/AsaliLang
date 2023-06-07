@@ -12,7 +12,7 @@ stat
  : assignment
  | ifStat
  | whileStat
- | log
+ | methodCallStat
  | forStat
  | loopStat
  | OTHER {fmt.Println("unknown char: " + $OTHER.text);}
@@ -49,12 +49,22 @@ loopStat
  : LOOP ID COL expr stat_block
  ;
 
-log
- : LOG expr SCOL
+methodCallStat
+ : methodCall SCOL
+ ;
+
+ methodCall
+ : ID methodCallArguments
+ ;
+
+methodCallArguments
+ : // No arguments
+ | expr (',' expr)*  // Some arguments
  ;
 
 expr
- :<assoc=right> expr POW expr           #powExpr
+ : methodCall                           #methodCallExpr
+ |<assoc=right> expr POW expr           #powExpr
  | MINUS expr                           #unaryMinusExpr
  | NOT expr                             #notExpr
  | expr op=(MULT | DIV | MOD) expr      #multiplicationExpr
@@ -112,7 +122,6 @@ ELSE : 'else';
 WHILE : 'while';
 FOR : 'for';
 LOOP : 'loop';
-LOG : 'log';
 
 ID
  : [a-zA-Z_] [a-zA-Z_0-9]*
