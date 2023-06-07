@@ -34,6 +34,9 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#forStat.
 	VisitForStat(ctx *ForStatContext) interface{}
 
+	// Visit a parse tree produced by MyGrammarParser#loopStat.
+	VisitLoopStat(ctx *LoopStatContext) interface{}
+
 	// Visit a parse tree produced by MyGrammarParser#log.
 	VisitLog(ctx *LogContext) interface{}
 

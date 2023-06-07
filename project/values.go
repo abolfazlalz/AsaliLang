@@ -23,6 +23,9 @@ func (v *Value) asFloat() float64 {
 }
 
 func toFloat(val interface{}) float64 {
+	if val == 0 {
+		return 0
+	}
 	value, ok := val.(float64)
 	if !ok {
 		panic("invalid numeric value")

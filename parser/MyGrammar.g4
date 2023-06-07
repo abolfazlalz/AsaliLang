@@ -14,6 +14,7 @@ stat
  | while_stat
  | log
  | forStat
+ | loopStat
  | OTHER {fmt.Println("unknown char: " + $OTHER.text);}
  ;
 
@@ -40,6 +41,10 @@ while_stat
 
 forStat
  : FOR ID ASSIGN expr COL expr stat_block
+ ;
+
+loopStat
+ : LOOP ID COL expr stat_block
  ;
 
 log
@@ -99,6 +104,7 @@ IF : 'if';
 ELSE : 'else';
 WHILE : 'while';
 FOR : 'for';
+LOOP : 'loop';
 LOG : 'log';
 
 ID

@@ -74,6 +74,12 @@ func (s *BaseMyGrammarListener) EnterForStat(ctx *ForStatContext) {}
 // ExitForStat is called when production forStat is exited.
 func (s *BaseMyGrammarListener) ExitForStat(ctx *ForStatContext) {}
 
+// EnterLoopStat is called when production loopStat is entered.
+func (s *BaseMyGrammarListener) EnterLoopStat(ctx *LoopStatContext) {}
+
+// ExitLoopStat is called when production loopStat is exited.
+func (s *BaseMyGrammarListener) ExitLoopStat(ctx *LoopStatContext) {}
+
 // EnterLog is called when production log is entered.
 func (s *BaseMyGrammarListener) EnterLog(ctx *LogContext) {}
 

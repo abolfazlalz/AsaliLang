@@ -34,6 +34,9 @@ type MyGrammarListener interface {
 	// EnterForStat is called when entering the forStat production.
 	EnterForStat(c *ForStatContext)
 
+	// EnterLoopStat is called when entering the loopStat production.
+	EnterLoopStat(c *LoopStatContext)
+
 	// EnterLog is called when entering the log production.
 	EnterLog(c *LogContext)
 
@@ -111,6 +114,9 @@ type MyGrammarListener interface {
 
 	// ExitForStat is called when exiting the forStat production.
 	ExitForStat(c *ForStatContext)
+
+	// ExitLoopStat is called when exiting the loopStat production.
+	ExitLoopStat(c *LoopStatContext)
 
 	// ExitLog is called when exiting the log production.
 	ExitLog(c *LogContext)

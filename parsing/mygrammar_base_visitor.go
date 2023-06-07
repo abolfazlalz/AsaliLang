@@ -43,6 +43,10 @@ func (v *BaseMyGrammarVisitor) VisitForStat(ctx *ForStatContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseMyGrammarVisitor) VisitLoopStat(ctx *LoopStatContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseMyGrammarVisitor) VisitLog(ctx *LogContext) interface{} {
 	return v.VisitChildren(ctx)
 }

@@ -194,3 +194,19 @@ func (v *Visitor) VisitForStat(ctx *parsing.ForStatContext) interface{} {
 	v.vars[varName] = lastVariable
 	return nil
 }
+
+func (v *Visitor) VisitLoopStat(ctx *parsing.LoopStatContext) interface{} {
+	varName := ctx.ID().GetText()
+	end := newValue(v.Visit(ctx.Expr())).asFloat()
+
+	lastVariable := v.vars[varName]
+
+	for v.vars[varName] = 0; toFloat(v.vars[varName]) < end; {
+		v.vars[varName] = toFloat(v.vars[varName]) + 1
+		v.Visit(ctx.Stat_block())
+	}
+
+	v.vars[varName] = lastVariable
+
+	return nil
+}
