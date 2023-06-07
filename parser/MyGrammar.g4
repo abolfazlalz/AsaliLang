@@ -13,6 +13,7 @@ stat
  | if_stat
  | while_stat
  | log
+ | forStat
  | OTHER {fmt.Println("unknown char: " + $OTHER.text);}
  ;
 
@@ -35,6 +36,10 @@ stat_block
 
 while_stat
  : WHILE expr stat_block
+ ;
+
+forStat
+ : FOR ID ASSIGN expr COL expr stat_block
  ;
 
 log
@@ -80,6 +85,7 @@ POW : '^';
 NOT : '!';
 
 SCOL : ';';
+COL : ':';
 ASSIGN : '=';
 OPAR : '(';
 CPAR : ')';
@@ -92,6 +98,7 @@ NIL : 'nil';
 IF : 'if';
 ELSE : 'else';
 WHILE : 'while';
+FOR : 'for';
 LOG : 'log';
 
 ID

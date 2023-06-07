@@ -31,6 +31,9 @@ type MyGrammarListener interface {
 	// EnterWhile_stat is called when entering the while_stat production.
 	EnterWhile_stat(c *While_statContext)
 
+	// EnterForStat is called when entering the forStat production.
+	EnterForStat(c *ForStatContext)
+
 	// EnterLog is called when entering the log production.
 	EnterLog(c *LogContext)
 
@@ -105,6 +108,9 @@ type MyGrammarListener interface {
 
 	// ExitWhile_stat is called when exiting the while_stat production.
 	ExitWhile_stat(c *While_statContext)
+
+	// ExitForStat is called when exiting the forStat production.
+	ExitForStat(c *ForStatContext)
 
 	// ExitLog is called when exiting the log production.
 	ExitLog(c *LogContext)

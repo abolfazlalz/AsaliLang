@@ -19,7 +19,11 @@ func (v *Value) asBoolean() bool {
 }
 
 func (v *Value) asFloat() float64 {
-	value, ok := v.val.(float64)
+	return toFloat(v.val)
+}
+
+func toFloat(val interface{}) float64 {
+	value, ok := val.(float64)
 	if !ok {
 		panic("invalid numeric value")
 	}

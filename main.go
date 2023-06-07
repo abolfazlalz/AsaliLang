@@ -18,6 +18,5 @@ func main() {
 	p.BuildParseTrees = true
 	tree := p.Parse()
 	v := project.NewVisitor()
-	//tree.Accept(v)
 	v.Visit(tree)
 }

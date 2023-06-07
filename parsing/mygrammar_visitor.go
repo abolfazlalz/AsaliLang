@@ -31,6 +31,9 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#while_stat.
 	VisitWhile_stat(ctx *While_statContext) interface{}
 
+	// Visit a parse tree produced by MyGrammarParser#forStat.
+	VisitForStat(ctx *ForStatContext) interface{}
+
 	// Visit a parse tree produced by MyGrammarParser#log.
 	VisitLog(ctx *LogContext) interface{}
 

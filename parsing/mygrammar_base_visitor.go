@@ -39,6 +39,10 @@ func (v *BaseMyGrammarVisitor) VisitWhile_stat(ctx *While_statContext) interface
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseMyGrammarVisitor) VisitForStat(ctx *ForStatContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseMyGrammarVisitor) VisitLog(ctx *LogContext) interface{} {
 	return v.VisitChildren(ctx)
 }

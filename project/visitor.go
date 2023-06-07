@@ -29,10 +29,22 @@ func (v *Visitor) Visit(tree antlr.ParseTree) interface{} {
 	return tree.Accept(v)
 }
 
-func (v *Visitor) VisitParse(ctx *parsing.ParseContext) interface{} {
+func (v *Visitor) VisitBlock(ctx *parsing.BlockContext) interface{} {
+	for _, c := range ctx.AllStat() {
+		v.Visit(c)
+	}
+	return nil
+}
+
+func (v *Visitor) VisitStat_block(ctx *parsing.Stat_blockContext) interface{} {
 	for _, c := range ctx.Block().AllStat() {
 		v.Visit(c)
 	}
+	return nil
+}
+
+func (v *Visitor) VisitParse(ctx *parsing.ParseContext) interface{} {
+	v.Visit(ctx.Block())
 	return nil
 }
 func (v *Visitor) VisitStat(ctx *parsing.StatContext) interface{} {
@@ -167,5 +179,18 @@ func (v *Visitor) VisitBooleanAtom(ctx *parsing.BooleanAtomContext) interface{} 
 
 func (v *Visitor) VisitLog(ctx *parsing.LogContext) interface{} {
 	log.Print(v.Visit(ctx.Expr()))
+	return nil
+}
+
+func (v *Visitor) VisitForStat(ctx *parsing.ForStatContext) interface{} {
+	varName := ctx.ID().GetText()
+	start := newValue(v.Visit(ctx.Expr(0))).asFloat()
+	end := newValue(v.Visit(ctx.Expr(1))).asFloat()
+	lastVariable := v.vars[varName]
+	for v.vars[varName] = start; toFloat(v.vars[varName]) < end; {
+		v.vars[varName] = toFloat(v.vars[varName]) + 1
+		v.Visit(ctx.Stat_block())
+	}
+	v.vars[varName] = lastVariable
 	return nil
 }
