@@ -1,101 +1,153 @@
 grammar MyGrammar;
 
-program : statements;
-statements : (statement NEWLINE? EOF)*;
+parse
+ : block EOF
+ ;
 
+block
+ : stat*
+ ;
 
-statement
-    : IDENTIFIER EQ variableSetterTypes #statementDefineVariable
-    | 'begin' statements 'end' #statement_begin_end
-    | 'if' condition 'then' statement #statement_if
-    | 'if' condition 'then' statement 'else' statement #statement_if_else
-    | 'while' condition ':' statement #statement_while
-    | 'for' IDENTIFIER EQ number COLON number 'do' statement #statement_for
-    | 'for' IDENTIFIER EQ number COLON number '{' statements '}' #statementForLines
-    | 'loop' IDENTIFIER COLON number 'do' statement #statement_loop
-    | methodCall #CallMethod
-    | 'print' methodCallArguments #StatementPrintMethod
-    ;
+stat
+ : assignment
+ | ifStat
+ | whileStat
+ | methodCallStat
+ | forStat
+ | loopStat
+ | OTHER {fmt.Println("unknown char: " + $OTHER.text);}
+ ;
 
+assignment
+ : ID ASSIGN expr SCOL
+ ;
 
-methodCall
-    : IDENTIFIER '(' methodCallArguments ')'
-    ;
+ifStat
+ : IF condition_block (ELSE IF condition_block)* (ELSE stat_block)?
+ ;
 
-variableSetterTypes
-    : IDENTIFIER
-    | methodCall
-    | sumExpr
-    ;
+condition_block
+ : expr stat_block
+ ;
+
+stat_block
+ : OBRACE block CBRACE
+ | DO? BEGIN block END
+ | stat
+ | THEN block
+ ;
+
+whileStat
+ : WHILE expr stat_block
+ ;
+
+forStat
+ : FOR ID ASSIGN expr COL expr stat_block
+ ;
+
+loopStat
+ : LOOP ID COL expr stat_block
+ ;
+
+methodCallStat
+ : methodCall SCOL
+ ;
+
+ methodCall
+ : ID methodCallArguments
+ ;
 
 methodCallArguments
-    : // No arguments
-    | expression (',' expression)*  // Some arguments
-    ;
+ : // No arguments
+ | expr (',' expr)*  // Some arguments
+ ;
 
-expression
-    : STRING
-    | IDENTIFIER
-    | methodCall
-    | INTEGER
-    ;
+expr
+ : methodCall                           #methodCallExpr
+ |<assoc=right> expr POW expr           #powExpr
+ | MINUS expr                           #unaryMinusExpr
+ | NOT expr                             #notExpr
+ | expr op=(MULT | DIV | MOD) expr      #multiplicationExpr
+ | expr op=(PLUS | MINUS) expr          #additiveExpr
+ | expr op=(LTEQ | GTEQ | LT | GT) expr #relationalExpr
+ | expr op=(EQ | NEQ) expr              #equalityExpr
+ | expr AND expr                        #andExpr
+ | expr OR expr                         #orExpr
+ | atom                                 #atomExpr
+ ;
 
-STRING
-    : '"' ~('"')* '"'
-    ;
+atom
+ : OPAR expr CPAR #parExpr
+ | (INT | FLOAT)  #numberAtom
+ | (TRUE | FALSE) #booleanAtom
+ | ID             #idAtom
+ | STRING         #stringAtom
+ | NIL            #nilAtom
+ ;
 
-condition :
-    sumExpr CONDITION_OP sumExpr #condition_def
-    ;
-
-powerExpr : number #powerExprDefault
-    | number POWERBY powerExpr #powerExprPower
-    ;
-
-multipleExpr : powerExpr #multipleExprDefault
-    | multipleExpr MULTI powerExpr #multipleExprMulti
-    | multipleExpr DIVIDE powerExpr #multipleExprDivide
-    ;
-
-sumExpr : multipleExpr #sumExprDefault
-    | sumExpr PLUS multipleExpr #sumExprPlus
-    | sumExpr MINUS multipleExpr #sumExprMinus
-    ;
-
-number : INTEGER #numberDefault
-    | MINUS number #NumberMinus
-    | IDENTIFIER #NumberIdentifier
-    | OPEN_PARAN sumExpr CLOSE_PARAN #NumberParentheses
-    ;
-
-IDENTIFIER : [a-zA-Z_][a-zA-Z_0-9]*;
-
-INTEGER : [0-9]+;
-EQ : '=';
-
-COLON : ':';
-COMMA : ',';
-
+OR : '||';
+AND : '&&';
+EQ : '==';
+NEQ : '!=';
+GT : '>';
+LT : '<';
+GTEQ : '>=';
+LTEQ : '<=';
 PLUS : '+';
 MINUS : '-';
-MULTI : '*';
-DIVIDE : '/';
-POWERBY : '^';
+MULT : '*';
+DIV : '/';
+MOD : '%';
+POW : '^';
+NOT : '!';
 
-EQUALBY : '==';
-NOTEQUALBY : '!=';
-LT : '<';
-GT : '>';
+SCOL : ';';
+COL : ':';
+ASSIGN : '=';
+OPAR : '(';
+CPAR : ')';
+OBRACE : '{';
+CBRACE : '}';
 
-COT : '"';
+BEGIN : 'begin';
+END : 'end';
+DO : 'do';
+THEN : 'then';
 
-OPEN_PARAN : '(';
-CLOSE_PARAN : ')';
+TRUE : 'true';
+FALSE : 'false';
+NIL : 'nil';
+IF : 'if';
+ELSE : 'else';
+WHILE : 'while';
+FOR : 'for';
+LOOP : 'loop';
 
-CONDITION_OP : LT | GT | EQUALBY | NOTEQUALBY;
+ID
+ : [a-zA-Z_] [a-zA-Z_0-9]*
+ ;
 
-NEWLINE : [;][\r\n]+;
+INT
+ : [0-9]+
+ ;
 
-NEXT_PARAM : [,]+;
+FLOAT
+ : [0-9]+ '.' [0-9]*
+ | '.' [0-9]+
+ ;
 
-EMPTY : [ \t] -> channel(HIDDEN);
+STRING
+ : '"' (~["\r\n] | '""')* '"'
+ ;
+
+COMMENT
+ : '#' ~[\r\n]* -> skip
+ ;
+
+SPACE
+ : [ \t\r\n] -> skip
+ ;
+
+OTHER
+ : .
+ ;

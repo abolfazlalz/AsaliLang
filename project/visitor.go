@@ -10,7 +10,7 @@ import (
 )
 
 type Visitor struct {
-	parsing.BaseMyGrammarVisitor
+	*parsing.BaseMyGrammarVisitor
 	method *BuildInMethod
 	vars   map[string]interface{}
 }
@@ -20,229 +20,260 @@ func NewVisitor() *Visitor {
 		vars: map[string]interface{}{
 			"PI": math.Pi,
 		},
-		method: NewBuildInMethod(),
+		method:               NewBuildInMethod(),
+		BaseMyGrammarVisitor: &parsing.BaseMyGrammarVisitor{},
 	}
 }
 
 func (v *Visitor) Visit(tree antlr.ParseTree) interface{} {
-	switch val := tree.(type) {
-	case *parsing.ProgramContext:
-		return v.VisitProgram(val)
-	case *parsing.StatementDefineVariableContext:
-		return v.VisitStatementDefineVariable(val)
-	case *parsing.NumberDefaultContext:
-		return v.VisitNumberDefault(val)
-	case *parsing.NumberIdentifierContext:
-		return v.VisitNumberIdentifier(val)
-	case *parsing.PowerExprPowerContext:
-		return v.VisitPowerExprPower(val)
-	case *parsing.PowerExprDefaultContext:
-		return v.VisitPowerExprDefault(val)
-	case *parsing.NumberMinusContext:
-		return v.VisitNumberMinus(val)
-	case *parsing.MultipleExprDefaultContext:
-		return v.VisitMultipleExprDefault(val)
-	case *parsing.MultipleExprMultiContext:
-		return v.VisitMultipleExprMulti(val)
-	case *parsing.MultipleExprDivideContext:
-		return v.VisitMultipleExprDivide(val)
-	case *parsing.SumExprDefaultContext:
-		return v.VisitSumExprDefault(val)
-	case *parsing.SumExprPlusContext:
-		return v.VisitSumExprPlus(val)
-	case *parsing.SumExprMinusContext:
-		return v.VisitSumExprMinus(val)
-	case *parsing.NumberParenthesesContext:
-		return v.VisitNumberParentheses(val)
-	case *parsing.CallMethodContext:
-		return v.VisitCallMethod(val)
-	case *parsing.StatementPrintMethodContext:
-		return v.VisitStatementPrintMethod(val)
-	case *parsing.MethodCallArgumentsContext:
-		return v.VisitMethodCallArguments(val)
-	case *parsing.MethodCallContext:
-		return v.VisitMethodCall(val)
-	default:
-		panic(fmt.Sprintf("Invalid context\nName: %s", val.GetText()))
-	}
+	return tree.Accept(v)
 }
 
-func (v *Visitor) VisitProgram(ctx *parsing.ProgramContext) float64 {
-	for _, statement := range ctx.Statements().AllStatement() {
-		v.Visit(statement)
-	}
-	return 1
-}
-
-func (v *Visitor) VisitPowerExprDefault(ctx *parsing.PowerExprDefaultContext) float64 {
-	return v.Visit(ctx.Number()).(float64)
-}
-
-func (v *Visitor) VisitPowerExprPower(ctx *parsing.PowerExprPowerContext) float64 {
-	first, _ := v.Visit(ctx.Number()).(float64)
-	second, _ := v.Visit(ctx.PowerExpr()).(float64)
-	return math.Pow(first, second)
-}
-
-func (v *Visitor) VisitMultipleExprDefault(ctx *parsing.MultipleExprDefaultContext) float64 {
-	val, ok := v.Visit(ctx.PowerExpr()).(float64)
-	if !ok {
-		panic("Invalid numeric value")
-	}
-	return val
-}
-
-func (v *Visitor) VisitNumberDefault(ctx *parsing.NumberDefaultContext) float64 {
-	n, _ := strconv.ParseFloat(ctx.GetText(), 64)
-	return n
-}
-
-func (v *Visitor) VisitNumberIdentifier(ctx *parsing.NumberIdentifierContext) float64 {
-	variableName := ctx.IDENTIFIER().GetText()
-	result := v.getVariableValue(variableName)
-	value, ok := result.(float64)
-	if !ok {
-		panic(fmt.Sprintf("%s does not valid numeric variable", variableName))
-	}
-	return value
-}
-
-func (v *Visitor) VisitNumberMinus(ctx *parsing.NumberMinusContext) float64 {
-	n, err := strconv.ParseFloat(ctx.GetText(), 64)
-	if err != nil {
-		panic(err)
-	}
-	return -1 * n
-}
-
-func (v *Visitor) VisitMultipleExprMulti(ctx *parsing.MultipleExprMultiContext) float64 {
-	first, _ := v.Visit(ctx.PowerExpr()).(float64)
-	second, _ := v.Visit(ctx.MultipleExpr()).(float64)
-	return first * second
-}
-
-func (v *Visitor) VisitMultipleExprDivide(ctx *parsing.MultipleExprDivideContext) float64 {
-	first, _ := v.Visit(ctx.PowerExpr()).(float64)
-	second, _ := v.Visit(ctx.MultipleExpr()).(float64)
-	return second / first
-}
-
-func (v *Visitor) VisitSumExprDefault(ctx *parsing.SumExprDefaultContext) float64 {
-	return v.Visit(ctx.MultipleExpr()).(float64)
-}
-
-func (v *Visitor) VisitSumExprPlus(ctx *parsing.SumExprPlusContext) float64 {
-	first, _ := v.Visit(ctx.MultipleExpr()).(float64)
-	second, _ := v.Visit(ctx.SumExpr()).(float64)
-
-	return first + second
-}
-
-func (v *Visitor) VisitSumExprMinus(ctx *parsing.SumExprMinusContext) float64 {
-	first, _ := v.Visit(ctx.MultipleExpr()).(float64)
-	second, _ := v.Visit(ctx.SumExpr()).(float64)
-
-	return second - first
-}
-
-func (v *Visitor) VisitStatementDefineVariable(ctx *parsing.StatementDefineVariableContext) interface{} {
-	var value interface{}
-	setter := ctx.VariableSetterTypes()
-	if setter.SumExpr() != nil {
-		value = v.Visit(setter.SumExpr())
-	} else if setter.IDENTIFIER() != nil {
-		value = v.Visit(setter.IDENTIFIER())
-	} else if setter.MethodCall() != nil {
-		value = v.Visit(setter.MethodCall())
-	}
-
-	v.vars[ctx.IDENTIFIER().GetText()] = value
-	return value
-}
-
-func (v *Visitor) VisitNumberParentheses(ctx *parsing.NumberParenthesesContext) float64 {
-	return v.Visit(ctx.SumExpr()).(float64)
-}
-
-func (v *Visitor) VisitCallMethod(ctx *parsing.CallMethodContext) interface{} {
-	return v.Visit(ctx.MethodCall())
-}
-
-func (v *Visitor) VisitMethodCall(ctx *parsing.MethodCallContext) interface{} {
-	methodName := ctx.IDENTIFIER().GetText()
-	args := v.Visit(ctx.MethodCallArguments()).([]interface{})
-
-	if methodName == "sin" {
-		if len(args) < 1 {
-			v.notEnoughArgs(methodName, args, 1)
-		}
-		return math.Sin(args[0].(float64))
-	}
-	if methodName == "cos" {
-		if len(args) < 1 {
-			v.notEnoughArgs(methodName, args, 1)
-		}
-		return math.Cos(args[0].(float64))
+func (v *Visitor) VisitBlock(ctx *parsing.BlockContext) interface{} {
+	for _, c := range ctx.AllStat() {
+		v.Visit(c)
 	}
 	return nil
 }
 
-func (v *Visitor) VisitStatementPrintMethod(ctx *parsing.StatementPrintMethodContext) interface{} {
-	args, ok := v.Visit(ctx.MethodCallArguments()).([]interface{})
-	if !ok {
-		panic("Invalid arguments types")
+func (v *Visitor) VisitStat_block(ctx *parsing.Stat_blockContext) interface{} {
+	if ctx.Stat() != nil {
+		v.Visit(ctx.Stat())
+		return nil
 	}
-	argsStr := make([]string, len(args))
-	for i, arg := range args {
-		argsStr[i] = fmt.Sprintf("%v", arg)
+	for _, c := range ctx.Block().AllStat() {
+		v.Visit(c)
 	}
-	fmt.Println(strings.Join(argsStr, " "))
-	return 0
+	return nil
 }
 
-func (v *Visitor) VisitMethodCallArguments(ctx *parsing.MethodCallArgumentsContext) []interface{} {
-	args := make([]interface{}, 0)
-	for _, expr := range ctx.AllExpression() {
-		if expr.IDENTIFIER() != nil {
-			variable := v.getVariableValue(expr.IDENTIFIER().GetText())
-			args = append(args, variable)
-		} else if expr.STRING() != nil {
-			args = append(args, v.getStringValue(expr.STRING().GetText()))
-		} else if expr.INTEGER() != nil {
-			value, err := strconv.ParseFloat(expr.INTEGER().GetText(), 64)
-			if err != nil {
-				panic(err)
-			}
-			args = append(args, value)
-		} else if expr.MethodCall() != nil {
-			value := v.Visit(expr.MethodCall())
-			args = append(args, value)
+func (v *Visitor) VisitParse(ctx *parsing.ParseContext) interface{} {
+	v.Visit(ctx.Block())
+	return nil
+}
+func (v *Visitor) VisitStat(ctx *parsing.StatContext) interface{} {
+	return v.Visit(ctx.GetChild(0).(antlr.ParseTree))
+}
+
+func (v *Visitor) VisitAssignment(ctx *parsing.AssignmentContext) interface{} {
+	v.vars[ctx.ID().GetText()] = v.Visit(ctx.Expr())
+	return nil
+}
+
+func (v *Visitor) VisitMethodCallExpr(ctx *parsing.MethodCallExprContext) interface{} {
+	return v.Visit(ctx.MethodCall())
+}
+
+func (v *Visitor) VisitPowExpr(ctx *parsing.PowExprContext) interface{} {
+	left := v.Visit(ctx.Expr(0))
+	right := v.Visit(ctx.Expr(1))
+	return math.Pow(left.(float64), right.(float64))
+}
+
+func (v *Visitor) VisitUnaryMinusExpr(ctx *parsing.UnaryMinusExprContext) interface{} {
+	result := v.Visit(ctx.Expr())
+	if value, ok := result.(float64); ok {
+		return value * -1
+	} else if value, ok := result.(int); ok {
+		return value * -1
+	} else if value, ok := result.(int64); ok {
+		return value * -1
+	}
+	panic(fmt.Sprintf("Value to minus must be integer or float"))
+}
+
+func (v *Visitor) VisitMultiplicationExpr(ctx *parsing.MultiplicationExprContext) interface{} {
+	left := v.Visit(ctx.Expr(0)).(float64)
+	right := v.Visit(ctx.Expr(1)).(float64)
+
+	switch ctx.GetOp().GetTokenType() {
+	case parsing.MuLexerMULT:
+		return left * right
+	case parsing.MuLexerDIV:
+		return left / right
+	case parsing.MuLexerMOD:
+		return math.Mod(left, right)
+	}
+
+	panic("Undefined operator")
+}
+
+func (v *Visitor) VisitAdditiveExpr(ctx *parsing.AdditiveExprContext) interface{} {
+	left := v.Visit(ctx.Expr(0))
+	right := v.Visit(ctx.Expr(1))
+
+	switch ctx.GetOp().GetTokenType() {
+	case parsing.MuLexerPLUS:
+		valLeft, okLeft := left.(float64)
+		valRight, okRight := left.(float64)
+		if okRight && okLeft {
+			return valRight + valLeft
 		}
+		return fmt.Sprintf("%v", left) + fmt.Sprintf("%v", right)
+	case parsing.MuLexerMINUS:
+		return left.(float64) - right.(float64)
 	}
-	return args
+	panic("Undefined operator")
 }
 
-func (v *Visitor) getVariableValue(key string) interface{} {
-	variable, ok := v.vars[key]
-	if !ok {
-		panic(fmt.Sprintf("\"%s\" does not set as a variable.", key))
+func (v *Visitor) VisitRelationalExpr(ctx *parsing.RelationalExprContext) interface{} {
+	left := v.Visit(ctx.Expr(0)).(float64)
+	right := v.Visit(ctx.Expr(1)).(float64)
+
+	switch ctx.GetOp().GetTokenType() {
+	case parsing.MuLexerLT:
+		return left < right
+	case parsing.MuLexerLTEQ:
+		return left <= right
+	case parsing.MuLexerGT:
+		return left > right
+	case parsing.MuLexerGTEQ:
+		return left >= right
 	}
-	return variable
+	panic("Undefined operator")
 }
 
-// getStringValue Remove quotation from text string
-func (v *Visitor) getStringValue(str string) string {
-	str = strings.ReplaceAll(str, "\"", "")
-	str = strings.ReplaceAll(str, "\\n", "\n")
+func (v *Visitor) VisitEqualityExpr(ctx *parsing.EqualityExprContext) interface{} {
+	left := v.Visit(ctx.Expr(0))
+	right := v.Visit(ctx.Expr(1))
+
+	switch ctx.GetOp().GetTokenType() {
+	case parsing.MuLexerEQ:
+		return left == right
+	case parsing.MuLexerNEQ:
+		return left != right
+	}
+	panic("Undefined operator")
+}
+
+func (v *Visitor) VisitAndExpr(ctx *parsing.AndExprContext) interface{} {
+	left := newValue(v.Visit(ctx.Expr(0))).asBoolean()
+	right := newValue(v.Visit(ctx.Expr(1))).asBoolean()
+	return right && left
+}
+
+func (v *Visitor) VisitOrExpr(ctx *parsing.OrExprContext) interface{} {
+	left := newValue(v.Visit(ctx.Expr(0))).asBoolean()
+	right := newValue(v.Visit(ctx.Expr(1))).asBoolean()
+	return right || left
+}
+
+func (v *Visitor) VisitAtomExpr(ctx *parsing.AtomExprContext) interface{} {
+	return v.Visit(ctx.Atom())
+}
+
+func (v *Visitor) VisitIdAtom(ctx *parsing.IdAtomContext) interface{} {
+	return v.vars[ctx.ID().GetText()]
+}
+
+func (v *Visitor) VisitStringAtom(ctx *parsing.StringAtomContext) interface{} {
+	str := ctx.GetText()
+	str = str[1 : len(str)-1]
+	str = strings.ReplaceAll(str, "\"\"", "\"")
 	return str
 }
 
-// notEnoughArgs panic an error if a method
-// methodName
-// args list of method arguments
-// required Number of required parameters
-func (v *Visitor) notEnoughArgs(methodName string, args []interface{}, required int) {
-	if required > len(args) {
-		panic(fmt.Sprintf("Not enough arguments for \"%s\" method.", methodName))
+func (v *Visitor) VisitNotExpr(ctx *parsing.NotExprContext) interface{} {
+	value := v.Visit(ctx.Expr())
+	return !newValue(value).asBoolean()
+}
+
+func (v *Visitor) VisitParExpr(ctx *parsing.ParExprContext) interface{} {
+	return v.Visit(ctx.Expr())
+}
+
+func (v *Visitor) VisitNumberAtom(ctx *parsing.NumberAtomContext) interface{} {
+	if ctx.INT() != nil {
+		val, _ := strconv.ParseFloat(ctx.INT().GetText(), 64)
+		return val
+	} else if ctx.FLOAT() != nil {
+		val, _ := strconv.ParseFloat(ctx.FLOAT().GetText(), 64)
+		return val
 	}
+	return nil
+}
+
+func (v *Visitor) VisitBooleanAtom(ctx *parsing.BooleanAtomContext) interface{} {
+	return ctx.TRUE() != nil
+}
+
+func (v *Visitor) VisitMethodCall(ctx *parsing.MethodCallContext) interface{} {
+	args := v.Visit(ctx.MethodCallArguments()).([]interface{})
+	methodName := ctx.ID().GetText()
+	if methodName == "print" {
+		v.method.print(args...)
+	} else if methodName == "sin" {
+		return v.method.sin(args...)
+	}
+	return nil
+}
+
+func (v *Visitor) VisitMethodCallArguments(ctx *parsing.MethodCallArgumentsContext) interface{} {
+	exprList := ctx.AllExpr()
+	result := make([]interface{}, len(exprList))
+	for i, exprList := range exprList {
+		result[i] = v.Visit(exprList)
+	}
+	return result
+}
+
+func (v *Visitor) VisitMethodCallStat(ctx *parsing.MethodCallStatContext) interface{} {
+	return v.Visit(ctx.MethodCall())
+}
+
+func (v *Visitor) VisitForStat(ctx *parsing.ForStatContext) interface{} {
+	varName := ctx.ID().GetText()
+	start := newValue(v.Visit(ctx.Expr(0))).asFloat()
+	end := newValue(v.Visit(ctx.Expr(1))).asFloat()
+	lastVariable := v.vars[varName]
+	for v.vars[varName] = start; toFloat(v.vars[varName]) < end; {
+		v.Visit(ctx.Stat_block())
+		v.vars[varName] = toFloat(v.vars[varName]) + 1
+	}
+	v.vars[varName] = lastVariable
+	return nil
+}
+
+func (v *Visitor) VisitLoopStat(ctx *parsing.LoopStatContext) interface{} {
+	varName := ctx.ID().GetText()
+	end := newValue(v.Visit(ctx.Expr())).asFloat()
+
+	lastVariable := v.vars[varName]
+
+	for v.vars[varName] = 0; toFloat(v.vars[varName]) < end; {
+		v.vars[varName] = toFloat(v.vars[varName]) + 1
+		v.Visit(ctx.Stat_block())
+	}
+
+	v.vars[varName] = lastVariable
+
+	return nil
+}
+
+func (v *Visitor) VisitWhileStat(ctx *parsing.WhileStatContext) interface{} {
+	result := toBoolean(v.Visit(ctx.Expr()))
+	for result {
+		result = toBoolean(v.Visit(ctx.Expr()))
+		v.Visit(ctx.Stat_block())
+	}
+	return nil
+}
+
+func (v *Visitor) VisitIfStat(ctx *parsing.IfStatContext) interface{} {
+	conditions := ctx.AllCondition_block()
+	evaluatedBlock := false
+	for _, condition := range conditions {
+		evaluated := v.Visit(condition.Expr())
+		if toBoolean(evaluated) {
+			evaluatedBlock = true
+			v.Visit(condition.Stat_block())
+			break
+		}
+	}
+
+	if !evaluatedBlock && ctx.Stat_block() != nil {
+		v.Visit(ctx.Stat_block())
+	}
+
+	return nil
 }
