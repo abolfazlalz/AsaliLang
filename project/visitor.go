@@ -7,6 +7,7 @@ import (
 	"log"
 	"math"
 	"strconv"
+	"strings"
 )
 
 type Visitor struct {
@@ -91,14 +92,19 @@ func (v *Visitor) VisitMultiplicationExpr(ctx *parsing.MultiplicationExprContext
 }
 
 func (v *Visitor) VisitAdditiveExpr(ctx *parsing.AdditiveExprContext) interface{} {
-	left := v.Visit(ctx.Expr(0)).(float64)
-	right := v.Visit(ctx.Expr(1)).(float64)
+	left := v.Visit(ctx.Expr(0))
+	right := v.Visit(ctx.Expr(1))
 
 	switch ctx.GetOp().GetTokenType() {
 	case parsing.MuLexerPLUS:
-		return left + right
+		valLeft, okLeft := left.(float64)
+		valRight, okRight := left.(float64)
+		if okRight && okLeft {
+			return valRight + valLeft
+		}
+		return fmt.Sprintf("%v", left) + fmt.Sprintf("%v", right)
 	case parsing.MuLexerMINUS:
-		return left - right
+		return left.(float64) - right.(float64)
 	}
 	panic("Undefined operator")
 }
@@ -151,6 +157,13 @@ func (v *Visitor) VisitAtomExpr(ctx *parsing.AtomExprContext) interface{} {
 
 func (v *Visitor) VisitIdAtom(ctx *parsing.IdAtomContext) interface{} {
 	return v.vars[ctx.ID().GetText()]
+}
+
+func (v *Visitor) VisitStringAtom(ctx *parsing.StringAtomContext) interface{} {
+	str := ctx.GetText()
+	str = str[1 : len(str)-1]
+	str = strings.ReplaceAll(str, "\"\"", "\"")
+	return str
 }
 
 func (v *Visitor) VisitNotExpr(ctx *parsing.NotExprContext) interface{} {
@@ -208,5 +221,14 @@ func (v *Visitor) VisitLoopStat(ctx *parsing.LoopStatContext) interface{} {
 
 	v.vars[varName] = lastVariable
 
+	return nil
+}
+
+func (v *Visitor) VisitWhileStat(ctx *parsing.WhileStatContext) interface{} {
+	result := toBoolean(v.Visit(ctx.Expr()))
+	for result {
+		result = toBoolean(v.Visit(ctx.Expr()))
+		v.Visit(ctx.Stat_block())
+	}
 	return nil
 }

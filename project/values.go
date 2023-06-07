@@ -32,3 +32,7 @@ func toFloat(val interface{}) float64 {
 	}
 	return value
 }
+
+func toBoolean(val interface{}) bool {
+	return val != "" && val != nil && val != 0 && val != false
+}

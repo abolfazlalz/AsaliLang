@@ -62,11 +62,11 @@ func (s *BaseMyGrammarListener) EnterStat_block(ctx *Stat_blockContext) {}
 // ExitStat_block is called when production stat_block is exited.
 func (s *BaseMyGrammarListener) ExitStat_block(ctx *Stat_blockContext) {}
 
-// EnterWhile_stat is called when production while_stat is entered.
-func (s *BaseMyGrammarListener) EnterWhile_stat(ctx *While_statContext) {}
+// EnterWhileStat is called when production whileStat is entered.
+func (s *BaseMyGrammarListener) EnterWhileStat(ctx *WhileStatContext) {}
 
-// ExitWhile_stat is called when production while_stat is exited.
-func (s *BaseMyGrammarListener) ExitWhile_stat(ctx *While_statContext) {}
+// ExitWhileStat is called when production whileStat is exited.
+func (s *BaseMyGrammarListener) ExitWhileStat(ctx *WhileStatContext) {}
 
 // EnterForStat is called when production forStat is entered.
 func (s *BaseMyGrammarListener) EnterForStat(ctx *ForStatContext) {}

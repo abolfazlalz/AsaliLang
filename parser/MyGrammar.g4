@@ -11,7 +11,7 @@ block
 stat
  : assignment
  | if_stat
- | while_stat
+ | whileStat
  | log
  | forStat
  | loopStat
@@ -32,10 +32,11 @@ condition_block
 
 stat_block
  : OBRACE block CBRACE
+ | DO? BEGIN block END
  | stat
  ;
 
-while_stat
+whileStat
  : WHILE expr stat_block
  ;
 
@@ -96,6 +97,10 @@ OPAR : '(';
 CPAR : ')';
 OBRACE : '{';
 CBRACE : '}';
+
+BEGIN : 'begin';
+END : 'end';
+DO : 'do';
 
 TRUE : 'true';
 FALSE : 'false';

@@ -28,8 +28,8 @@ type MyGrammarListener interface {
 	// EnterStat_block is called when entering the stat_block production.
 	EnterStat_block(c *Stat_blockContext)
 
-	// EnterWhile_stat is called when entering the while_stat production.
-	EnterWhile_stat(c *While_statContext)
+	// EnterWhileStat is called when entering the whileStat production.
+	EnterWhileStat(c *WhileStatContext)
 
 	// EnterForStat is called when entering the forStat production.
 	EnterForStat(c *ForStatContext)
@@ -109,8 +109,8 @@ type MyGrammarListener interface {
 	// ExitStat_block is called when exiting the stat_block production.
 	ExitStat_block(c *Stat_blockContext)
 
-	// ExitWhile_stat is called when exiting the while_stat production.
-	ExitWhile_stat(c *While_statContext)
+	// ExitWhileStat is called when exiting the whileStat production.
+	ExitWhileStat(c *WhileStatContext)
 
 	// ExitForStat is called when exiting the forStat production.
 	ExitForStat(c *ForStatContext)

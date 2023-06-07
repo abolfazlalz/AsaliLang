@@ -35,7 +35,7 @@ func (v *BaseMyGrammarVisitor) VisitStat_block(ctx *Stat_blockContext) interface
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyGrammarVisitor) VisitWhile_stat(ctx *While_statContext) interface{} {
+func (v *BaseMyGrammarVisitor) VisitWhileStat(ctx *WhileStatContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

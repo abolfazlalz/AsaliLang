@@ -28,8 +28,8 @@ type MyGrammarVisitor interface {
 	// Visit a parse tree produced by MyGrammarParser#stat_block.
 	VisitStat_block(ctx *Stat_blockContext) interface{}
 
-	// Visit a parse tree produced by MyGrammarParser#while_stat.
-	VisitWhile_stat(ctx *While_statContext) interface{}
+	// Visit a parse tree produced by MyGrammarParser#whileStat.
+	VisitWhileStat(ctx *WhileStatContext) interface{}
 
 	// Visit a parse tree produced by MyGrammarParser#forStat.
 	VisitForStat(ctx *ForStatContext) interface{}
