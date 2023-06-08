@@ -1,4 +1,4 @@
-// Code generated from MyGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parsing
 
@@ -14,14 +14,14 @@ var _ = fmt.Printf
 var _ = sync.Once{}
 var _ = unicode.IsLetter
 
-type MyGrammarLexer struct {
+type AsaliLangGrammarLexer struct {
 	*antlr.BaseLexer
 	channelNames []string
 	modeNames    []string
 	// TODO: EOF string
 }
 
-var MyGrammarLexerLexerStaticData struct {
+var AsaliLangGrammarLexerLexerStaticData struct {
 	once                   sync.Once
 	serializedATN          []int32
 	ChannelNames           []string
@@ -34,8 +34,8 @@ var MyGrammarLexerLexerStaticData struct {
 	decisionToDFA          []*antlr.DFA
 }
 
-func mygrammarlexerLexerInit() {
-	staticData := &MyGrammarLexerLexerStaticData
+func asalilanggrammarlexerLexerInit() {
+	staticData := &AsaliLangGrammarLexerLexerStaticData
 	staticData.ChannelNames = []string{
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN",
 	}
@@ -185,75 +185,75 @@ func mygrammarlexerLexerInit() {
 	}
 }
 
-// MyGrammarLexerInit initializes any static state used to implement MyGrammarLexer. By default the
+// AsaliLangGrammarLexerInit initializes any static state used to implement AsaliLangGrammarLexer. By default the
 // static state used to implement the lexer is lazily initialized during the first call to
-// NewMyGrammarLexer(). You can call this function if you wish to initialize the static state ahead
+// NewAsaliLangGrammarLexer(). You can call this function if you wish to initialize the static state ahead
 // of time.
-func MyGrammarLexerInit() {
-	staticData := &MyGrammarLexerLexerStaticData
-	staticData.once.Do(mygrammarlexerLexerInit)
+func AsaliLangGrammarLexerInit() {
+	staticData := &AsaliLangGrammarLexerLexerStaticData
+	staticData.once.Do(asalilanggrammarlexerLexerInit)
 }
 
-// NewMyGrammarLexer produces a new lexer instance for the optional input antlr.CharStream.
-func NewMyGrammarLexer(input antlr.CharStream) *MyGrammarLexer {
-	MyGrammarLexerInit()
-	l := new(MyGrammarLexer)
+// NewAsaliLangGrammarLexer produces a new lexer instance for the optional input antlr.CharStream.
+func NewAsaliLangGrammarLexer(input antlr.CharStream) *AsaliLangGrammarLexer {
+	AsaliLangGrammarLexerInit()
+	l := new(AsaliLangGrammarLexer)
 	l.BaseLexer = antlr.NewBaseLexer(input)
-	staticData := &MyGrammarLexerLexerStaticData
+	staticData := &AsaliLangGrammarLexerLexerStaticData
 	l.Interpreter = antlr.NewLexerATNSimulator(l, staticData.atn, staticData.decisionToDFA, staticData.PredictionContextCache)
 	l.channelNames = staticData.ChannelNames
 	l.modeNames = staticData.ModeNames
 	l.RuleNames = staticData.RuleNames
 	l.LiteralNames = staticData.LiteralNames
 	l.SymbolicNames = staticData.SymbolicNames
-	l.GrammarFileName = "MyGrammar.g4"
+	l.GrammarFileName = "AsaliLangGrammar.g4"
 	// TODO: l.EOF = antlr.TokenEOF
 
 	return l
 }
 
-// MyGrammarLexer tokens.
+// AsaliLangGrammarLexer tokens.
 const (
-	MyGrammarLexerT__0    = 1
-	MyGrammarLexerOR      = 2
-	MyGrammarLexerAND     = 3
-	MyGrammarLexerEQ      = 4
-	MyGrammarLexerNEQ     = 5
-	MyGrammarLexerGT      = 6
-	MyGrammarLexerLT      = 7
-	MyGrammarLexerGTEQ    = 8
-	MyGrammarLexerLTEQ    = 9
-	MyGrammarLexerPLUS    = 10
-	MyGrammarLexerMINUS   = 11
-	MyGrammarLexerMULT    = 12
-	MyGrammarLexerDIV     = 13
-	MyGrammarLexerMOD     = 14
-	MyGrammarLexerPOW     = 15
-	MyGrammarLexerNOT     = 16
-	MyGrammarLexerSCOL    = 17
-	MyGrammarLexerCOL     = 18
-	MyGrammarLexerASSIGN  = 19
-	MyGrammarLexerOPAR    = 20
-	MyGrammarLexerCPAR    = 21
-	MyGrammarLexerOBRACE  = 22
-	MyGrammarLexerCBRACE  = 23
-	MyGrammarLexerBEGIN   = 24
-	MyGrammarLexerEND     = 25
-	MyGrammarLexerDO      = 26
-	MyGrammarLexerTHEN    = 27
-	MyGrammarLexerTRUE    = 28
-	MyGrammarLexerFALSE   = 29
-	MyGrammarLexerNIL     = 30
-	MyGrammarLexerIF      = 31
-	MyGrammarLexerELSE    = 32
-	MyGrammarLexerWHILE   = 33
-	MyGrammarLexerFOR     = 34
-	MyGrammarLexerLOOP    = 35
-	MyGrammarLexerID      = 36
-	MyGrammarLexerINT     = 37
-	MyGrammarLexerFLOAT   = 38
-	MyGrammarLexerSTRING  = 39
-	MyGrammarLexerCOMMENT = 40
-	MyGrammarLexerSPACE   = 41
-	MyGrammarLexerOTHER   = 42
+	AsaliLangGrammarLexerT__0    = 1
+	AsaliLangGrammarLexerOR      = 2
+	AsaliLangGrammarLexerAND     = 3
+	AsaliLangGrammarLexerEQ      = 4
+	AsaliLangGrammarLexerNEQ     = 5
+	AsaliLangGrammarLexerGT      = 6
+	AsaliLangGrammarLexerLT      = 7
+	AsaliLangGrammarLexerGTEQ    = 8
+	AsaliLangGrammarLexerLTEQ    = 9
+	AsaliLangGrammarLexerPLUS    = 10
+	AsaliLangGrammarLexerMINUS   = 11
+	AsaliLangGrammarLexerMULT    = 12
+	AsaliLangGrammarLexerDIV     = 13
+	AsaliLangGrammarLexerMOD     = 14
+	AsaliLangGrammarLexerPOW     = 15
+	AsaliLangGrammarLexerNOT     = 16
+	AsaliLangGrammarLexerSCOL    = 17
+	AsaliLangGrammarLexerCOL     = 18
+	AsaliLangGrammarLexerASSIGN  = 19
+	AsaliLangGrammarLexerOPAR    = 20
+	AsaliLangGrammarLexerCPAR    = 21
+	AsaliLangGrammarLexerOBRACE  = 22
+	AsaliLangGrammarLexerCBRACE  = 23
+	AsaliLangGrammarLexerBEGIN   = 24
+	AsaliLangGrammarLexerEND     = 25
+	AsaliLangGrammarLexerDO      = 26
+	AsaliLangGrammarLexerTHEN    = 27
+	AsaliLangGrammarLexerTRUE    = 28
+	AsaliLangGrammarLexerFALSE   = 29
+	AsaliLangGrammarLexerNIL     = 30
+	AsaliLangGrammarLexerIF      = 31
+	AsaliLangGrammarLexerELSE    = 32
+	AsaliLangGrammarLexerWHILE   = 33
+	AsaliLangGrammarLexerFOR     = 34
+	AsaliLangGrammarLexerLOOP    = 35
+	AsaliLangGrammarLexerID      = 36
+	AsaliLangGrammarLexerINT     = 37
+	AsaliLangGrammarLexerFLOAT   = 38
+	AsaliLangGrammarLexerSTRING  = 39
+	AsaliLangGrammarLexerCOMMENT = 40
+	AsaliLangGrammarLexerSPACE   = 41
+	AsaliLangGrammarLexerOTHER   = 42
 )

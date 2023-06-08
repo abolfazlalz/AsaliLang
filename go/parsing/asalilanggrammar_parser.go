@@ -1,6 +1,6 @@
-// Code generated from MyGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
-package parsing // MyGrammar
+package parsing // AsaliLangGrammar
 import (
 	"fmt"
 	"strconv"
@@ -14,11 +14,11 @@ var _ = fmt.Printf
 var _ = strconv.Itoa
 var _ = sync.Once{}
 
-type MyGrammarParser struct {
+type AsaliLangGrammarParser struct {
 	*antlr.BaseParser
 }
 
-var MyGrammarParserStaticData struct {
+var AsaliLangGrammarParserStaticData struct {
 	once                   sync.Once
 	serializedATN          []int32
 	LiteralNames           []string
@@ -29,8 +29,8 @@ var MyGrammarParserStaticData struct {
 	decisionToDFA          []*antlr.DFA
 }
 
-func mygrammarParserInit() {
-	staticData := &MyGrammarParserStaticData
+func asalilanggrammarParserInit() {
+	staticData := &AsaliLangGrammarParserStaticData
 	staticData.LiteralNames = []string{
 		"", "','", "'||'", "'&&'", "'=='", "'!='", "'>'", "'<'", "'>='", "'<='",
 		"'+'", "'-'", "'*'", "'/'", "'%'", "'^'", "'!'", "';'", "':'", "'='",
@@ -136,94 +136,94 @@ func mygrammarParserInit() {
 	}
 }
 
-// MyGrammarParserInit initializes any static state used to implement MyGrammarParser. By default the
+// AsaliLangGrammarParserInit initializes any static state used to implement AsaliLangGrammarParser. By default the
 // static state used to implement the parser is lazily initialized during the first call to
-// NewMyGrammarParser(). You can call this function if you wish to initialize the static state ahead
+// NewAsaliLangGrammarParser(). You can call this function if you wish to initialize the static state ahead
 // of time.
-func MyGrammarParserInit() {
-	staticData := &MyGrammarParserStaticData
-	staticData.once.Do(mygrammarParserInit)
+func AsaliLangGrammarParserInit() {
+	staticData := &AsaliLangGrammarParserStaticData
+	staticData.once.Do(asalilanggrammarParserInit)
 }
 
-// NewMyGrammarParser produces a new parser instance for the optional input antlr.TokenStream.
-func NewMyGrammarParser(input antlr.TokenStream) *MyGrammarParser {
-	MyGrammarParserInit()
-	this := new(MyGrammarParser)
+// NewAsaliLangGrammarParser produces a new parser instance for the optional input antlr.TokenStream.
+func NewAsaliLangGrammarParser(input antlr.TokenStream) *AsaliLangGrammarParser {
+	AsaliLangGrammarParserInit()
+	this := new(AsaliLangGrammarParser)
 	this.BaseParser = antlr.NewBaseParser(input)
-	staticData := &MyGrammarParserStaticData
+	staticData := &AsaliLangGrammarParserStaticData
 	this.Interpreter = antlr.NewParserATNSimulator(this, staticData.atn, staticData.decisionToDFA, staticData.PredictionContextCache)
 	this.RuleNames = staticData.RuleNames
 	this.LiteralNames = staticData.LiteralNames
 	this.SymbolicNames = staticData.SymbolicNames
-	this.GrammarFileName = "MyGrammar.g4"
+	this.GrammarFileName = "AsaliLangGrammar.g4"
 
 	return this
 }
 
-// MyGrammarParser tokens.
+// AsaliLangGrammarParser tokens.
 const (
-	MyGrammarParserEOF     = antlr.TokenEOF
-	MyGrammarParserT__0    = 1
-	MyGrammarParserOR      = 2
-	MyGrammarParserAND     = 3
-	MyGrammarParserEQ      = 4
-	MyGrammarParserNEQ     = 5
-	MyGrammarParserGT      = 6
-	MyGrammarParserLT      = 7
-	MyGrammarParserGTEQ    = 8
-	MyGrammarParserLTEQ    = 9
-	MyGrammarParserPLUS    = 10
-	MyGrammarParserMINUS   = 11
-	MyGrammarParserMULT    = 12
-	MyGrammarParserDIV     = 13
-	MyGrammarParserMOD     = 14
-	MyGrammarParserPOW     = 15
-	MyGrammarParserNOT     = 16
-	MyGrammarParserSCOL    = 17
-	MyGrammarParserCOL     = 18
-	MyGrammarParserASSIGN  = 19
-	MyGrammarParserOPAR    = 20
-	MyGrammarParserCPAR    = 21
-	MyGrammarParserOBRACE  = 22
-	MyGrammarParserCBRACE  = 23
-	MyGrammarParserBEGIN   = 24
-	MyGrammarParserEND     = 25
-	MyGrammarParserDO      = 26
-	MyGrammarParserTHEN    = 27
-	MyGrammarParserTRUE    = 28
-	MyGrammarParserFALSE   = 29
-	MyGrammarParserNIL     = 30
-	MyGrammarParserIF      = 31
-	MyGrammarParserELSE    = 32
-	MyGrammarParserWHILE   = 33
-	MyGrammarParserFOR     = 34
-	MyGrammarParserLOOP    = 35
-	MyGrammarParserID      = 36
-	MyGrammarParserINT     = 37
-	MyGrammarParserFLOAT   = 38
-	MyGrammarParserSTRING  = 39
-	MyGrammarParserCOMMENT = 40
-	MyGrammarParserSPACE   = 41
-	MyGrammarParserOTHER   = 42
+	AsaliLangGrammarParserEOF     = antlr.TokenEOF
+	AsaliLangGrammarParserT__0    = 1
+	AsaliLangGrammarParserOR      = 2
+	AsaliLangGrammarParserAND     = 3
+	AsaliLangGrammarParserEQ      = 4
+	AsaliLangGrammarParserNEQ     = 5
+	AsaliLangGrammarParserGT      = 6
+	AsaliLangGrammarParserLT      = 7
+	AsaliLangGrammarParserGTEQ    = 8
+	AsaliLangGrammarParserLTEQ    = 9
+	AsaliLangGrammarParserPLUS    = 10
+	AsaliLangGrammarParserMINUS   = 11
+	AsaliLangGrammarParserMULT    = 12
+	AsaliLangGrammarParserDIV     = 13
+	AsaliLangGrammarParserMOD     = 14
+	AsaliLangGrammarParserPOW     = 15
+	AsaliLangGrammarParserNOT     = 16
+	AsaliLangGrammarParserSCOL    = 17
+	AsaliLangGrammarParserCOL     = 18
+	AsaliLangGrammarParserASSIGN  = 19
+	AsaliLangGrammarParserOPAR    = 20
+	AsaliLangGrammarParserCPAR    = 21
+	AsaliLangGrammarParserOBRACE  = 22
+	AsaliLangGrammarParserCBRACE  = 23
+	AsaliLangGrammarParserBEGIN   = 24
+	AsaliLangGrammarParserEND     = 25
+	AsaliLangGrammarParserDO      = 26
+	AsaliLangGrammarParserTHEN    = 27
+	AsaliLangGrammarParserTRUE    = 28
+	AsaliLangGrammarParserFALSE   = 29
+	AsaliLangGrammarParserNIL     = 30
+	AsaliLangGrammarParserIF      = 31
+	AsaliLangGrammarParserELSE    = 32
+	AsaliLangGrammarParserWHILE   = 33
+	AsaliLangGrammarParserFOR     = 34
+	AsaliLangGrammarParserLOOP    = 35
+	AsaliLangGrammarParserID      = 36
+	AsaliLangGrammarParserINT     = 37
+	AsaliLangGrammarParserFLOAT   = 38
+	AsaliLangGrammarParserSTRING  = 39
+	AsaliLangGrammarParserCOMMENT = 40
+	AsaliLangGrammarParserSPACE   = 41
+	AsaliLangGrammarParserOTHER   = 42
 )
 
-// MyGrammarParser rules.
+// AsaliLangGrammarParser rules.
 const (
-	MyGrammarParserRULE_parse               = 0
-	MyGrammarParserRULE_block               = 1
-	MyGrammarParserRULE_stat                = 2
-	MyGrammarParserRULE_assignment          = 3
-	MyGrammarParserRULE_ifStat              = 4
-	MyGrammarParserRULE_condition_block     = 5
-	MyGrammarParserRULE_stat_block          = 6
-	MyGrammarParserRULE_whileStat           = 7
-	MyGrammarParserRULE_forStat             = 8
-	MyGrammarParserRULE_loopStat            = 9
-	MyGrammarParserRULE_methodCallStat      = 10
-	MyGrammarParserRULE_methodCall          = 11
-	MyGrammarParserRULE_methodCallArguments = 12
-	MyGrammarParserRULE_expr                = 13
-	MyGrammarParserRULE_atom                = 14
+	AsaliLangGrammarParserRULE_parse               = 0
+	AsaliLangGrammarParserRULE_block               = 1
+	AsaliLangGrammarParserRULE_stat                = 2
+	AsaliLangGrammarParserRULE_assignment          = 3
+	AsaliLangGrammarParserRULE_ifStat              = 4
+	AsaliLangGrammarParserRULE_condition_block     = 5
+	AsaliLangGrammarParserRULE_stat_block          = 6
+	AsaliLangGrammarParserRULE_whileStat           = 7
+	AsaliLangGrammarParserRULE_forStat             = 8
+	AsaliLangGrammarParserRULE_loopStat            = 9
+	AsaliLangGrammarParserRULE_methodCallStat      = 10
+	AsaliLangGrammarParserRULE_methodCall          = 11
+	AsaliLangGrammarParserRULE_methodCallArguments = 12
+	AsaliLangGrammarParserRULE_expr                = 13
+	AsaliLangGrammarParserRULE_atom                = 14
 )
 
 // IParseContext is an interface to support dynamic dispatch.
@@ -249,13 +249,13 @@ type ParseContext struct {
 func NewEmptyParseContext() *ParseContext {
 	var p = new(ParseContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_parse
+	p.RuleIndex = AsaliLangGrammarParserRULE_parse
 	return p
 }
 
 func InitEmptyParseContext(p *ParseContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_parse
+	p.RuleIndex = AsaliLangGrammarParserRULE_parse
 }
 
 func (*ParseContext) IsParseContext() {}
@@ -266,7 +266,7 @@ func NewParseContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_parse
+	p.RuleIndex = AsaliLangGrammarParserRULE_parse
 
 	return p
 }
@@ -290,7 +290,7 @@ func (s *ParseContext) Block() IBlockContext {
 }
 
 func (s *ParseContext) EOF() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserEOF, 0)
+	return s.GetToken(AsaliLangGrammarParserEOF, 0)
 }
 
 func (s *ParseContext) GetRuleContext() antlr.RuleContext {
@@ -302,20 +302,20 @@ func (s *ParseContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *ParseContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterParse(s)
 	}
 }
 
 func (s *ParseContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitParse(s)
 	}
 }
 
 func (s *ParseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitParse(s)
 
 	default:
@@ -323,9 +323,9 @@ func (s *ParseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Parse() (localctx IParseContext) {
+func (p *AsaliLangGrammarParser) Parse() (localctx IParseContext) {
 	localctx = NewParseContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 0, MyGrammarParserRULE_parse)
+	p.EnterRule(localctx, 0, AsaliLangGrammarParserRULE_parse)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(30)
@@ -333,7 +333,7 @@ func (p *MyGrammarParser) Parse() (localctx IParseContext) {
 	}
 	{
 		p.SetState(31)
-		p.Match(MyGrammarParserEOF)
+		p.Match(AsaliLangGrammarParserEOF)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -376,13 +376,13 @@ type BlockContext struct {
 func NewEmptyBlockContext() *BlockContext {
 	var p = new(BlockContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_block
 	return p
 }
 
 func InitEmptyBlockContext(p *BlockContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_block
 }
 
 func (*BlockContext) IsBlockContext() {}
@@ -393,7 +393,7 @@ func NewBlockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_block
 
 	return p
 }
@@ -450,20 +450,20 @@ func (s *BlockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *BlockContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterBlock(s)
 	}
 }
 
 func (s *BlockContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitBlock(s)
 	}
 }
 
 func (s *BlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitBlock(s)
 
 	default:
@@ -471,9 +471,9 @@ func (s *BlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Block() (localctx IBlockContext) {
+func (p *AsaliLangGrammarParser) Block() (localctx IBlockContext) {
 	localctx = NewBlockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, MyGrammarParserRULE_block)
+	p.EnterRule(localctx, 2, AsaliLangGrammarParserRULE_block)
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
@@ -553,13 +553,13 @@ type StatContext struct {
 func NewEmptyStatContext() *StatContext {
 	var p = new(StatContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_stat
+	p.RuleIndex = AsaliLangGrammarParserRULE_stat
 	return p
 }
 
 func InitEmptyStatContext(p *StatContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_stat
+	p.RuleIndex = AsaliLangGrammarParserRULE_stat
 }
 
 func (*StatContext) IsStatContext() {}
@@ -570,7 +570,7 @@ func NewStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_stat
+	p.RuleIndex = AsaliLangGrammarParserRULE_stat
 
 	return p
 }
@@ -678,7 +678,7 @@ func (s *StatContext) LoopStat() ILoopStatContext {
 }
 
 func (s *StatContext) OTHER() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserOTHER, 0)
+	return s.GetToken(AsaliLangGrammarParserOTHER, 0)
 }
 
 func (s *StatContext) GetRuleContext() antlr.RuleContext {
@@ -690,20 +690,20 @@ func (s *StatContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 }
 
 func (s *StatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterStat(s)
 	}
 }
 
 func (s *StatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitStat(s)
 	}
 }
 
 func (s *StatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitStat(s)
 
 	default:
@@ -711,9 +711,9 @@ func (s *StatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Stat() (localctx IStatContext) {
+func (p *AsaliLangGrammarParser) Stat() (localctx IStatContext) {
 	localctx = NewStatContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, MyGrammarParserRULE_stat)
+	p.EnterRule(localctx, 4, AsaliLangGrammarParserRULE_stat)
 	p.SetState(47)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
@@ -768,7 +768,7 @@ func (p *MyGrammarParser) Stat() (localctx IStatContext) {
 		{
 			p.SetState(45)
 
-			var _m = p.Match(MyGrammarParserOTHER)
+			var _m = p.Match(AsaliLangGrammarParserOTHER)
 
 			localctx.(*StatContext)._OTHER = _m
 			if p.HasError() {
@@ -826,13 +826,13 @@ type AssignmentContext struct {
 func NewEmptyAssignmentContext() *AssignmentContext {
 	var p = new(AssignmentContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_assignment
+	p.RuleIndex = AsaliLangGrammarParserRULE_assignment
 	return p
 }
 
 func InitEmptyAssignmentContext(p *AssignmentContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_assignment
+	p.RuleIndex = AsaliLangGrammarParserRULE_assignment
 }
 
 func (*AssignmentContext) IsAssignmentContext() {}
@@ -843,7 +843,7 @@ func NewAssignmentContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_assignment
+	p.RuleIndex = AsaliLangGrammarParserRULE_assignment
 
 	return p
 }
@@ -851,11 +851,11 @@ func NewAssignmentContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 func (s *AssignmentContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *AssignmentContext) ID() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserID, 0)
+	return s.GetToken(AsaliLangGrammarParserID, 0)
 }
 
 func (s *AssignmentContext) ASSIGN() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserASSIGN, 0)
+	return s.GetToken(AsaliLangGrammarParserASSIGN, 0)
 }
 
 func (s *AssignmentContext) Expr() IExprContext {
@@ -875,7 +875,7 @@ func (s *AssignmentContext) Expr() IExprContext {
 }
 
 func (s *AssignmentContext) SCOL() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserSCOL, 0)
+	return s.GetToken(AsaliLangGrammarParserSCOL, 0)
 }
 
 func (s *AssignmentContext) GetRuleContext() antlr.RuleContext {
@@ -887,20 +887,20 @@ func (s *AssignmentContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 }
 
 func (s *AssignmentContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterAssignment(s)
 	}
 }
 
 func (s *AssignmentContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitAssignment(s)
 	}
 }
 
 func (s *AssignmentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitAssignment(s)
 
 	default:
@@ -908,13 +908,13 @@ func (s *AssignmentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Assignment() (localctx IAssignmentContext) {
+func (p *AsaliLangGrammarParser) Assignment() (localctx IAssignmentContext) {
 	localctx = NewAssignmentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, MyGrammarParserRULE_assignment)
+	p.EnterRule(localctx, 6, AsaliLangGrammarParserRULE_assignment)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(49)
-		p.Match(MyGrammarParserID)
+		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -922,7 +922,7 @@ func (p *MyGrammarParser) Assignment() (localctx IAssignmentContext) {
 	}
 	{
 		p.SetState(50)
-		p.Match(MyGrammarParserASSIGN)
+		p.Match(AsaliLangGrammarParserASSIGN)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -934,7 +934,7 @@ func (p *MyGrammarParser) Assignment() (localctx IAssignmentContext) {
 	}
 	{
 		p.SetState(52)
-		p.Match(MyGrammarParserSCOL)
+		p.Match(AsaliLangGrammarParserSCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -982,13 +982,13 @@ type IfStatContext struct {
 func NewEmptyIfStatContext() *IfStatContext {
 	var p = new(IfStatContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_ifStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_ifStat
 	return p
 }
 
 func InitEmptyIfStatContext(p *IfStatContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_ifStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_ifStat
 }
 
 func (*IfStatContext) IsIfStatContext() {}
@@ -999,7 +999,7 @@ func NewIfStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_ifStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_ifStat
 
 	return p
 }
@@ -1007,11 +1007,11 @@ func NewIfStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 func (s *IfStatContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *IfStatContext) AllIF() []antlr.TerminalNode {
-	return s.GetTokens(MyGrammarParserIF)
+	return s.GetTokens(AsaliLangGrammarParserIF)
 }
 
 func (s *IfStatContext) IF(i int) antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserIF, i)
+	return s.GetToken(AsaliLangGrammarParserIF, i)
 }
 
 func (s *IfStatContext) AllCondition_block() []ICondition_blockContext {
@@ -1056,11 +1056,11 @@ func (s *IfStatContext) Condition_block(i int) ICondition_blockContext {
 }
 
 func (s *IfStatContext) AllELSE() []antlr.TerminalNode {
-	return s.GetTokens(MyGrammarParserELSE)
+	return s.GetTokens(AsaliLangGrammarParserELSE)
 }
 
 func (s *IfStatContext) ELSE(i int) antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserELSE, i)
+	return s.GetToken(AsaliLangGrammarParserELSE, i)
 }
 
 func (s *IfStatContext) Stat_block() IStat_blockContext {
@@ -1088,20 +1088,20 @@ func (s *IfStatContext) ToStringTree(ruleNames []string, recog antlr.Recognizer)
 }
 
 func (s *IfStatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterIfStat(s)
 	}
 }
 
 func (s *IfStatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitIfStat(s)
 	}
 }
 
 func (s *IfStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitIfStat(s)
 
 	default:
@@ -1109,15 +1109,15 @@ func (s *IfStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) IfStat() (localctx IIfStatContext) {
+func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 	localctx = NewIfStatContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, MyGrammarParserRULE_ifStat)
+	p.EnterRule(localctx, 8, AsaliLangGrammarParserRULE_ifStat)
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(54)
-		p.Match(MyGrammarParserIF)
+		p.Match(AsaliLangGrammarParserIF)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1140,7 +1140,7 @@ func (p *MyGrammarParser) IfStat() (localctx IIfStatContext) {
 		if _alt == 1 {
 			{
 				p.SetState(56)
-				p.Match(MyGrammarParserELSE)
+				p.Match(AsaliLangGrammarParserELSE)
 				if p.HasError() {
 					// Recognition error - abort rule
 					goto errorExit
@@ -1148,7 +1148,7 @@ func (p *MyGrammarParser) IfStat() (localctx IIfStatContext) {
 			}
 			{
 				p.SetState(57)
-				p.Match(MyGrammarParserIF)
+				p.Match(AsaliLangGrammarParserIF)
 				if p.HasError() {
 					// Recognition error - abort rule
 					goto errorExit
@@ -1176,7 +1176,7 @@ func (p *MyGrammarParser) IfStat() (localctx IIfStatContext) {
 	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 3, p.GetParserRuleContext()) == 1 {
 		{
 			p.SetState(64)
-			p.Match(MyGrammarParserELSE)
+			p.Match(AsaliLangGrammarParserELSE)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -1227,13 +1227,13 @@ type Condition_blockContext struct {
 func NewEmptyCondition_blockContext() *Condition_blockContext {
 	var p = new(Condition_blockContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_condition_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_condition_block
 	return p
 }
 
 func InitEmptyCondition_blockContext(p *Condition_blockContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_condition_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_condition_block
 }
 
 func (*Condition_blockContext) IsCondition_blockContext() {}
@@ -1244,7 +1244,7 @@ func NewCondition_blockContext(parser antlr.Parser, parent antlr.ParserRuleConte
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_condition_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_condition_block
 
 	return p
 }
@@ -1292,20 +1292,20 @@ func (s *Condition_blockContext) ToStringTree(ruleNames []string, recog antlr.Re
 }
 
 func (s *Condition_blockContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterCondition_block(s)
 	}
 }
 
 func (s *Condition_blockContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitCondition_block(s)
 	}
 }
 
 func (s *Condition_blockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitCondition_block(s)
 
 	default:
@@ -1313,9 +1313,9 @@ func (s *Condition_blockContext) Accept(visitor antlr.ParseTreeVisitor) interfac
 	}
 }
 
-func (p *MyGrammarParser) Condition_block() (localctx ICondition_blockContext) {
+func (p *AsaliLangGrammarParser) Condition_block() (localctx ICondition_blockContext) {
 	localctx = NewCondition_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, MyGrammarParserRULE_condition_block)
+	p.EnterRule(localctx, 10, AsaliLangGrammarParserRULE_condition_block)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(68)
@@ -1368,13 +1368,13 @@ type Stat_blockContext struct {
 func NewEmptyStat_blockContext() *Stat_blockContext {
 	var p = new(Stat_blockContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_stat_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_stat_block
 	return p
 }
 
 func InitEmptyStat_blockContext(p *Stat_blockContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_stat_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_stat_block
 }
 
 func (*Stat_blockContext) IsStat_blockContext() {}
@@ -1385,7 +1385,7 @@ func NewStat_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_stat_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_stat_block
 
 	return p
 }
@@ -1393,7 +1393,7 @@ func NewStat_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 func (s *Stat_blockContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *Stat_blockContext) OBRACE() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserOBRACE, 0)
+	return s.GetToken(AsaliLangGrammarParserOBRACE, 0)
 }
 
 func (s *Stat_blockContext) Block() IBlockContext {
@@ -1413,19 +1413,19 @@ func (s *Stat_blockContext) Block() IBlockContext {
 }
 
 func (s *Stat_blockContext) CBRACE() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserCBRACE, 0)
+	return s.GetToken(AsaliLangGrammarParserCBRACE, 0)
 }
 
 func (s *Stat_blockContext) BEGIN() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserBEGIN, 0)
+	return s.GetToken(AsaliLangGrammarParserBEGIN, 0)
 }
 
 func (s *Stat_blockContext) END() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserEND, 0)
+	return s.GetToken(AsaliLangGrammarParserEND, 0)
 }
 
 func (s *Stat_blockContext) DO() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserDO, 0)
+	return s.GetToken(AsaliLangGrammarParserDO, 0)
 }
 
 func (s *Stat_blockContext) Stat() IStatContext {
@@ -1445,7 +1445,7 @@ func (s *Stat_blockContext) Stat() IStatContext {
 }
 
 func (s *Stat_blockContext) THEN() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserTHEN, 0)
+	return s.GetToken(AsaliLangGrammarParserTHEN, 0)
 }
 
 func (s *Stat_blockContext) GetRuleContext() antlr.RuleContext {
@@ -1457,20 +1457,20 @@ func (s *Stat_blockContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 }
 
 func (s *Stat_blockContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterStat_block(s)
 	}
 }
 
 func (s *Stat_blockContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitStat_block(s)
 	}
 }
 
 func (s *Stat_blockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitStat_block(s)
 
 	default:
@@ -1478,9 +1478,9 @@ func (s *Stat_blockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Stat_block() (localctx IStat_blockContext) {
+func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 	localctx = NewStat_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, MyGrammarParserRULE_stat_block)
+	p.EnterRule(localctx, 12, AsaliLangGrammarParserRULE_stat_block)
 	var _la int
 
 	p.SetState(85)
@@ -1490,11 +1490,11 @@ func (p *MyGrammarParser) Stat_block() (localctx IStat_blockContext) {
 	}
 
 	switch p.GetTokenStream().LA(1) {
-	case MyGrammarParserOBRACE:
+	case AsaliLangGrammarParserOBRACE:
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(71)
-			p.Match(MyGrammarParserOBRACE)
+			p.Match(AsaliLangGrammarParserOBRACE)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -1506,14 +1506,14 @@ func (p *MyGrammarParser) Stat_block() (localctx IStat_blockContext) {
 		}
 		{
 			p.SetState(73)
-			p.Match(MyGrammarParserCBRACE)
+			p.Match(AsaliLangGrammarParserCBRACE)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
 
-	case MyGrammarParserBEGIN, MyGrammarParserDO:
+	case AsaliLangGrammarParserBEGIN, AsaliLangGrammarParserDO:
 		p.EnterOuterAlt(localctx, 2)
 		p.SetState(76)
 		p.GetErrorHandler().Sync(p)
@@ -1522,10 +1522,10 @@ func (p *MyGrammarParser) Stat_block() (localctx IStat_blockContext) {
 		}
 		_la = p.GetTokenStream().LA(1)
 
-		if _la == MyGrammarParserDO {
+		if _la == AsaliLangGrammarParserDO {
 			{
 				p.SetState(75)
-				p.Match(MyGrammarParserDO)
+				p.Match(AsaliLangGrammarParserDO)
 				if p.HasError() {
 					// Recognition error - abort rule
 					goto errorExit
@@ -1535,7 +1535,7 @@ func (p *MyGrammarParser) Stat_block() (localctx IStat_blockContext) {
 		}
 		{
 			p.SetState(78)
-			p.Match(MyGrammarParserBEGIN)
+			p.Match(AsaliLangGrammarParserBEGIN)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -1547,25 +1547,25 @@ func (p *MyGrammarParser) Stat_block() (localctx IStat_blockContext) {
 		}
 		{
 			p.SetState(80)
-			p.Match(MyGrammarParserEND)
+			p.Match(AsaliLangGrammarParserEND)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
 
-	case MyGrammarParserIF, MyGrammarParserWHILE, MyGrammarParserFOR, MyGrammarParserLOOP, MyGrammarParserID, MyGrammarParserOTHER:
+	case AsaliLangGrammarParserIF, AsaliLangGrammarParserWHILE, AsaliLangGrammarParserFOR, AsaliLangGrammarParserLOOP, AsaliLangGrammarParserID, AsaliLangGrammarParserOTHER:
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(82)
 			p.Stat()
 		}
 
-	case MyGrammarParserTHEN:
+	case AsaliLangGrammarParserTHEN:
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(83)
-			p.Match(MyGrammarParserTHEN)
+			p.Match(AsaliLangGrammarParserTHEN)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -1618,13 +1618,13 @@ type WhileStatContext struct {
 func NewEmptyWhileStatContext() *WhileStatContext {
 	var p = new(WhileStatContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_whileStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_whileStat
 	return p
 }
 
 func InitEmptyWhileStatContext(p *WhileStatContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_whileStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_whileStat
 }
 
 func (*WhileStatContext) IsWhileStatContext() {}
@@ -1635,7 +1635,7 @@ func NewWhileStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_whileStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_whileStat
 
 	return p
 }
@@ -1643,7 +1643,7 @@ func NewWhileStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 func (s *WhileStatContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *WhileStatContext) WHILE() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserWHILE, 0)
+	return s.GetToken(AsaliLangGrammarParserWHILE, 0)
 }
 
 func (s *WhileStatContext) Expr() IExprContext {
@@ -1687,20 +1687,20 @@ func (s *WhileStatContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 }
 
 func (s *WhileStatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterWhileStat(s)
 	}
 }
 
 func (s *WhileStatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitWhileStat(s)
 	}
 }
 
 func (s *WhileStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitWhileStat(s)
 
 	default:
@@ -1708,13 +1708,13 @@ func (s *WhileStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) WhileStat() (localctx IWhileStatContext) {
+func (p *AsaliLangGrammarParser) WhileStat() (localctx IWhileStatContext) {
 	localctx = NewWhileStatContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, MyGrammarParserRULE_whileStat)
+	p.EnterRule(localctx, 14, AsaliLangGrammarParserRULE_whileStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(87)
-		p.Match(MyGrammarParserWHILE)
+		p.Match(AsaliLangGrammarParserWHILE)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1770,13 +1770,13 @@ type ForStatContext struct {
 func NewEmptyForStatContext() *ForStatContext {
 	var p = new(ForStatContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_forStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_forStat
 	return p
 }
 
 func InitEmptyForStatContext(p *ForStatContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_forStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_forStat
 }
 
 func (*ForStatContext) IsForStatContext() {}
@@ -1787,7 +1787,7 @@ func NewForStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_forStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_forStat
 
 	return p
 }
@@ -1795,15 +1795,15 @@ func NewForStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 func (s *ForStatContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *ForStatContext) FOR() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserFOR, 0)
+	return s.GetToken(AsaliLangGrammarParserFOR, 0)
 }
 
 func (s *ForStatContext) ID() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserID, 0)
+	return s.GetToken(AsaliLangGrammarParserID, 0)
 }
 
 func (s *ForStatContext) ASSIGN() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserASSIGN, 0)
+	return s.GetToken(AsaliLangGrammarParserASSIGN, 0)
 }
 
 func (s *ForStatContext) AllExpr() []IExprContext {
@@ -1848,7 +1848,7 @@ func (s *ForStatContext) Expr(i int) IExprContext {
 }
 
 func (s *ForStatContext) COL() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserCOL, 0)
+	return s.GetToken(AsaliLangGrammarParserCOL, 0)
 }
 
 func (s *ForStatContext) Stat_block() IStat_blockContext {
@@ -1876,20 +1876,20 @@ func (s *ForStatContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 }
 
 func (s *ForStatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterForStat(s)
 	}
 }
 
 func (s *ForStatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitForStat(s)
 	}
 }
 
 func (s *ForStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitForStat(s)
 
 	default:
@@ -1897,13 +1897,13 @@ func (s *ForStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) ForStat() (localctx IForStatContext) {
+func (p *AsaliLangGrammarParser) ForStat() (localctx IForStatContext) {
 	localctx = NewForStatContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, MyGrammarParserRULE_forStat)
+	p.EnterRule(localctx, 16, AsaliLangGrammarParserRULE_forStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(91)
-		p.Match(MyGrammarParserFOR)
+		p.Match(AsaliLangGrammarParserFOR)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1911,7 +1911,7 @@ func (p *MyGrammarParser) ForStat() (localctx IForStatContext) {
 	}
 	{
 		p.SetState(92)
-		p.Match(MyGrammarParserID)
+		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1919,7 +1919,7 @@ func (p *MyGrammarParser) ForStat() (localctx IForStatContext) {
 	}
 	{
 		p.SetState(93)
-		p.Match(MyGrammarParserASSIGN)
+		p.Match(AsaliLangGrammarParserASSIGN)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1931,7 +1931,7 @@ func (p *MyGrammarParser) ForStat() (localctx IForStatContext) {
 	}
 	{
 		p.SetState(95)
-		p.Match(MyGrammarParserCOL)
+		p.Match(AsaliLangGrammarParserCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1985,13 +1985,13 @@ type LoopStatContext struct {
 func NewEmptyLoopStatContext() *LoopStatContext {
 	var p = new(LoopStatContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_loopStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_loopStat
 	return p
 }
 
 func InitEmptyLoopStatContext(p *LoopStatContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_loopStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_loopStat
 }
 
 func (*LoopStatContext) IsLoopStatContext() {}
@@ -2002,7 +2002,7 @@ func NewLoopStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_loopStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_loopStat
 
 	return p
 }
@@ -2010,15 +2010,15 @@ func NewLoopStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 func (s *LoopStatContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *LoopStatContext) LOOP() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserLOOP, 0)
+	return s.GetToken(AsaliLangGrammarParserLOOP, 0)
 }
 
 func (s *LoopStatContext) ID() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserID, 0)
+	return s.GetToken(AsaliLangGrammarParserID, 0)
 }
 
 func (s *LoopStatContext) COL() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserCOL, 0)
+	return s.GetToken(AsaliLangGrammarParserCOL, 0)
 }
 
 func (s *LoopStatContext) Expr() IExprContext {
@@ -2062,20 +2062,20 @@ func (s *LoopStatContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 }
 
 func (s *LoopStatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterLoopStat(s)
 	}
 }
 
 func (s *LoopStatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitLoopStat(s)
 	}
 }
 
 func (s *LoopStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitLoopStat(s)
 
 	default:
@@ -2083,13 +2083,13 @@ func (s *LoopStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) LoopStat() (localctx ILoopStatContext) {
+func (p *AsaliLangGrammarParser) LoopStat() (localctx ILoopStatContext) {
 	localctx = NewLoopStatContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, MyGrammarParserRULE_loopStat)
+	p.EnterRule(localctx, 18, AsaliLangGrammarParserRULE_loopStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(99)
-		p.Match(MyGrammarParserLOOP)
+		p.Match(AsaliLangGrammarParserLOOP)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -2097,7 +2097,7 @@ func (p *MyGrammarParser) LoopStat() (localctx ILoopStatContext) {
 	}
 	{
 		p.SetState(100)
-		p.Match(MyGrammarParserID)
+		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -2105,7 +2105,7 @@ func (p *MyGrammarParser) LoopStat() (localctx ILoopStatContext) {
 	}
 	{
 		p.SetState(101)
-		p.Match(MyGrammarParserCOL)
+		p.Match(AsaliLangGrammarParserCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -2156,13 +2156,13 @@ type MethodCallStatContext struct {
 func NewEmptyMethodCallStatContext() *MethodCallStatContext {
 	var p = new(MethodCallStatContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_methodCallStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCallStat
 	return p
 }
 
 func InitEmptyMethodCallStatContext(p *MethodCallStatContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_methodCallStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCallStat
 }
 
 func (*MethodCallStatContext) IsMethodCallStatContext() {}
@@ -2173,7 +2173,7 @@ func NewMethodCallStatContext(parser antlr.Parser, parent antlr.ParserRuleContex
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_methodCallStat
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCallStat
 
 	return p
 }
@@ -2197,7 +2197,7 @@ func (s *MethodCallStatContext) MethodCall() IMethodCallContext {
 }
 
 func (s *MethodCallStatContext) SCOL() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserSCOL, 0)
+	return s.GetToken(AsaliLangGrammarParserSCOL, 0)
 }
 
 func (s *MethodCallStatContext) GetRuleContext() antlr.RuleContext {
@@ -2209,20 +2209,20 @@ func (s *MethodCallStatContext) ToStringTree(ruleNames []string, recog antlr.Rec
 }
 
 func (s *MethodCallStatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterMethodCallStat(s)
 	}
 }
 
 func (s *MethodCallStatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitMethodCallStat(s)
 	}
 }
 
 func (s *MethodCallStatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitMethodCallStat(s)
 
 	default:
@@ -2230,9 +2230,9 @@ func (s *MethodCallStatContext) Accept(visitor antlr.ParseTreeVisitor) interface
 	}
 }
 
-func (p *MyGrammarParser) MethodCallStat() (localctx IMethodCallStatContext) {
+func (p *AsaliLangGrammarParser) MethodCallStat() (localctx IMethodCallStatContext) {
 	localctx = NewMethodCallStatContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, MyGrammarParserRULE_methodCallStat)
+	p.EnterRule(localctx, 20, AsaliLangGrammarParserRULE_methodCallStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(105)
@@ -2240,7 +2240,7 @@ func (p *MyGrammarParser) MethodCallStat() (localctx IMethodCallStatContext) {
 	}
 	{
 		p.SetState(106)
-		p.Match(MyGrammarParserSCOL)
+		p.Match(AsaliLangGrammarParserSCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -2283,13 +2283,13 @@ type MethodCallContext struct {
 func NewEmptyMethodCallContext() *MethodCallContext {
 	var p = new(MethodCallContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_methodCall
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCall
 	return p
 }
 
 func InitEmptyMethodCallContext(p *MethodCallContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_methodCall
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCall
 }
 
 func (*MethodCallContext) IsMethodCallContext() {}
@@ -2300,7 +2300,7 @@ func NewMethodCallContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_methodCall
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCall
 
 	return p
 }
@@ -2308,7 +2308,7 @@ func NewMethodCallContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 func (s *MethodCallContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *MethodCallContext) ID() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserID, 0)
+	return s.GetToken(AsaliLangGrammarParserID, 0)
 }
 
 func (s *MethodCallContext) MethodCallArguments() IMethodCallArgumentsContext {
@@ -2336,20 +2336,20 @@ func (s *MethodCallContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 }
 
 func (s *MethodCallContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterMethodCall(s)
 	}
 }
 
 func (s *MethodCallContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitMethodCall(s)
 	}
 }
 
 func (s *MethodCallContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitMethodCall(s)
 
 	default:
@@ -2357,13 +2357,13 @@ func (s *MethodCallContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) MethodCall() (localctx IMethodCallContext) {
+func (p *AsaliLangGrammarParser) MethodCall() (localctx IMethodCallContext) {
 	localctx = NewMethodCallContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, MyGrammarParserRULE_methodCall)
+	p.EnterRule(localctx, 22, AsaliLangGrammarParserRULE_methodCall)
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(108)
-		p.Match(MyGrammarParserID)
+		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -2410,13 +2410,13 @@ type MethodCallArgumentsContext struct {
 func NewEmptyMethodCallArgumentsContext() *MethodCallArgumentsContext {
 	var p = new(MethodCallArgumentsContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_methodCallArguments
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCallArguments
 	return p
 }
 
 func InitEmptyMethodCallArgumentsContext(p *MethodCallArgumentsContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_methodCallArguments
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCallArguments
 }
 
 func (*MethodCallArgumentsContext) IsMethodCallArgumentsContext() {}
@@ -2427,7 +2427,7 @@ func NewMethodCallArgumentsContext(parser antlr.Parser, parent antlr.ParserRuleC
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_methodCallArguments
+	p.RuleIndex = AsaliLangGrammarParserRULE_methodCallArguments
 
 	return p
 }
@@ -2484,20 +2484,20 @@ func (s *MethodCallArgumentsContext) ToStringTree(ruleNames []string, recog antl
 }
 
 func (s *MethodCallArgumentsContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterMethodCallArguments(s)
 	}
 }
 
 func (s *MethodCallArgumentsContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitMethodCallArguments(s)
 	}
 }
 
 func (s *MethodCallArgumentsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitMethodCallArguments(s)
 
 	default:
@@ -2505,9 +2505,9 @@ func (s *MethodCallArgumentsContext) Accept(visitor antlr.ParseTreeVisitor) inte
 	}
 }
 
-func (p *MyGrammarParser) MethodCallArguments() (localctx IMethodCallArgumentsContext) {
+func (p *AsaliLangGrammarParser) MethodCallArguments() (localctx IMethodCallArgumentsContext) {
 	localctx = NewMethodCallArgumentsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, MyGrammarParserRULE_methodCallArguments)
+	p.EnterRule(localctx, 24, AsaliLangGrammarParserRULE_methodCallArguments)
 	var _alt int
 
 	p.SetState(120)
@@ -2539,7 +2539,7 @@ func (p *MyGrammarParser) MethodCallArguments() (localctx IMethodCallArgumentsCo
 			if _alt == 1 {
 				{
 					p.SetState(113)
-					p.Match(MyGrammarParserT__0)
+					p.Match(AsaliLangGrammarParserT__0)
 					if p.HasError() {
 						// Recognition error - abort rule
 						goto errorExit
@@ -2597,13 +2597,13 @@ type ExprContext struct {
 func NewEmptyExprContext() *ExprContext {
 	var p = new(ExprContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_expr
+	p.RuleIndex = AsaliLangGrammarParserRULE_expr
 	return p
 }
 
 func InitEmptyExprContext(p *ExprContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_expr
+	p.RuleIndex = AsaliLangGrammarParserRULE_expr
 }
 
 func (*ExprContext) IsExprContext() {}
@@ -2614,7 +2614,7 @@ func NewExprContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_expr
+	p.RuleIndex = AsaliLangGrammarParserRULE_expr
 
 	return p
 }
@@ -2668,20 +2668,20 @@ func (s *MethodCallExprContext) MethodCall() IMethodCallContext {
 }
 
 func (s *MethodCallExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterMethodCallExpr(s)
 	}
 }
 
 func (s *MethodCallExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitMethodCallExpr(s)
 	}
 }
 
 func (s *MethodCallExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitMethodCallExpr(s)
 
 	default:
@@ -2708,7 +2708,7 @@ func (s *NotExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *NotExprContext) NOT() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserNOT, 0)
+	return s.GetToken(AsaliLangGrammarParserNOT, 0)
 }
 
 func (s *NotExprContext) Expr() IExprContext {
@@ -2728,20 +2728,20 @@ func (s *NotExprContext) Expr() IExprContext {
 }
 
 func (s *NotExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterNotExpr(s)
 	}
 }
 
 func (s *NotExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitNotExpr(s)
 	}
 }
 
 func (s *NotExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitNotExpr(s)
 
 	default:
@@ -2768,7 +2768,7 @@ func (s *UnaryMinusExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *UnaryMinusExprContext) MINUS() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserMINUS, 0)
+	return s.GetToken(AsaliLangGrammarParserMINUS, 0)
 }
 
 func (s *UnaryMinusExprContext) Expr() IExprContext {
@@ -2788,20 +2788,20 @@ func (s *UnaryMinusExprContext) Expr() IExprContext {
 }
 
 func (s *UnaryMinusExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterUnaryMinusExpr(s)
 	}
 }
 
 func (s *UnaryMinusExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitUnaryMinusExpr(s)
 	}
 }
 
 func (s *UnaryMinusExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitUnaryMinusExpr(s)
 
 	default:
@@ -2874,32 +2874,32 @@ func (s *MultiplicationExprContext) Expr(i int) IExprContext {
 }
 
 func (s *MultiplicationExprContext) MULT() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserMULT, 0)
+	return s.GetToken(AsaliLangGrammarParserMULT, 0)
 }
 
 func (s *MultiplicationExprContext) DIV() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserDIV, 0)
+	return s.GetToken(AsaliLangGrammarParserDIV, 0)
 }
 
 func (s *MultiplicationExprContext) MOD() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserMOD, 0)
+	return s.GetToken(AsaliLangGrammarParserMOD, 0)
 }
 
 func (s *MultiplicationExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterMultiplicationExpr(s)
 	}
 }
 
 func (s *MultiplicationExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitMultiplicationExpr(s)
 	}
 }
 
 func (s *MultiplicationExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitMultiplicationExpr(s)
 
 	default:
@@ -2942,20 +2942,20 @@ func (s *AtomExprContext) Atom() IAtomContext {
 }
 
 func (s *AtomExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterAtomExpr(s)
 	}
 }
 
 func (s *AtomExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitAtomExpr(s)
 	}
 }
 
 func (s *AtomExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitAtomExpr(s)
 
 	default:
@@ -3023,24 +3023,24 @@ func (s *OrExprContext) Expr(i int) IExprContext {
 }
 
 func (s *OrExprContext) OR() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserOR, 0)
+	return s.GetToken(AsaliLangGrammarParserOR, 0)
 }
 
 func (s *OrExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterOrExpr(s)
 	}
 }
 
 func (s *OrExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitOrExpr(s)
 	}
 }
 
 func (s *OrExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitOrExpr(s)
 
 	default:
@@ -3113,28 +3113,28 @@ func (s *AdditiveExprContext) Expr(i int) IExprContext {
 }
 
 func (s *AdditiveExprContext) PLUS() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserPLUS, 0)
+	return s.GetToken(AsaliLangGrammarParserPLUS, 0)
 }
 
 func (s *AdditiveExprContext) MINUS() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserMINUS, 0)
+	return s.GetToken(AsaliLangGrammarParserMINUS, 0)
 }
 
 func (s *AdditiveExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterAdditiveExpr(s)
 	}
 }
 
 func (s *AdditiveExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitAdditiveExpr(s)
 	}
 }
 
 func (s *AdditiveExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitAdditiveExpr(s)
 
 	default:
@@ -3202,24 +3202,24 @@ func (s *PowExprContext) Expr(i int) IExprContext {
 }
 
 func (s *PowExprContext) POW() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserPOW, 0)
+	return s.GetToken(AsaliLangGrammarParserPOW, 0)
 }
 
 func (s *PowExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterPowExpr(s)
 	}
 }
 
 func (s *PowExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitPowExpr(s)
 	}
 }
 
 func (s *PowExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitPowExpr(s)
 
 	default:
@@ -3292,36 +3292,36 @@ func (s *RelationalExprContext) Expr(i int) IExprContext {
 }
 
 func (s *RelationalExprContext) LTEQ() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserLTEQ, 0)
+	return s.GetToken(AsaliLangGrammarParserLTEQ, 0)
 }
 
 func (s *RelationalExprContext) GTEQ() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserGTEQ, 0)
+	return s.GetToken(AsaliLangGrammarParserGTEQ, 0)
 }
 
 func (s *RelationalExprContext) LT() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserLT, 0)
+	return s.GetToken(AsaliLangGrammarParserLT, 0)
 }
 
 func (s *RelationalExprContext) GT() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserGT, 0)
+	return s.GetToken(AsaliLangGrammarParserGT, 0)
 }
 
 func (s *RelationalExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterRelationalExpr(s)
 	}
 }
 
 func (s *RelationalExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitRelationalExpr(s)
 	}
 }
 
 func (s *RelationalExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitRelationalExpr(s)
 
 	default:
@@ -3394,28 +3394,28 @@ func (s *EqualityExprContext) Expr(i int) IExprContext {
 }
 
 func (s *EqualityExprContext) EQ() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserEQ, 0)
+	return s.GetToken(AsaliLangGrammarParserEQ, 0)
 }
 
 func (s *EqualityExprContext) NEQ() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserNEQ, 0)
+	return s.GetToken(AsaliLangGrammarParserNEQ, 0)
 }
 
 func (s *EqualityExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterEqualityExpr(s)
 	}
 }
 
 func (s *EqualityExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitEqualityExpr(s)
 	}
 }
 
 func (s *EqualityExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitEqualityExpr(s)
 
 	default:
@@ -3483,24 +3483,24 @@ func (s *AndExprContext) Expr(i int) IExprContext {
 }
 
 func (s *AndExprContext) AND() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserAND, 0)
+	return s.GetToken(AsaliLangGrammarParserAND, 0)
 }
 
 func (s *AndExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterAndExpr(s)
 	}
 }
 
 func (s *AndExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitAndExpr(s)
 	}
 }
 
 func (s *AndExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitAndExpr(s)
 
 	default:
@@ -3508,11 +3508,11 @@ func (s *AndExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Expr() (localctx IExprContext) {
+func (p *AsaliLangGrammarParser) Expr() (localctx IExprContext) {
 	return p.expr(0)
 }
 
-func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
+func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 	var _parentctx antlr.ParserRuleContext = p.GetParserRuleContext()
 
 	_parentState := p.GetState()
@@ -3520,7 +3520,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 	var _prevctx IExprContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
 	_startState := 26
-	p.EnterRecursionRule(localctx, 26, MyGrammarParserRULE_expr, _p)
+	p.EnterRecursionRule(localctx, 26, AsaliLangGrammarParserRULE_expr, _p)
 	var _la int
 
 	var _alt int
@@ -3549,7 +3549,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 		_prevctx = localctx
 		{
 			p.SetState(124)
-			p.Match(MyGrammarParserMINUS)
+			p.Match(AsaliLangGrammarParserMINUS)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -3566,7 +3566,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 		_prevctx = localctx
 		{
 			p.SetState(126)
-			p.Match(MyGrammarParserNOT)
+			p.Match(AsaliLangGrammarParserNOT)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -3614,7 +3614,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 			switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 9, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewPowExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(131)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 10)) {
@@ -3623,7 +3623,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(132)
-					p.Match(MyGrammarParserPOW)
+					p.Match(AsaliLangGrammarParserPOW)
 					if p.HasError() {
 						// Recognition error - abort rule
 						goto errorExit
@@ -3636,7 +3636,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 			case 2:
 				localctx = NewMultiplicationExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(134)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
@@ -3668,7 +3668,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 			case 3:
 				localctx = NewAdditiveExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(137)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
@@ -3684,7 +3684,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 					_la = p.GetTokenStream().LA(1)
 
-					if !(_la == MyGrammarParserPLUS || _la == MyGrammarParserMINUS) {
+					if !(_la == AsaliLangGrammarParserPLUS || _la == AsaliLangGrammarParserMINUS) {
 						var _ri = p.GetErrorHandler().RecoverInline(p)
 
 						localctx.(*AdditiveExprContext).op = _ri
@@ -3700,7 +3700,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 			case 4:
 				localctx = NewRelationalExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(140)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
@@ -3732,7 +3732,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 			case 5:
 				localctx = NewEqualityExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(143)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
@@ -3748,7 +3748,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 					_la = p.GetTokenStream().LA(1)
 
-					if !(_la == MyGrammarParserEQ || _la == MyGrammarParserNEQ) {
+					if !(_la == AsaliLangGrammarParserEQ || _la == AsaliLangGrammarParserNEQ) {
 						var _ri = p.GetErrorHandler().RecoverInline(p)
 
 						localctx.(*EqualityExprContext).op = _ri
@@ -3764,7 +3764,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 			case 6:
 				localctx = NewAndExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(146)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 3)) {
@@ -3773,7 +3773,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(147)
-					p.Match(MyGrammarParserAND)
+					p.Match(AsaliLangGrammarParserAND)
 					if p.HasError() {
 						// Recognition error - abort rule
 						goto errorExit
@@ -3786,7 +3786,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 
 			case 7:
 				localctx = NewOrExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyGrammarParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
 				p.SetState(149)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 2)) {
@@ -3795,7 +3795,7 @@ func (p *MyGrammarParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(150)
-					p.Match(MyGrammarParserOR)
+					p.Match(AsaliLangGrammarParserOR)
 					if p.HasError() {
 						// Recognition error - abort rule
 						goto errorExit
@@ -3853,13 +3853,13 @@ type AtomContext struct {
 func NewEmptyAtomContext() *AtomContext {
 	var p = new(AtomContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_atom
+	p.RuleIndex = AsaliLangGrammarParserRULE_atom
 	return p
 }
 
 func InitEmptyAtomContext(p *AtomContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = MyGrammarParserRULE_atom
+	p.RuleIndex = AsaliLangGrammarParserRULE_atom
 }
 
 func (*AtomContext) IsAtomContext() {}
@@ -3870,7 +3870,7 @@ func NewAtomContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MyGrammarParserRULE_atom
+	p.RuleIndex = AsaliLangGrammarParserRULE_atom
 
 	return p
 }
@@ -3908,7 +3908,7 @@ func (s *ParExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *ParExprContext) OPAR() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserOPAR, 0)
+	return s.GetToken(AsaliLangGrammarParserOPAR, 0)
 }
 
 func (s *ParExprContext) Expr() IExprContext {
@@ -3928,24 +3928,24 @@ func (s *ParExprContext) Expr() IExprContext {
 }
 
 func (s *ParExprContext) CPAR() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserCPAR, 0)
+	return s.GetToken(AsaliLangGrammarParserCPAR, 0)
 }
 
 func (s *ParExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterParExpr(s)
 	}
 }
 
 func (s *ParExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitParExpr(s)
 	}
 }
 
 func (s *ParExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitParExpr(s)
 
 	default:
@@ -3972,28 +3972,28 @@ func (s *BooleanAtomContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *BooleanAtomContext) TRUE() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserTRUE, 0)
+	return s.GetToken(AsaliLangGrammarParserTRUE, 0)
 }
 
 func (s *BooleanAtomContext) FALSE() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserFALSE, 0)
+	return s.GetToken(AsaliLangGrammarParserFALSE, 0)
 }
 
 func (s *BooleanAtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterBooleanAtom(s)
 	}
 }
 
 func (s *BooleanAtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitBooleanAtom(s)
 	}
 }
 
 func (s *BooleanAtomContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitBooleanAtom(s)
 
 	default:
@@ -4020,24 +4020,24 @@ func (s *IdAtomContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *IdAtomContext) ID() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserID, 0)
+	return s.GetToken(AsaliLangGrammarParserID, 0)
 }
 
 func (s *IdAtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterIdAtom(s)
 	}
 }
 
 func (s *IdAtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitIdAtom(s)
 	}
 }
 
 func (s *IdAtomContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitIdAtom(s)
 
 	default:
@@ -4064,24 +4064,24 @@ func (s *StringAtomContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *StringAtomContext) STRING() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserSTRING, 0)
+	return s.GetToken(AsaliLangGrammarParserSTRING, 0)
 }
 
 func (s *StringAtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterStringAtom(s)
 	}
 }
 
 func (s *StringAtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitStringAtom(s)
 	}
 }
 
 func (s *StringAtomContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitStringAtom(s)
 
 	default:
@@ -4108,24 +4108,24 @@ func (s *NilAtomContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *NilAtomContext) NIL() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserNIL, 0)
+	return s.GetToken(AsaliLangGrammarParserNIL, 0)
 }
 
 func (s *NilAtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterNilAtom(s)
 	}
 }
 
 func (s *NilAtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitNilAtom(s)
 	}
 }
 
 func (s *NilAtomContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitNilAtom(s)
 
 	default:
@@ -4152,28 +4152,28 @@ func (s *NumberAtomContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *NumberAtomContext) INT() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserINT, 0)
+	return s.GetToken(AsaliLangGrammarParserINT, 0)
 }
 
 func (s *NumberAtomContext) FLOAT() antlr.TerminalNode {
-	return s.GetToken(MyGrammarParserFLOAT, 0)
+	return s.GetToken(AsaliLangGrammarParserFLOAT, 0)
 }
 
 func (s *NumberAtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.EnterNumberAtom(s)
 	}
 }
 
 func (s *NumberAtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyGrammarListener); ok {
+	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
 		listenerT.ExitNumberAtom(s)
 	}
 }
 
 func (s *NumberAtomContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case MyGrammarVisitor:
+	case AsaliLangGrammarVisitor:
 		return t.VisitNumberAtom(s)
 
 	default:
@@ -4181,9 +4181,9 @@ func (s *NumberAtomContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *MyGrammarParser) Atom() (localctx IAtomContext) {
+func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 	localctx = NewAtomContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, MyGrammarParserRULE_atom)
+	p.EnterRule(localctx, 28, AsaliLangGrammarParserRULE_atom)
 	var _la int
 
 	p.SetState(166)
@@ -4193,12 +4193,12 @@ func (p *MyGrammarParser) Atom() (localctx IAtomContext) {
 	}
 
 	switch p.GetTokenStream().LA(1) {
-	case MyGrammarParserOPAR:
+	case AsaliLangGrammarParserOPAR:
 		localctx = NewParExprContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(157)
-			p.Match(MyGrammarParserOPAR)
+			p.Match(AsaliLangGrammarParserOPAR)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -4210,21 +4210,21 @@ func (p *MyGrammarParser) Atom() (localctx IAtomContext) {
 		}
 		{
 			p.SetState(159)
-			p.Match(MyGrammarParserCPAR)
+			p.Match(AsaliLangGrammarParserCPAR)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
 
-	case MyGrammarParserINT, MyGrammarParserFLOAT:
+	case AsaliLangGrammarParserINT, AsaliLangGrammarParserFLOAT:
 		localctx = NewNumberAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(161)
 			_la = p.GetTokenStream().LA(1)
 
-			if !(_la == MyGrammarParserINT || _la == MyGrammarParserFLOAT) {
+			if !(_la == AsaliLangGrammarParserINT || _la == AsaliLangGrammarParserFLOAT) {
 				p.GetErrorHandler().RecoverInline(p)
 			} else {
 				p.GetErrorHandler().ReportMatch(p)
@@ -4232,14 +4232,14 @@ func (p *MyGrammarParser) Atom() (localctx IAtomContext) {
 			}
 		}
 
-	case MyGrammarParserTRUE, MyGrammarParserFALSE:
+	case AsaliLangGrammarParserTRUE, AsaliLangGrammarParserFALSE:
 		localctx = NewBooleanAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(162)
 			_la = p.GetTokenStream().LA(1)
 
-			if !(_la == MyGrammarParserTRUE || _la == MyGrammarParserFALSE) {
+			if !(_la == AsaliLangGrammarParserTRUE || _la == AsaliLangGrammarParserFALSE) {
 				p.GetErrorHandler().RecoverInline(p)
 			} else {
 				p.GetErrorHandler().ReportMatch(p)
@@ -4247,36 +4247,36 @@ func (p *MyGrammarParser) Atom() (localctx IAtomContext) {
 			}
 		}
 
-	case MyGrammarParserID:
+	case AsaliLangGrammarParserID:
 		localctx = NewIdAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(163)
-			p.Match(MyGrammarParserID)
+			p.Match(AsaliLangGrammarParserID)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
 
-	case MyGrammarParserSTRING:
+	case AsaliLangGrammarParserSTRING:
 		localctx = NewStringAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
 			p.SetState(164)
-			p.Match(MyGrammarParserSTRING)
+			p.Match(AsaliLangGrammarParserSTRING)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
 
-	case MyGrammarParserNIL:
+	case AsaliLangGrammarParserNIL:
 		localctx = NewNilAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
 			p.SetState(165)
-			p.Match(MyGrammarParserNIL)
+			p.Match(AsaliLangGrammarParserNIL)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -4301,7 +4301,7 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-func (p *MyGrammarParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool {
+func (p *AsaliLangGrammarParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool {
 	switch ruleIndex {
 	case 13:
 		var t *ExprContext = nil
@@ -4315,7 +4315,7 @@ func (p *MyGrammarParser) Sempred(localctx antlr.RuleContext, ruleIndex, predInd
 	}
 }
 
-func (p *MyGrammarParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
+func (p *AsaliLangGrammarParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
 		return p.Precpred(p.GetParserRuleContext(), 10)

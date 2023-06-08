@@ -1,10 +1,10 @@
-// Code generated from MyGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
-package parsing // MyGrammar
+package parsing // AsaliLangGrammar
 import "github.com/antlr4-go/antlr/v4"
 
-// MyGrammarListener is a complete listener for a parse tree produced by MyGrammarParser.
-type MyGrammarListener interface {
+// AsaliLangGrammarListener is a complete listener for a parse tree produced by AsaliLangGrammarParser.
+type AsaliLangGrammarListener interface {
 	antlr.ParseTreeListener
 
 	// EnterParse is called when entering the parse production.

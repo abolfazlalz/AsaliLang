@@ -1,4 +1,4 @@
-grammar MyGrammar;
+grammar AsaliLangGrammar;
 
 parse
  : block EOF
