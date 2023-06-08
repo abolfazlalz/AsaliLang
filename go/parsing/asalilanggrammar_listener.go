@@ -22,11 +22,11 @@ type AsaliLangGrammarListener interface {
 	// EnterIfStat is called when entering the ifStat production.
 	EnterIfStat(c *IfStatContext)
 
-	// EnterCondition_block is called when entering the condition_block production.
-	EnterCondition_block(c *Condition_blockContext)
+	// EnterConditionBlock is called when entering the conditionBlock production.
+	EnterConditionBlock(c *ConditionBlockContext)
 
-	// EnterStat_block is called when entering the stat_block production.
-	EnterStat_block(c *Stat_blockContext)
+	// EnterStatBlock is called when entering the statBlock production.
+	EnterStatBlock(c *StatBlockContext)
 
 	// EnterWhileStat is called when entering the whileStat production.
 	EnterWhileStat(c *WhileStatContext)
@@ -115,11 +115,11 @@ type AsaliLangGrammarListener interface {
 	// ExitIfStat is called when exiting the ifStat production.
 	ExitIfStat(c *IfStatContext)
 
-	// ExitCondition_block is called when exiting the condition_block production.
-	ExitCondition_block(c *Condition_blockContext)
+	// ExitConditionBlock is called when exiting the conditionBlock production.
+	ExitConditionBlock(c *ConditionBlockContext)
 
-	// ExitStat_block is called when exiting the stat_block production.
-	ExitStat_block(c *Stat_blockContext)
+	// ExitStatBlock is called when exiting the statBlock production.
+	ExitStatBlock(c *StatBlockContext)
 
 	// ExitWhileStat is called when exiting the whileStat production.
 	ExitWhileStat(c *WhileStatContext)

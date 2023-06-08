@@ -42,92 +42,90 @@ func asalilanggrammarParserInit() {
 		"MINUS", "MULT", "DIV", "MOD", "POW", "NOT", "SCOL", "COL", "ASSIGN",
 		"OPAR", "CPAR", "OBRACE", "CBRACE", "BEGIN", "END", "DO", "THEN", "TRUE",
 		"FALSE", "NIL", "IF", "ELSE", "WHILE", "FOR", "LOOP", "ID", "INT", "FLOAT",
-		"STRING", "COMMENT", "SPACE", "OTHER",
+		"STRING", "COMMENT", "SPACE",
 	}
 	staticData.RuleNames = []string{
-		"parse", "block", "stat", "assignment", "ifStat", "condition_block",
-		"stat_block", "whileStat", "forStat", "loopStat", "methodCallStat",
-		"methodCall", "inlineMethodCall", "methodCallArguments", "expr", "atom",
+		"parse", "block", "stat", "assignment", "ifStat", "conditionBlock",
+		"statBlock", "whileStat", "forStat", "loopStat", "methodCallStat", "methodCall",
+		"inlineMethodCall", "methodCallArguments", "expr", "atom",
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 42, 176, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 41, 174, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
 		10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 2, 15, 7, 15,
 		1, 0, 1, 0, 1, 0, 1, 1, 5, 1, 37, 8, 1, 10, 1, 12, 1, 40, 9, 1, 1, 2, 1,
-		2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 50, 8, 2, 1, 3, 1, 3, 1, 3,
-		1, 3, 1, 3, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 5, 4, 62, 8, 4, 10, 4, 12, 4,
-		65, 9, 4, 1, 4, 1, 4, 3, 4, 69, 8, 4, 1, 5, 1, 5, 1, 5, 1, 6, 1, 6, 1,
-		6, 1, 6, 1, 6, 3, 6, 79, 8, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6,
-		3, 6, 88, 8, 6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 1, 8, 1, 8, 1,
-		8, 1, 8, 1, 8, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10,
-		1, 11, 1, 11, 1, 11, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 13, 1, 13, 1,
-		13, 1, 13, 5, 13, 123, 8, 13, 10, 13, 12, 13, 126, 9, 13, 3, 13, 128, 8,
-		13, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 3, 14, 137, 8, 14,
+		2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 48, 8, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3,
+		1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 5, 4, 60, 8, 4, 10, 4, 12, 4, 63, 9, 4, 1,
+		4, 1, 4, 3, 4, 67, 8, 4, 1, 5, 1, 5, 1, 5, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6,
+		3, 6, 77, 8, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 3, 6, 86, 8,
+		6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 1, 8, 1, 8, 1, 8, 1, 8, 1,
+		8, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10, 1, 11, 1, 11,
+		1, 11, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 13, 1, 13, 1, 13, 1, 13, 5,
+		13, 121, 8, 13, 10, 13, 12, 13, 124, 9, 13, 3, 13, 126, 8, 13, 1, 14, 1,
+		14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 3, 14, 135, 8, 14, 1, 14, 1, 14,
 		1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1,
-		14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14,
-		5, 14, 160, 8, 14, 10, 14, 12, 14, 163, 9, 14, 1, 15, 1, 15, 1, 15, 1,
-		15, 1, 15, 1, 15, 1, 15, 1, 15, 1, 15, 3, 15, 174, 8, 15, 1, 15, 0, 1,
-		28, 16, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 0, 6,
-		1, 0, 12, 14, 1, 0, 10, 11, 1, 0, 6, 9, 1, 0, 4, 5, 1, 0, 37, 38, 1, 0,
-		28, 29, 189, 0, 32, 1, 0, 0, 0, 2, 38, 1, 0, 0, 0, 4, 49, 1, 0, 0, 0, 6,
-		51, 1, 0, 0, 0, 8, 56, 1, 0, 0, 0, 10, 70, 1, 0, 0, 0, 12, 87, 1, 0, 0,
-		0, 14, 89, 1, 0, 0, 0, 16, 93, 1, 0, 0, 0, 18, 101, 1, 0, 0, 0, 20, 107,
-		1, 0, 0, 0, 22, 110, 1, 0, 0, 0, 24, 113, 1, 0, 0, 0, 26, 127, 1, 0, 0,
-		0, 28, 136, 1, 0, 0, 0, 30, 173, 1, 0, 0, 0, 32, 33, 3, 2, 1, 0, 33, 34,
-		5, 0, 0, 1, 34, 1, 1, 0, 0, 0, 35, 37, 3, 4, 2, 0, 36, 35, 1, 0, 0, 0,
-		37, 40, 1, 0, 0, 0, 38, 36, 1, 0, 0, 0, 38, 39, 1, 0, 0, 0, 39, 3, 1, 0,
-		0, 0, 40, 38, 1, 0, 0, 0, 41, 50, 3, 6, 3, 0, 42, 50, 3, 8, 4, 0, 43, 50,
-		3, 14, 7, 0, 44, 50, 3, 20, 10, 0, 45, 50, 3, 16, 8, 0, 46, 50, 3, 18,
-		9, 0, 47, 48, 5, 42, 0, 0, 48, 50, 6, 2, -1, 0, 49, 41, 1, 0, 0, 0, 49,
-		42, 1, 0, 0, 0, 49, 43, 1, 0, 0, 0, 49, 44, 1, 0, 0, 0, 49, 45, 1, 0, 0,
-		0, 49, 46, 1, 0, 0, 0, 49, 47, 1, 0, 0, 0, 50, 5, 1, 0, 0, 0, 51, 52, 5,
-		36, 0, 0, 52, 53, 5, 19, 0, 0, 53, 54, 3, 28, 14, 0, 54, 55, 5, 17, 0,
-		0, 55, 7, 1, 0, 0, 0, 56, 57, 5, 31, 0, 0, 57, 63, 3, 10, 5, 0, 58, 59,
-		5, 32, 0, 0, 59, 60, 5, 31, 0, 0, 60, 62, 3, 10, 5, 0, 61, 58, 1, 0, 0,
-		0, 62, 65, 1, 0, 0, 0, 63, 61, 1, 0, 0, 0, 63, 64, 1, 0, 0, 0, 64, 68,
-		1, 0, 0, 0, 65, 63, 1, 0, 0, 0, 66, 67, 5, 32, 0, 0, 67, 69, 3, 12, 6,
-		0, 68, 66, 1, 0, 0, 0, 68, 69, 1, 0, 0, 0, 69, 9, 1, 0, 0, 0, 70, 71, 3,
-		28, 14, 0, 71, 72, 3, 12, 6, 0, 72, 11, 1, 0, 0, 0, 73, 74, 5, 22, 0, 0,
-		74, 75, 3, 2, 1, 0, 75, 76, 5, 23, 0, 0, 76, 88, 1, 0, 0, 0, 77, 79, 5,
-		26, 0, 0, 78, 77, 1, 0, 0, 0, 78, 79, 1, 0, 0, 0, 79, 80, 1, 0, 0, 0, 80,
-		81, 5, 24, 0, 0, 81, 82, 3, 2, 1, 0, 82, 83, 5, 25, 0, 0, 83, 88, 1, 0,
-		0, 0, 84, 88, 3, 4, 2, 0, 85, 86, 5, 27, 0, 0, 86, 88, 3, 2, 1, 0, 87,
-		73, 1, 0, 0, 0, 87, 78, 1, 0, 0, 0, 87, 84, 1, 0, 0, 0, 87, 85, 1, 0, 0,
-		0, 88, 13, 1, 0, 0, 0, 89, 90, 5, 33, 0, 0, 90, 91, 3, 28, 14, 0, 91, 92,
-		3, 12, 6, 0, 92, 15, 1, 0, 0, 0, 93, 94, 5, 34, 0, 0, 94, 95, 5, 36, 0,
-		0, 95, 96, 5, 19, 0, 0, 96, 97, 3, 28, 14, 0, 97, 98, 5, 18, 0, 0, 98,
-		99, 3, 28, 14, 0, 99, 100, 3, 12, 6, 0, 100, 17, 1, 0, 0, 0, 101, 102,
-		5, 35, 0, 0, 102, 103, 5, 36, 0, 0, 103, 104, 5, 18, 0, 0, 104, 105, 3,
-		28, 14, 0, 105, 106, 3, 12, 6, 0, 106, 19, 1, 0, 0, 0, 107, 108, 3, 22,
-		11, 0, 108, 109, 5, 17, 0, 0, 109, 21, 1, 0, 0, 0, 110, 111, 5, 36, 0,
-		0, 111, 112, 3, 26, 13, 0, 112, 23, 1, 0, 0, 0, 113, 114, 5, 36, 0, 0,
-		114, 115, 5, 20, 0, 0, 115, 116, 3, 26, 13, 0, 116, 117, 5, 21, 0, 0, 117,
-		25, 1, 0, 0, 0, 118, 128, 1, 0, 0, 0, 119, 124, 3, 28, 14, 0, 120, 121,
-		5, 1, 0, 0, 121, 123, 3, 28, 14, 0, 122, 120, 1, 0, 0, 0, 123, 126, 1,
-		0, 0, 0, 124, 122, 1, 0, 0, 0, 124, 125, 1, 0, 0, 0, 125, 128, 1, 0, 0,
-		0, 126, 124, 1, 0, 0, 0, 127, 118, 1, 0, 0, 0, 127, 119, 1, 0, 0, 0, 128,
-		27, 1, 0, 0, 0, 129, 130, 6, 14, -1, 0, 130, 137, 3, 24, 12, 0, 131, 132,
-		5, 11, 0, 0, 132, 137, 3, 28, 14, 9, 133, 134, 5, 16, 0, 0, 134, 137, 3,
-		28, 14, 8, 135, 137, 3, 30, 15, 0, 136, 129, 1, 0, 0, 0, 136, 131, 1, 0,
-		0, 0, 136, 133, 1, 0, 0, 0, 136, 135, 1, 0, 0, 0, 137, 161, 1, 0, 0, 0,
-		138, 139, 10, 10, 0, 0, 139, 140, 5, 15, 0, 0, 140, 160, 3, 28, 14, 10,
-		141, 142, 10, 7, 0, 0, 142, 143, 7, 0, 0, 0, 143, 160, 3, 28, 14, 8, 144,
-		145, 10, 6, 0, 0, 145, 146, 7, 1, 0, 0, 146, 160, 3, 28, 14, 7, 147, 148,
-		10, 5, 0, 0, 148, 149, 7, 2, 0, 0, 149, 160, 3, 28, 14, 6, 150, 151, 10,
-		4, 0, 0, 151, 152, 7, 3, 0, 0, 152, 160, 3, 28, 14, 5, 153, 154, 10, 3,
-		0, 0, 154, 155, 5, 3, 0, 0, 155, 160, 3, 28, 14, 4, 156, 157, 10, 2, 0,
-		0, 157, 158, 5, 2, 0, 0, 158, 160, 3, 28, 14, 3, 159, 138, 1, 0, 0, 0,
-		159, 141, 1, 0, 0, 0, 159, 144, 1, 0, 0, 0, 159, 147, 1, 0, 0, 0, 159,
-		150, 1, 0, 0, 0, 159, 153, 1, 0, 0, 0, 159, 156, 1, 0, 0, 0, 160, 163,
-		1, 0, 0, 0, 161, 159, 1, 0, 0, 0, 161, 162, 1, 0, 0, 0, 162, 29, 1, 0,
-		0, 0, 163, 161, 1, 0, 0, 0, 164, 165, 5, 20, 0, 0, 165, 166, 3, 28, 14,
-		0, 166, 167, 5, 21, 0, 0, 167, 174, 1, 0, 0, 0, 168, 174, 7, 4, 0, 0, 169,
-		174, 7, 5, 0, 0, 170, 174, 5, 36, 0, 0, 171, 174, 5, 39, 0, 0, 172, 174,
-		5, 30, 0, 0, 173, 164, 1, 0, 0, 0, 173, 168, 1, 0, 0, 0, 173, 169, 1, 0,
-		0, 0, 173, 170, 1, 0, 0, 0, 173, 171, 1, 0, 0, 0, 173, 172, 1, 0, 0, 0,
-		174, 31, 1, 0, 0, 0, 12, 38, 49, 63, 68, 78, 87, 124, 127, 136, 159, 161,
-		173,
+		14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 5, 14, 158,
+		8, 14, 10, 14, 12, 14, 161, 9, 14, 1, 15, 1, 15, 1, 15, 1, 15, 1, 15, 1,
+		15, 1, 15, 1, 15, 1, 15, 3, 15, 172, 8, 15, 1, 15, 0, 1, 28, 16, 0, 2,
+		4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 0, 6, 1, 0, 12, 14,
+		1, 0, 10, 11, 1, 0, 6, 9, 1, 0, 4, 5, 1, 0, 37, 38, 1, 0, 28, 29, 186,
+		0, 32, 1, 0, 0, 0, 2, 38, 1, 0, 0, 0, 4, 47, 1, 0, 0, 0, 6, 49, 1, 0, 0,
+		0, 8, 54, 1, 0, 0, 0, 10, 68, 1, 0, 0, 0, 12, 85, 1, 0, 0, 0, 14, 87, 1,
+		0, 0, 0, 16, 91, 1, 0, 0, 0, 18, 99, 1, 0, 0, 0, 20, 105, 1, 0, 0, 0, 22,
+		108, 1, 0, 0, 0, 24, 111, 1, 0, 0, 0, 26, 125, 1, 0, 0, 0, 28, 134, 1,
+		0, 0, 0, 30, 171, 1, 0, 0, 0, 32, 33, 3, 2, 1, 0, 33, 34, 5, 0, 0, 1, 34,
+		1, 1, 0, 0, 0, 35, 37, 3, 4, 2, 0, 36, 35, 1, 0, 0, 0, 37, 40, 1, 0, 0,
+		0, 38, 36, 1, 0, 0, 0, 38, 39, 1, 0, 0, 0, 39, 3, 1, 0, 0, 0, 40, 38, 1,
+		0, 0, 0, 41, 48, 3, 6, 3, 0, 42, 48, 3, 8, 4, 0, 43, 48, 3, 14, 7, 0, 44,
+		48, 3, 20, 10, 0, 45, 48, 3, 16, 8, 0, 46, 48, 3, 18, 9, 0, 47, 41, 1,
+		0, 0, 0, 47, 42, 1, 0, 0, 0, 47, 43, 1, 0, 0, 0, 47, 44, 1, 0, 0, 0, 47,
+		45, 1, 0, 0, 0, 47, 46, 1, 0, 0, 0, 48, 5, 1, 0, 0, 0, 49, 50, 5, 36, 0,
+		0, 50, 51, 5, 19, 0, 0, 51, 52, 3, 28, 14, 0, 52, 53, 5, 17, 0, 0, 53,
+		7, 1, 0, 0, 0, 54, 55, 5, 31, 0, 0, 55, 61, 3, 10, 5, 0, 56, 57, 5, 32,
+		0, 0, 57, 58, 5, 31, 0, 0, 58, 60, 3, 10, 5, 0, 59, 56, 1, 0, 0, 0, 60,
+		63, 1, 0, 0, 0, 61, 59, 1, 0, 0, 0, 61, 62, 1, 0, 0, 0, 62, 66, 1, 0, 0,
+		0, 63, 61, 1, 0, 0, 0, 64, 65, 5, 32, 0, 0, 65, 67, 3, 12, 6, 0, 66, 64,
+		1, 0, 0, 0, 66, 67, 1, 0, 0, 0, 67, 9, 1, 0, 0, 0, 68, 69, 3, 28, 14, 0,
+		69, 70, 3, 12, 6, 0, 70, 11, 1, 0, 0, 0, 71, 72, 5, 22, 0, 0, 72, 73, 3,
+		2, 1, 0, 73, 74, 5, 23, 0, 0, 74, 86, 1, 0, 0, 0, 75, 77, 5, 26, 0, 0,
+		76, 75, 1, 0, 0, 0, 76, 77, 1, 0, 0, 0, 77, 78, 1, 0, 0, 0, 78, 79, 5,
+		24, 0, 0, 79, 80, 3, 2, 1, 0, 80, 81, 5, 25, 0, 0, 81, 86, 1, 0, 0, 0,
+		82, 86, 3, 4, 2, 0, 83, 84, 5, 27, 0, 0, 84, 86, 3, 2, 1, 0, 85, 71, 1,
+		0, 0, 0, 85, 76, 1, 0, 0, 0, 85, 82, 1, 0, 0, 0, 85, 83, 1, 0, 0, 0, 86,
+		13, 1, 0, 0, 0, 87, 88, 5, 33, 0, 0, 88, 89, 3, 28, 14, 0, 89, 90, 3, 12,
+		6, 0, 90, 15, 1, 0, 0, 0, 91, 92, 5, 34, 0, 0, 92, 93, 5, 36, 0, 0, 93,
+		94, 5, 19, 0, 0, 94, 95, 3, 28, 14, 0, 95, 96, 5, 18, 0, 0, 96, 97, 3,
+		28, 14, 0, 97, 98, 3, 12, 6, 0, 98, 17, 1, 0, 0, 0, 99, 100, 5, 35, 0,
+		0, 100, 101, 5, 36, 0, 0, 101, 102, 5, 18, 0, 0, 102, 103, 3, 28, 14, 0,
+		103, 104, 3, 12, 6, 0, 104, 19, 1, 0, 0, 0, 105, 106, 3, 22, 11, 0, 106,
+		107, 5, 17, 0, 0, 107, 21, 1, 0, 0, 0, 108, 109, 5, 36, 0, 0, 109, 110,
+		3, 26, 13, 0, 110, 23, 1, 0, 0, 0, 111, 112, 5, 36, 0, 0, 112, 113, 5,
+		20, 0, 0, 113, 114, 3, 26, 13, 0, 114, 115, 5, 21, 0, 0, 115, 25, 1, 0,
+		0, 0, 116, 126, 1, 0, 0, 0, 117, 122, 3, 28, 14, 0, 118, 119, 5, 1, 0,
+		0, 119, 121, 3, 28, 14, 0, 120, 118, 1, 0, 0, 0, 121, 124, 1, 0, 0, 0,
+		122, 120, 1, 0, 0, 0, 122, 123, 1, 0, 0, 0, 123, 126, 1, 0, 0, 0, 124,
+		122, 1, 0, 0, 0, 125, 116, 1, 0, 0, 0, 125, 117, 1, 0, 0, 0, 126, 27, 1,
+		0, 0, 0, 127, 128, 6, 14, -1, 0, 128, 135, 3, 24, 12, 0, 129, 130, 5, 11,
+		0, 0, 130, 135, 3, 28, 14, 9, 131, 132, 5, 16, 0, 0, 132, 135, 3, 28, 14,
+		8, 133, 135, 3, 30, 15, 0, 134, 127, 1, 0, 0, 0, 134, 129, 1, 0, 0, 0,
+		134, 131, 1, 0, 0, 0, 134, 133, 1, 0, 0, 0, 135, 159, 1, 0, 0, 0, 136,
+		137, 10, 10, 0, 0, 137, 138, 5, 15, 0, 0, 138, 158, 3, 28, 14, 10, 139,
+		140, 10, 7, 0, 0, 140, 141, 7, 0, 0, 0, 141, 158, 3, 28, 14, 8, 142, 143,
+		10, 6, 0, 0, 143, 144, 7, 1, 0, 0, 144, 158, 3, 28, 14, 7, 145, 146, 10,
+		5, 0, 0, 146, 147, 7, 2, 0, 0, 147, 158, 3, 28, 14, 6, 148, 149, 10, 4,
+		0, 0, 149, 150, 7, 3, 0, 0, 150, 158, 3, 28, 14, 5, 151, 152, 10, 3, 0,
+		0, 152, 153, 5, 3, 0, 0, 153, 158, 3, 28, 14, 4, 154, 155, 10, 2, 0, 0,
+		155, 156, 5, 2, 0, 0, 156, 158, 3, 28, 14, 3, 157, 136, 1, 0, 0, 0, 157,
+		139, 1, 0, 0, 0, 157, 142, 1, 0, 0, 0, 157, 145, 1, 0, 0, 0, 157, 148,
+		1, 0, 0, 0, 157, 151, 1, 0, 0, 0, 157, 154, 1, 0, 0, 0, 158, 161, 1, 0,
+		0, 0, 159, 157, 1, 0, 0, 0, 159, 160, 1, 0, 0, 0, 160, 29, 1, 0, 0, 0,
+		161, 159, 1, 0, 0, 0, 162, 163, 5, 20, 0, 0, 163, 164, 3, 28, 14, 0, 164,
+		165, 5, 21, 0, 0, 165, 172, 1, 0, 0, 0, 166, 172, 7, 4, 0, 0, 167, 172,
+		7, 5, 0, 0, 168, 172, 5, 36, 0, 0, 169, 172, 5, 39, 0, 0, 170, 172, 5,
+		30, 0, 0, 171, 162, 1, 0, 0, 0, 171, 166, 1, 0, 0, 0, 171, 167, 1, 0, 0,
+		0, 171, 168, 1, 0, 0, 0, 171, 169, 1, 0, 0, 0, 171, 170, 1, 0, 0, 0, 172,
+		31, 1, 0, 0, 0, 12, 38, 47, 61, 66, 76, 85, 122, 125, 134, 157, 159, 171,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -207,7 +205,6 @@ const (
 	AsaliLangGrammarParserSTRING  = 39
 	AsaliLangGrammarParserCOMMENT = 40
 	AsaliLangGrammarParserSPACE   = 41
-	AsaliLangGrammarParserOTHER   = 42
 )
 
 // AsaliLangGrammarParser rules.
@@ -217,8 +214,8 @@ const (
 	AsaliLangGrammarParserRULE_stat                = 2
 	AsaliLangGrammarParserRULE_assignment          = 3
 	AsaliLangGrammarParserRULE_ifStat              = 4
-	AsaliLangGrammarParserRULE_condition_block     = 5
-	AsaliLangGrammarParserRULE_stat_block          = 6
+	AsaliLangGrammarParserRULE_conditionBlock      = 5
+	AsaliLangGrammarParserRULE_statBlock           = 6
 	AsaliLangGrammarParserRULE_whileStat           = 7
 	AsaliLangGrammarParserRULE_forStat             = 8
 	AsaliLangGrammarParserRULE_loopStat            = 9
@@ -529,12 +526,6 @@ type IStatContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// Get_OTHER returns the _OTHER token.
-	Get_OTHER() antlr.Token
-
-	// Set_OTHER sets the _OTHER token.
-	Set_OTHER(antlr.Token)
-
 	// Getter signatures
 	Assignment() IAssignmentContext
 	IfStat() IIfStatContext
@@ -542,7 +533,6 @@ type IStatContext interface {
 	MethodCallStat() IMethodCallStatContext
 	ForStat() IForStatContext
 	LoopStat() ILoopStatContext
-	OTHER() antlr.TerminalNode
 
 	// IsStatContext differentiates from other interfaces.
 	IsStatContext()
@@ -551,7 +541,6 @@ type IStatContext interface {
 type StatContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
-	_OTHER antlr.Token
 }
 
 func NewEmptyStatContext() *StatContext {
@@ -580,10 +569,6 @@ func NewStatContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 }
 
 func (s *StatContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *StatContext) Get_OTHER() antlr.Token { return s._OTHER }
-
-func (s *StatContext) Set_OTHER(v antlr.Token) { s._OTHER = v }
 
 func (s *StatContext) Assignment() IAssignmentContext {
 	var t antlr.RuleContext
@@ -681,10 +666,6 @@ func (s *StatContext) LoopStat() ILoopStatContext {
 	return t.(ILoopStatContext)
 }
 
-func (s *StatContext) OTHER() antlr.TerminalNode {
-	return s.GetToken(AsaliLangGrammarParserOTHER, 0)
-}
-
 func (s *StatContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -718,7 +699,7 @@ func (s *StatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 func (p *AsaliLangGrammarParser) Stat() (localctx IStatContext) {
 	localctx = NewStatContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 4, AsaliLangGrammarParserRULE_stat)
-	p.SetState(49)
+	p.SetState(47)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -766,27 +747,6 @@ func (p *AsaliLangGrammarParser) Stat() (localctx IStatContext) {
 			p.SetState(46)
 			p.LoopStat()
 		}
-
-	case 7:
-		p.EnterOuterAlt(localctx, 7)
-		{
-			p.SetState(47)
-
-			var _m = p.Match(AsaliLangGrammarParserOTHER)
-
-			localctx.(*StatContext)._OTHER = _m
-			if p.HasError() {
-				// Recognition error - abort rule
-				goto errorExit
-			}
-		}
-		fmt.Println("unknown char: " + (func() string {
-			if localctx.(*StatContext).Get_OTHER() == nil {
-				return ""
-			} else {
-				return localctx.(*StatContext).Get_OTHER().GetText()
-			}
-		}()))
 
 	case antlr.ATNInvalidAltNumber:
 		goto errorExit
@@ -917,7 +877,7 @@ func (p *AsaliLangGrammarParser) Assignment() (localctx IAssignmentContext) {
 	p.EnterRule(localctx, 6, AsaliLangGrammarParserRULE_assignment)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(51)
+		p.SetState(49)
 		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -925,7 +885,7 @@ func (p *AsaliLangGrammarParser) Assignment() (localctx IAssignmentContext) {
 		}
 	}
 	{
-		p.SetState(52)
+		p.SetState(50)
 		p.Match(AsaliLangGrammarParserASSIGN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -933,11 +893,11 @@ func (p *AsaliLangGrammarParser) Assignment() (localctx IAssignmentContext) {
 		}
 	}
 	{
-		p.SetState(53)
+		p.SetState(51)
 		p.expr(0)
 	}
 	{
-		p.SetState(54)
+		p.SetState(52)
 		p.Match(AsaliLangGrammarParserSCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -968,11 +928,11 @@ type IIfStatContext interface {
 	// Getter signatures
 	AllIF() []antlr.TerminalNode
 	IF(i int) antlr.TerminalNode
-	AllCondition_block() []ICondition_blockContext
-	Condition_block(i int) ICondition_blockContext
+	AllConditionBlock() []IConditionBlockContext
+	ConditionBlock(i int) IConditionBlockContext
 	AllELSE() []antlr.TerminalNode
 	ELSE(i int) antlr.TerminalNode
-	Stat_block() IStat_blockContext
+	StatBlock() IStatBlockContext
 
 	// IsIfStatContext differentiates from other interfaces.
 	IsIfStatContext()
@@ -1018,20 +978,20 @@ func (s *IfStatContext) IF(i int) antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserIF, i)
 }
 
-func (s *IfStatContext) AllCondition_block() []ICondition_blockContext {
+func (s *IfStatContext) AllConditionBlock() []IConditionBlockContext {
 	children := s.GetChildren()
 	len := 0
 	for _, ctx := range children {
-		if _, ok := ctx.(ICondition_blockContext); ok {
+		if _, ok := ctx.(IConditionBlockContext); ok {
 			len++
 		}
 	}
 
-	tst := make([]ICondition_blockContext, len)
+	tst := make([]IConditionBlockContext, len)
 	i := 0
 	for _, ctx := range children {
-		if t, ok := ctx.(ICondition_blockContext); ok {
-			tst[i] = t.(ICondition_blockContext)
+		if t, ok := ctx.(IConditionBlockContext); ok {
+			tst[i] = t.(IConditionBlockContext)
 			i++
 		}
 	}
@@ -1039,11 +999,11 @@ func (s *IfStatContext) AllCondition_block() []ICondition_blockContext {
 	return tst
 }
 
-func (s *IfStatContext) Condition_block(i int) ICondition_blockContext {
+func (s *IfStatContext) ConditionBlock(i int) IConditionBlockContext {
 	var t antlr.RuleContext
 	j := 0
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(ICondition_blockContext); ok {
+		if _, ok := ctx.(IConditionBlockContext); ok {
 			if j == i {
 				t = ctx.(antlr.RuleContext)
 				break
@@ -1056,7 +1016,7 @@ func (s *IfStatContext) Condition_block(i int) ICondition_blockContext {
 		return nil
 	}
 
-	return t.(ICondition_blockContext)
+	return t.(IConditionBlockContext)
 }
 
 func (s *IfStatContext) AllELSE() []antlr.TerminalNode {
@@ -1067,10 +1027,10 @@ func (s *IfStatContext) ELSE(i int) antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserELSE, i)
 }
 
-func (s *IfStatContext) Stat_block() IStat_blockContext {
+func (s *IfStatContext) StatBlock() IStatBlockContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStat_blockContext); ok {
+		if _, ok := ctx.(IStatBlockContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -1080,7 +1040,7 @@ func (s *IfStatContext) Stat_block() IStat_blockContext {
 		return nil
 	}
 
-	return t.(IStat_blockContext)
+	return t.(IStatBlockContext)
 }
 
 func (s *IfStatContext) GetRuleContext() antlr.RuleContext {
@@ -1120,7 +1080,7 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(56)
+		p.SetState(54)
 		p.Match(AsaliLangGrammarParserIF)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1128,10 +1088,10 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 		}
 	}
 	{
-		p.SetState(57)
-		p.Condition_block()
+		p.SetState(55)
+		p.ConditionBlock()
 	}
-	p.SetState(63)
+	p.SetState(61)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1143,7 +1103,7 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
 			{
-				p.SetState(58)
+				p.SetState(56)
 				p.Match(AsaliLangGrammarParserELSE)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -1151,7 +1111,7 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 				}
 			}
 			{
-				p.SetState(59)
+				p.SetState(57)
 				p.Match(AsaliLangGrammarParserIF)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -1159,12 +1119,12 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 				}
 			}
 			{
-				p.SetState(60)
-				p.Condition_block()
+				p.SetState(58)
+				p.ConditionBlock()
 			}
 
 		}
-		p.SetState(65)
+		p.SetState(63)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1174,12 +1134,12 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 			goto errorExit
 		}
 	}
-	p.SetState(68)
+	p.SetState(66)
 	p.GetErrorHandler().Sync(p)
 
 	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 3, p.GetParserRuleContext()) == 1 {
 		{
-			p.SetState(66)
+			p.SetState(64)
 			p.Match(AsaliLangGrammarParserELSE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1187,8 +1147,8 @@ func (p *AsaliLangGrammarParser) IfStat() (localctx IIfStatContext) {
 			}
 		}
 		{
-			p.SetState(67)
-			p.Stat_block()
+			p.SetState(65)
+			p.StatBlock()
 		}
 
 	} else if p.HasError() { // JIM
@@ -1208,8 +1168,8 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-// ICondition_blockContext is an interface to support dynamic dispatch.
-type ICondition_blockContext interface {
+// IConditionBlockContext is an interface to support dynamic dispatch.
+type IConditionBlockContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -1217,45 +1177,45 @@ type ICondition_blockContext interface {
 
 	// Getter signatures
 	Expr() IExprContext
-	Stat_block() IStat_blockContext
+	StatBlock() IStatBlockContext
 
-	// IsCondition_blockContext differentiates from other interfaces.
-	IsCondition_blockContext()
+	// IsConditionBlockContext differentiates from other interfaces.
+	IsConditionBlockContext()
 }
 
-type Condition_blockContext struct {
+type ConditionBlockContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyCondition_blockContext() *Condition_blockContext {
-	var p = new(Condition_blockContext)
+func NewEmptyConditionBlockContext() *ConditionBlockContext {
+	var p = new(ConditionBlockContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = AsaliLangGrammarParserRULE_condition_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_conditionBlock
 	return p
 }
 
-func InitEmptyCondition_blockContext(p *Condition_blockContext) {
+func InitEmptyConditionBlockContext(p *ConditionBlockContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = AsaliLangGrammarParserRULE_condition_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_conditionBlock
 }
 
-func (*Condition_blockContext) IsCondition_blockContext() {}
+func (*ConditionBlockContext) IsConditionBlockContext() {}
 
-func NewCondition_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Condition_blockContext {
-	var p = new(Condition_blockContext)
+func NewConditionBlockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ConditionBlockContext {
+	var p = new(ConditionBlockContext)
 
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AsaliLangGrammarParserRULE_condition_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_conditionBlock
 
 	return p
 }
 
-func (s *Condition_blockContext) GetParser() antlr.Parser { return s.parser }
+func (s *ConditionBlockContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Condition_blockContext) Expr() IExprContext {
+func (s *ConditionBlockContext) Expr() IExprContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
 		if _, ok := ctx.(IExprContext); ok {
@@ -1271,10 +1231,10 @@ func (s *Condition_blockContext) Expr() IExprContext {
 	return t.(IExprContext)
 }
 
-func (s *Condition_blockContext) Stat_block() IStat_blockContext {
+func (s *ConditionBlockContext) StatBlock() IStatBlockContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStat_blockContext); ok {
+		if _, ok := ctx.(IStatBlockContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -1284,50 +1244,50 @@ func (s *Condition_blockContext) Stat_block() IStat_blockContext {
 		return nil
 	}
 
-	return t.(IStat_blockContext)
+	return t.(IStatBlockContext)
 }
 
-func (s *Condition_blockContext) GetRuleContext() antlr.RuleContext {
+func (s *ConditionBlockContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Condition_blockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ConditionBlockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Condition_blockContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *ConditionBlockContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
-		listenerT.EnterCondition_block(s)
+		listenerT.EnterConditionBlock(s)
 	}
 }
 
-func (s *Condition_blockContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *ConditionBlockContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
-		listenerT.ExitCondition_block(s)
+		listenerT.ExitConditionBlock(s)
 	}
 }
 
-func (s *Condition_blockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *ConditionBlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case AsaliLangGrammarVisitor:
-		return t.VisitCondition_block(s)
+		return t.VisitConditionBlock(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *AsaliLangGrammarParser) Condition_block() (localctx ICondition_blockContext) {
-	localctx = NewCondition_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, AsaliLangGrammarParserRULE_condition_block)
+func (p *AsaliLangGrammarParser) ConditionBlock() (localctx IConditionBlockContext) {
+	localctx = NewConditionBlockContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 10, AsaliLangGrammarParserRULE_conditionBlock)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(70)
+		p.SetState(68)
 		p.expr(0)
 	}
 	{
-		p.SetState(71)
-		p.Stat_block()
+		p.SetState(69)
+		p.StatBlock()
 	}
 
 errorExit:
@@ -1343,8 +1303,8 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-// IStat_blockContext is an interface to support dynamic dispatch.
-type IStat_blockContext interface {
+// IStatBlockContext is an interface to support dynamic dispatch.
+type IStatBlockContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -1360,47 +1320,47 @@ type IStat_blockContext interface {
 	Stat() IStatContext
 	THEN() antlr.TerminalNode
 
-	// IsStat_blockContext differentiates from other interfaces.
-	IsStat_blockContext()
+	// IsStatBlockContext differentiates from other interfaces.
+	IsStatBlockContext()
 }
 
-type Stat_blockContext struct {
+type StatBlockContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyStat_blockContext() *Stat_blockContext {
-	var p = new(Stat_blockContext)
+func NewEmptyStatBlockContext() *StatBlockContext {
+	var p = new(StatBlockContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = AsaliLangGrammarParserRULE_stat_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_statBlock
 	return p
 }
 
-func InitEmptyStat_blockContext(p *Stat_blockContext) {
+func InitEmptyStatBlockContext(p *StatBlockContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = AsaliLangGrammarParserRULE_stat_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_statBlock
 }
 
-func (*Stat_blockContext) IsStat_blockContext() {}
+func (*StatBlockContext) IsStatBlockContext() {}
 
-func NewStat_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Stat_blockContext {
-	var p = new(Stat_blockContext)
+func NewStatBlockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *StatBlockContext {
+	var p = new(StatBlockContext)
 
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AsaliLangGrammarParserRULE_stat_block
+	p.RuleIndex = AsaliLangGrammarParserRULE_statBlock
 
 	return p
 }
 
-func (s *Stat_blockContext) GetParser() antlr.Parser { return s.parser }
+func (s *StatBlockContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Stat_blockContext) OBRACE() antlr.TerminalNode {
+func (s *StatBlockContext) OBRACE() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserOBRACE, 0)
 }
 
-func (s *Stat_blockContext) Block() IBlockContext {
+func (s *StatBlockContext) Block() IBlockContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
 		if _, ok := ctx.(IBlockContext); ok {
@@ -1416,23 +1376,23 @@ func (s *Stat_blockContext) Block() IBlockContext {
 	return t.(IBlockContext)
 }
 
-func (s *Stat_blockContext) CBRACE() antlr.TerminalNode {
+func (s *StatBlockContext) CBRACE() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserCBRACE, 0)
 }
 
-func (s *Stat_blockContext) BEGIN() antlr.TerminalNode {
+func (s *StatBlockContext) BEGIN() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserBEGIN, 0)
 }
 
-func (s *Stat_blockContext) END() antlr.TerminalNode {
+func (s *StatBlockContext) END() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserEND, 0)
 }
 
-func (s *Stat_blockContext) DO() antlr.TerminalNode {
+func (s *StatBlockContext) DO() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserDO, 0)
 }
 
-func (s *Stat_blockContext) Stat() IStatContext {
+func (s *StatBlockContext) Stat() IStatContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
 		if _, ok := ctx.(IStatContext); ok {
@@ -1448,46 +1408,46 @@ func (s *Stat_blockContext) Stat() IStatContext {
 	return t.(IStatContext)
 }
 
-func (s *Stat_blockContext) THEN() antlr.TerminalNode {
+func (s *StatBlockContext) THEN() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserTHEN, 0)
 }
 
-func (s *Stat_blockContext) GetRuleContext() antlr.RuleContext {
+func (s *StatBlockContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Stat_blockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *StatBlockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Stat_blockContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *StatBlockContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
-		listenerT.EnterStat_block(s)
+		listenerT.EnterStatBlock(s)
 	}
 }
 
-func (s *Stat_blockContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *StatBlockContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AsaliLangGrammarListener); ok {
-		listenerT.ExitStat_block(s)
+		listenerT.ExitStatBlock(s)
 	}
 }
 
-func (s *Stat_blockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *StatBlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case AsaliLangGrammarVisitor:
-		return t.VisitStat_block(s)
+		return t.VisitStatBlock(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
-	localctx = NewStat_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, AsaliLangGrammarParserRULE_stat_block)
+func (p *AsaliLangGrammarParser) StatBlock() (localctx IStatBlockContext) {
+	localctx = NewStatBlockContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 12, AsaliLangGrammarParserRULE_statBlock)
 	var _la int
 
-	p.SetState(87)
+	p.SetState(85)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1497,7 +1457,7 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 	case AsaliLangGrammarParserOBRACE:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(73)
+			p.SetState(71)
 			p.Match(AsaliLangGrammarParserOBRACE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1505,11 +1465,11 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 			}
 		}
 		{
-			p.SetState(74)
+			p.SetState(72)
 			p.Block()
 		}
 		{
-			p.SetState(75)
+			p.SetState(73)
 			p.Match(AsaliLangGrammarParserCBRACE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1519,7 +1479,7 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 
 	case AsaliLangGrammarParserBEGIN, AsaliLangGrammarParserDO:
 		p.EnterOuterAlt(localctx, 2)
-		p.SetState(78)
+		p.SetState(76)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1528,7 +1488,7 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 
 		if _la == AsaliLangGrammarParserDO {
 			{
-				p.SetState(77)
+				p.SetState(75)
 				p.Match(AsaliLangGrammarParserDO)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -1538,7 +1498,7 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 
 		}
 		{
-			p.SetState(80)
+			p.SetState(78)
 			p.Match(AsaliLangGrammarParserBEGIN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1546,11 +1506,11 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 			}
 		}
 		{
-			p.SetState(81)
+			p.SetState(79)
 			p.Block()
 		}
 		{
-			p.SetState(82)
+			p.SetState(80)
 			p.Match(AsaliLangGrammarParserEND)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1558,17 +1518,17 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 			}
 		}
 
-	case AsaliLangGrammarParserIF, AsaliLangGrammarParserWHILE, AsaliLangGrammarParserFOR, AsaliLangGrammarParserLOOP, AsaliLangGrammarParserID, AsaliLangGrammarParserOTHER:
+	case AsaliLangGrammarParserIF, AsaliLangGrammarParserWHILE, AsaliLangGrammarParserFOR, AsaliLangGrammarParserLOOP, AsaliLangGrammarParserID:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(84)
+			p.SetState(82)
 			p.Stat()
 		}
 
 	case AsaliLangGrammarParserTHEN:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(85)
+			p.SetState(83)
 			p.Match(AsaliLangGrammarParserTHEN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1576,7 +1536,7 @@ func (p *AsaliLangGrammarParser) Stat_block() (localctx IStat_blockContext) {
 			}
 		}
 		{
-			p.SetState(86)
+			p.SetState(84)
 			p.Block()
 		}
 
@@ -1608,7 +1568,7 @@ type IWhileStatContext interface {
 	// Getter signatures
 	WHILE() antlr.TerminalNode
 	Expr() IExprContext
-	Stat_block() IStat_blockContext
+	StatBlock() IStatBlockContext
 
 	// IsWhileStatContext differentiates from other interfaces.
 	IsWhileStatContext()
@@ -1666,10 +1626,10 @@ func (s *WhileStatContext) Expr() IExprContext {
 	return t.(IExprContext)
 }
 
-func (s *WhileStatContext) Stat_block() IStat_blockContext {
+func (s *WhileStatContext) StatBlock() IStatBlockContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStat_blockContext); ok {
+		if _, ok := ctx.(IStatBlockContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -1679,7 +1639,7 @@ func (s *WhileStatContext) Stat_block() IStat_blockContext {
 		return nil
 	}
 
-	return t.(IStat_blockContext)
+	return t.(IStatBlockContext)
 }
 
 func (s *WhileStatContext) GetRuleContext() antlr.RuleContext {
@@ -1717,7 +1677,7 @@ func (p *AsaliLangGrammarParser) WhileStat() (localctx IWhileStatContext) {
 	p.EnterRule(localctx, 14, AsaliLangGrammarParserRULE_whileStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(89)
+		p.SetState(87)
 		p.Match(AsaliLangGrammarParserWHILE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1725,12 +1685,12 @@ func (p *AsaliLangGrammarParser) WhileStat() (localctx IWhileStatContext) {
 		}
 	}
 	{
-		p.SetState(90)
+		p.SetState(88)
 		p.expr(0)
 	}
 	{
-		p.SetState(91)
-		p.Stat_block()
+		p.SetState(89)
+		p.StatBlock()
 	}
 
 errorExit:
@@ -1760,7 +1720,7 @@ type IForStatContext interface {
 	AllExpr() []IExprContext
 	Expr(i int) IExprContext
 	COL() antlr.TerminalNode
-	Stat_block() IStat_blockContext
+	StatBlock() IStatBlockContext
 
 	// IsForStatContext differentiates from other interfaces.
 	IsForStatContext()
@@ -1855,10 +1815,10 @@ func (s *ForStatContext) COL() antlr.TerminalNode {
 	return s.GetToken(AsaliLangGrammarParserCOL, 0)
 }
 
-func (s *ForStatContext) Stat_block() IStat_blockContext {
+func (s *ForStatContext) StatBlock() IStatBlockContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStat_blockContext); ok {
+		if _, ok := ctx.(IStatBlockContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -1868,7 +1828,7 @@ func (s *ForStatContext) Stat_block() IStat_blockContext {
 		return nil
 	}
 
-	return t.(IStat_blockContext)
+	return t.(IStatBlockContext)
 }
 
 func (s *ForStatContext) GetRuleContext() antlr.RuleContext {
@@ -1906,7 +1866,7 @@ func (p *AsaliLangGrammarParser) ForStat() (localctx IForStatContext) {
 	p.EnterRule(localctx, 16, AsaliLangGrammarParserRULE_forStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(93)
+		p.SetState(91)
 		p.Match(AsaliLangGrammarParserFOR)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1914,7 +1874,7 @@ func (p *AsaliLangGrammarParser) ForStat() (localctx IForStatContext) {
 		}
 	}
 	{
-		p.SetState(94)
+		p.SetState(92)
 		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1922,8 +1882,20 @@ func (p *AsaliLangGrammarParser) ForStat() (localctx IForStatContext) {
 		}
 	}
 	{
-		p.SetState(95)
+		p.SetState(93)
 		p.Match(AsaliLangGrammarParserASSIGN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(94)
+		p.expr(0)
+	}
+	{
+		p.SetState(95)
+		p.Match(AsaliLangGrammarParserCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -1935,19 +1907,7 @@ func (p *AsaliLangGrammarParser) ForStat() (localctx IForStatContext) {
 	}
 	{
 		p.SetState(97)
-		p.Match(AsaliLangGrammarParserCOL)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-	{
-		p.SetState(98)
-		p.expr(0)
-	}
-	{
-		p.SetState(99)
-		p.Stat_block()
+		p.StatBlock()
 	}
 
 errorExit:
@@ -1975,7 +1935,7 @@ type ILoopStatContext interface {
 	ID() antlr.TerminalNode
 	COL() antlr.TerminalNode
 	Expr() IExprContext
-	Stat_block() IStat_blockContext
+	StatBlock() IStatBlockContext
 
 	// IsLoopStatContext differentiates from other interfaces.
 	IsLoopStatContext()
@@ -2041,10 +2001,10 @@ func (s *LoopStatContext) Expr() IExprContext {
 	return t.(IExprContext)
 }
 
-func (s *LoopStatContext) Stat_block() IStat_blockContext {
+func (s *LoopStatContext) StatBlock() IStatBlockContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStat_blockContext); ok {
+		if _, ok := ctx.(IStatBlockContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -2054,7 +2014,7 @@ func (s *LoopStatContext) Stat_block() IStat_blockContext {
 		return nil
 	}
 
-	return t.(IStat_blockContext)
+	return t.(IStatBlockContext)
 }
 
 func (s *LoopStatContext) GetRuleContext() antlr.RuleContext {
@@ -2092,7 +2052,7 @@ func (p *AsaliLangGrammarParser) LoopStat() (localctx ILoopStatContext) {
 	p.EnterRule(localctx, 18, AsaliLangGrammarParserRULE_loopStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(101)
+		p.SetState(99)
 		p.Match(AsaliLangGrammarParserLOOP)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2100,7 +2060,7 @@ func (p *AsaliLangGrammarParser) LoopStat() (localctx ILoopStatContext) {
 		}
 	}
 	{
-		p.SetState(102)
+		p.SetState(100)
 		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2108,7 +2068,7 @@ func (p *AsaliLangGrammarParser) LoopStat() (localctx ILoopStatContext) {
 		}
 	}
 	{
-		p.SetState(103)
+		p.SetState(101)
 		p.Match(AsaliLangGrammarParserCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2116,12 +2076,12 @@ func (p *AsaliLangGrammarParser) LoopStat() (localctx ILoopStatContext) {
 		}
 	}
 	{
-		p.SetState(104)
+		p.SetState(102)
 		p.expr(0)
 	}
 	{
-		p.SetState(105)
-		p.Stat_block()
+		p.SetState(103)
+		p.StatBlock()
 	}
 
 errorExit:
@@ -2239,11 +2199,11 @@ func (p *AsaliLangGrammarParser) MethodCallStat() (localctx IMethodCallStatConte
 	p.EnterRule(localctx, 20, AsaliLangGrammarParserRULE_methodCallStat)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(107)
+		p.SetState(105)
 		p.MethodCall()
 	}
 	{
-		p.SetState(108)
+		p.SetState(106)
 		p.Match(AsaliLangGrammarParserSCOL)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2366,7 +2326,7 @@ func (p *AsaliLangGrammarParser) MethodCall() (localctx IMethodCallContext) {
 	p.EnterRule(localctx, 22, AsaliLangGrammarParserRULE_methodCall)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(110)
+		p.SetState(108)
 		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2374,7 +2334,7 @@ func (p *AsaliLangGrammarParser) MethodCall() (localctx IMethodCallContext) {
 		}
 	}
 	{
-		p.SetState(111)
+		p.SetState(109)
 		p.MethodCallArguments()
 	}
 
@@ -2503,7 +2463,7 @@ func (p *AsaliLangGrammarParser) InlineMethodCall() (localctx IInlineMethodCallC
 	p.EnterRule(localctx, 24, AsaliLangGrammarParserRULE_inlineMethodCall)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(113)
+		p.SetState(111)
 		p.Match(AsaliLangGrammarParserID)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2511,7 +2471,7 @@ func (p *AsaliLangGrammarParser) InlineMethodCall() (localctx IInlineMethodCallC
 		}
 	}
 	{
-		p.SetState(114)
+		p.SetState(112)
 		p.Match(AsaliLangGrammarParserOPAR)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2519,11 +2479,11 @@ func (p *AsaliLangGrammarParser) InlineMethodCall() (localctx IInlineMethodCallC
 		}
 	}
 	{
-		p.SetState(115)
+		p.SetState(113)
 		p.MethodCallArguments()
 	}
 	{
-		p.SetState(116)
+		p.SetState(114)
 		p.Match(AsaliLangGrammarParserCPAR)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2667,7 +2627,7 @@ func (p *AsaliLangGrammarParser) MethodCallArguments() (localctx IMethodCallArgu
 	p.EnterRule(localctx, 26, AsaliLangGrammarParserRULE_methodCallArguments)
 	var _la int
 
-	p.SetState(127)
+	p.SetState(125)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2680,10 +2640,10 @@ func (p *AsaliLangGrammarParser) MethodCallArguments() (localctx IMethodCallArgu
 	case AsaliLangGrammarParserMINUS, AsaliLangGrammarParserNOT, AsaliLangGrammarParserOPAR, AsaliLangGrammarParserTRUE, AsaliLangGrammarParserFALSE, AsaliLangGrammarParserNIL, AsaliLangGrammarParserID, AsaliLangGrammarParserINT, AsaliLangGrammarParserFLOAT, AsaliLangGrammarParserSTRING:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(119)
+			p.SetState(117)
 			p.expr(0)
 		}
-		p.SetState(124)
+		p.SetState(122)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2692,7 +2652,7 @@ func (p *AsaliLangGrammarParser) MethodCallArguments() (localctx IMethodCallArgu
 
 		for _la == AsaliLangGrammarParserT__0 {
 			{
-				p.SetState(120)
+				p.SetState(118)
 				p.Match(AsaliLangGrammarParserT__0)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -2700,11 +2660,11 @@ func (p *AsaliLangGrammarParser) MethodCallArguments() (localctx IMethodCallArgu
 				}
 			}
 			{
-				p.SetState(121)
+				p.SetState(119)
 				p.expr(0)
 			}
 
-			p.SetState(126)
+			p.SetState(124)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -3677,7 +3637,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(136)
+	p.SetState(134)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -3690,7 +3650,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 		_prevctx = localctx
 
 		{
-			p.SetState(130)
+			p.SetState(128)
 			p.InlineMethodCall()
 		}
 
@@ -3699,7 +3659,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(131)
+			p.SetState(129)
 			p.Match(AsaliLangGrammarParserMINUS)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -3707,7 +3667,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 			}
 		}
 		{
-			p.SetState(132)
+			p.SetState(130)
 			p.expr(9)
 		}
 
@@ -3716,7 +3676,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(133)
+			p.SetState(131)
 			p.Match(AsaliLangGrammarParserNOT)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -3724,7 +3684,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 			}
 		}
 		{
-			p.SetState(134)
+			p.SetState(132)
 			p.expr(8)
 		}
 
@@ -3733,7 +3693,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(135)
+			p.SetState(133)
 			p.Atom()
 		}
 
@@ -3741,7 +3701,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 		goto errorExit
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(161)
+	p.SetState(159)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -3756,7 +3716,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(159)
+			p.SetState(157)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -3766,14 +3726,14 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 			case 1:
 				localctx = NewPowExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(138)
+				p.SetState(136)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 10)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 10)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(139)
+					p.SetState(137)
 					p.Match(AsaliLangGrammarParserPOW)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -3781,21 +3741,21 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(140)
+					p.SetState(138)
 					p.expr(10)
 				}
 
 			case 2:
 				localctx = NewMultiplicationExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(141)
+				p.SetState(139)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(142)
+					p.SetState(140)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -3813,21 +3773,21 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(143)
+					p.SetState(141)
 					p.expr(8)
 				}
 
 			case 3:
 				localctx = NewAdditiveExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(144)
+				p.SetState(142)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(145)
+					p.SetState(143)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -3845,21 +3805,21 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(146)
+					p.SetState(144)
 					p.expr(7)
 				}
 
 			case 4:
 				localctx = NewRelationalExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(147)
+				p.SetState(145)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(148)
+					p.SetState(146)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -3877,21 +3837,21 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(149)
+					p.SetState(147)
 					p.expr(6)
 				}
 
 			case 5:
 				localctx = NewEqualityExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(150)
+				p.SetState(148)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(151)
+					p.SetState(149)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -3909,21 +3869,21 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(152)
+					p.SetState(150)
 					p.expr(5)
 				}
 
 			case 6:
 				localctx = NewAndExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(153)
+				p.SetState(151)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 3)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 3)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(154)
+					p.SetState(152)
 					p.Match(AsaliLangGrammarParserAND)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -3931,21 +3891,21 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(155)
+					p.SetState(153)
 					p.expr(4)
 				}
 
 			case 7:
 				localctx = NewOrExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AsaliLangGrammarParserRULE_expr)
-				p.SetState(156)
+				p.SetState(154)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 2)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(157)
+					p.SetState(155)
 					p.Match(AsaliLangGrammarParserOR)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -3953,7 +3913,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(158)
+					p.SetState(156)
 					p.expr(3)
 				}
 
@@ -3962,7 +3922,7 @@ func (p *AsaliLangGrammarParser) expr(_p int) (localctx IExprContext) {
 			}
 
 		}
-		p.SetState(163)
+		p.SetState(161)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -4337,7 +4297,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 	p.EnterRule(localctx, 30, AsaliLangGrammarParserRULE_atom)
 	var _la int
 
-	p.SetState(173)
+	p.SetState(171)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -4348,7 +4308,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 		localctx = NewParExprContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(164)
+			p.SetState(162)
 			p.Match(AsaliLangGrammarParserOPAR)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4356,11 +4316,11 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 			}
 		}
 		{
-			p.SetState(165)
+			p.SetState(163)
 			p.expr(0)
 		}
 		{
-			p.SetState(166)
+			p.SetState(164)
 			p.Match(AsaliLangGrammarParserCPAR)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4372,7 +4332,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 		localctx = NewNumberAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(168)
+			p.SetState(166)
 			_la = p.GetTokenStream().LA(1)
 
 			if !(_la == AsaliLangGrammarParserINT || _la == AsaliLangGrammarParserFLOAT) {
@@ -4387,7 +4347,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 		localctx = NewBooleanAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(169)
+			p.SetState(167)
 			_la = p.GetTokenStream().LA(1)
 
 			if !(_la == AsaliLangGrammarParserTRUE || _la == AsaliLangGrammarParserFALSE) {
@@ -4402,7 +4362,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 		localctx = NewIdAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(170)
+			p.SetState(168)
 			p.Match(AsaliLangGrammarParserID)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4414,7 +4374,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 		localctx = NewStringAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(171)
+			p.SetState(169)
 			p.Match(AsaliLangGrammarParserSTRING)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4426,7 +4386,7 @@ func (p *AsaliLangGrammarParser) Atom() (localctx IAtomContext) {
 		localctx = NewNilAtomContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(172)
+			p.SetState(170)
 			p.Match(AsaliLangGrammarParserNIL)
 			if p.HasError() {
 				// Recognition error - abort rule

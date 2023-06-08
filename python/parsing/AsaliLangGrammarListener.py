@@ -49,21 +49,21 @@ class AsaliLangGrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AsaliLangGrammarParser#condition_block.
-    def enterCondition_block(self, ctx):
+    # Enter a parse tree produced by AsaliLangGrammarParser#conditionBlock.
+    def enterConditionBlock(self, ctx):
         pass
 
-    # Exit a parse tree produced by AsaliLangGrammarParser#condition_block.
-    def exitCondition_block(self, ctx):
+    # Exit a parse tree produced by AsaliLangGrammarParser#conditionBlock.
+    def exitConditionBlock(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by AsaliLangGrammarParser#stat_block.
-    def enterStat_block(self, ctx):
+    # Enter a parse tree produced by AsaliLangGrammarParser#statBlock.
+    def enterStatBlock(self, ctx):
         pass
 
-    # Exit a parse tree produced by AsaliLangGrammarParser#stat_block.
-    def exitStat_block(self, ctx):
+    # Exit a parse tree produced by AsaliLangGrammarParser#statBlock.
+    def exitStatBlock(self, ctx):
         pass
 
 

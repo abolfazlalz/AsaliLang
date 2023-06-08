@@ -36,7 +36,7 @@ func (v *Visitor) VisitBlock(ctx *parsing.BlockContext) interface{} {
 	return nil
 }
 
-func (v *Visitor) VisitStat_block(ctx *parsing.Stat_blockContext) interface{} {
+func (v *Visitor) VisitStatBlock(ctx *parsing.StatBlockContext) interface{} {
 	if ctx.Stat() != nil {
 		v.Visit(ctx.Stat())
 		return nil
@@ -236,7 +236,7 @@ func (v *Visitor) VisitForStat(ctx *parsing.ForStatContext) interface{} {
 	end := newValue(v.Visit(ctx.Expr(1))).asFloat()
 	lastVariable := v.vars[varName]
 	for v.vars[varName] = start; toFloat(v.vars[varName]) < end; {
-		v.Visit(ctx.Stat_block())
+		v.Visit(ctx.StatBlock())
 		v.vars[varName] = toFloat(v.vars[varName]) + 1
 	}
 	v.vars[varName] = lastVariable
@@ -251,7 +251,7 @@ func (v *Visitor) VisitLoopStat(ctx *parsing.LoopStatContext) interface{} {
 
 	for v.vars[varName] = 0; toFloat(v.vars[varName]) < end; {
 		v.vars[varName] = toFloat(v.vars[varName]) + 1
-		v.Visit(ctx.Stat_block())
+		v.Visit(ctx.StatBlock())
 	}
 
 	v.vars[varName] = lastVariable
@@ -263,25 +263,25 @@ func (v *Visitor) VisitWhileStat(ctx *parsing.WhileStatContext) interface{} {
 	result := toBoolean(v.Visit(ctx.Expr()))
 	for result {
 		result = toBoolean(v.Visit(ctx.Expr()))
-		v.Visit(ctx.Stat_block())
+		v.Visit(ctx.StatBlock())
 	}
 	return nil
 }
 
 func (v *Visitor) VisitIfStat(ctx *parsing.IfStatContext) interface{} {
-	conditions := ctx.AllCondition_block()
+	conditions := ctx.AllConditionBlock()
 	evaluatedBlock := false
 	for _, condition := range conditions {
 		evaluated := v.Visit(condition.Expr())
 		if toBoolean(evaluated) {
 			evaluatedBlock = true
-			v.Visit(condition.Stat_block())
+			v.Visit(condition.StatBlock())
 			break
 		}
 	}
 
-	if !evaluatedBlock && ctx.Stat_block() != nil {
-		v.Visit(ctx.Stat_block())
+	if !evaluatedBlock && ctx.StatBlock() != nil {
+		v.Visit(ctx.StatBlock())
 	}
 
 	return nil

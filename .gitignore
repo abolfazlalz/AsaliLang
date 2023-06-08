@@ -1,3 +1,5 @@
 /.vscode/
+/.idea/
+*.pyc
 /parser/antlr.jar
 /python/venv

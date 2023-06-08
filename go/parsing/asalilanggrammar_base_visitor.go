@@ -27,11 +27,11 @@ func (v *BaseAsaliLangGrammarVisitor) VisitIfStat(ctx *IfStatContext) interface{
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseAsaliLangGrammarVisitor) VisitCondition_block(ctx *Condition_blockContext) interface{} {
+func (v *BaseAsaliLangGrammarVisitor) VisitConditionBlock(ctx *ConditionBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseAsaliLangGrammarVisitor) VisitStat_block(ctx *Stat_blockContext) interface{} {
+func (v *BaseAsaliLangGrammarVisitor) VisitStatBlock(ctx *StatBlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

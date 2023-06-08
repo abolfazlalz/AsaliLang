@@ -22,11 +22,11 @@ type AsaliLangGrammarVisitor interface {
 	// Visit a parse tree produced by AsaliLangGrammarParser#ifStat.
 	VisitIfStat(ctx *IfStatContext) interface{}
 
-	// Visit a parse tree produced by AsaliLangGrammarParser#condition_block.
-	VisitCondition_block(ctx *Condition_blockContext) interface{}
+	// Visit a parse tree produced by AsaliLangGrammarParser#conditionBlock.
+	VisitConditionBlock(ctx *ConditionBlockContext) interface{}
 
-	// Visit a parse tree produced by AsaliLangGrammarParser#stat_block.
-	VisitStat_block(ctx *Stat_blockContext) interface{}
+	// Visit a parse tree produced by AsaliLangGrammarParser#statBlock.
+	VisitStatBlock(ctx *StatBlockContext) interface{}
 
 	// Visit a parse tree produced by AsaliLangGrammarParser#whileStat.
 	VisitWhileStat(ctx *WhileStatContext) interface{}

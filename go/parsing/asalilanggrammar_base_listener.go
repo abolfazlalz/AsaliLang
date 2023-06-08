@@ -50,17 +50,17 @@ func (s *BaseAsaliLangGrammarListener) EnterIfStat(ctx *IfStatContext) {}
 // ExitIfStat is called when production ifStat is exited.
 func (s *BaseAsaliLangGrammarListener) ExitIfStat(ctx *IfStatContext) {}
 
-// EnterCondition_block is called when production condition_block is entered.
-func (s *BaseAsaliLangGrammarListener) EnterCondition_block(ctx *Condition_blockContext) {}
+// EnterConditionBlock is called when production conditionBlock is entered.
+func (s *BaseAsaliLangGrammarListener) EnterConditionBlock(ctx *ConditionBlockContext) {}
 
-// ExitCondition_block is called when production condition_block is exited.
-func (s *BaseAsaliLangGrammarListener) ExitCondition_block(ctx *Condition_blockContext) {}
+// ExitConditionBlock is called when production conditionBlock is exited.
+func (s *BaseAsaliLangGrammarListener) ExitConditionBlock(ctx *ConditionBlockContext) {}
 
-// EnterStat_block is called when production stat_block is entered.
-func (s *BaseAsaliLangGrammarListener) EnterStat_block(ctx *Stat_blockContext) {}
+// EnterStatBlock is called when production statBlock is entered.
+func (s *BaseAsaliLangGrammarListener) EnterStatBlock(ctx *StatBlockContext) {}
 
-// ExitStat_block is called when production stat_block is exited.
-func (s *BaseAsaliLangGrammarListener) ExitStat_block(ctx *Stat_blockContext) {}
+// ExitStatBlock is called when production statBlock is exited.
+func (s *BaseAsaliLangGrammarListener) ExitStatBlock(ctx *StatBlockContext) {}
 
 // EnterWhileStat is called when production whileStat is entered.
 func (s *BaseAsaliLangGrammarListener) EnterWhileStat(ctx *WhileStatContext) {}

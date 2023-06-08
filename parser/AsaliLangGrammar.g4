@@ -15,7 +15,6 @@ stat
  | methodCallStat
  | forStat
  | loopStat
- | OTHER {fmt.Println("unknown char: " + $OTHER.text);}
  ;
 
 assignment
@@ -23,14 +22,14 @@ assignment
  ;
 
 ifStat
- : IF condition_block (ELSE IF condition_block)* (ELSE stat_block)?
+ : IF conditionBlock (ELSE IF conditionBlock)* (ELSE statBlock)?
  ;
 
-condition_block
- : expr stat_block
+conditionBlock
+ : expr statBlock
  ;
 
-stat_block
+statBlock
  : OBRACE block CBRACE
  | DO? BEGIN block END
  | stat
@@ -38,15 +37,15 @@ stat_block
  ;
 
 whileStat
- : WHILE expr stat_block
+ : WHILE expr statBlock
  ;
 
 forStat
- : FOR ID ASSIGN expr COL expr stat_block
+ : FOR ID ASSIGN expr COL expr statBlock
  ;
 
 loopStat
- : LOOP ID COL expr stat_block
+ : LOOP ID COL expr statBlock
  ;
 
 methodCallStat
@@ -150,8 +149,4 @@ COMMENT
 
 SPACE
  : [ \t\r\n] -> skip
- ;
-
-OTHER
- : .
  ;

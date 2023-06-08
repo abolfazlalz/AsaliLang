@@ -30,13 +30,13 @@ class AsaliLangGrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AsaliLangGrammarParser#condition_block.
-    def visitCondition_block(self, ctx):
+    # Visit a parse tree produced by AsaliLangGrammarParser#conditionBlock.
+    def visitConditionBlock(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AsaliLangGrammarParser#stat_block.
-    def visitStat_block(self, ctx):
+    # Visit a parse tree produced by AsaliLangGrammarParser#statBlock.
+    def visitStatBlock(self, ctx):
         return self.visitChildren(ctx)
 
 

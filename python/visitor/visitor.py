@@ -18,7 +18,7 @@ class CustomVisitor(AsaliLangGrammarVisitor):
         for stat in ctx.stat():
             self.visit(stat)
 
-    def visitStat_block(self, ctx):
+    def visitStatBlock(self, ctx):
         if ctx.stat() != None:
             return self.visit(ctx.stat())
         elif ctx.block() != None:
@@ -157,7 +157,7 @@ class CustomVisitor(AsaliLangGrammarVisitor):
 
         # for i in range(start, end):
         while self.vars[varName] < end:
-            self.visit(ctx.stat_block())
+            self.visit(ctx.statBlock())
             self.vars[varName] = self.vars[varName] + 1
 
     def visitLoopStat(self, ctx):
@@ -166,25 +166,25 @@ class CustomVisitor(AsaliLangGrammarVisitor):
 
         self.vars[varName] = 1
         while self.vars[varName] <= end:
-            self.visit(ctx.stat_block())
+            self.visit(ctx.statBlock())
             self.vars[varName] = self.vars[varName] + 1
 
     def visitWhileStat(self, ctx):
         result = self.visit(ctx.expr())
         while result:
-            self.visit(ctx.stat_block())
+            self.visit(ctx.statBlock())
             result = self.visit(ctx.expr())
 
     def visitIfStat(self, ctx):
-        conditions = ctx.condition_block()
+        conditions = ctx.conditionBlock()
         evaluatedBlock = False
         for condition in conditions:
             evaluated = self.visit(condition.expr())
             if evaluated:
                 evaluatedBlock = True
-                self.visit(condition.stat_block())
+                self.visit(condition.statBlock())
                 break
 
         if not evaluatedBlock:
-            if ctx.stat_block():
-                self.visit(ctx.stat_block())
+            if ctx.statBlock():
+                self.visit(ctx.statBlock())
