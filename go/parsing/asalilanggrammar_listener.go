@@ -43,6 +43,9 @@ type AsaliLangGrammarListener interface {
 	// EnterMethodCall is called when entering the methodCall production.
 	EnterMethodCall(c *MethodCallContext)
 
+	// EnterInlineMethodCall is called when entering the inlineMethodCall production.
+	EnterInlineMethodCall(c *InlineMethodCallContext)
+
 	// EnterMethodCallArguments is called when entering the methodCallArguments production.
 	EnterMethodCallArguments(c *MethodCallArgumentsContext)
 
@@ -132,6 +135,9 @@ type AsaliLangGrammarListener interface {
 
 	// ExitMethodCall is called when exiting the methodCall production.
 	ExitMethodCall(c *MethodCallContext)
+
+	// ExitInlineMethodCall is called when exiting the inlineMethodCall production.
+	ExitInlineMethodCall(c *InlineMethodCallContext)
 
 	// ExitMethodCallArguments is called when exiting the methodCallArguments production.
 	ExitMethodCallArguments(c *MethodCallArgumentsContext)

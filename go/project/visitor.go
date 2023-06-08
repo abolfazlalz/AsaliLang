@@ -10,7 +10,7 @@ import (
 )
 
 type Visitor struct {
-	*parsing.BaseMyGrammarVisitor
+	*parsing.BaseAsaliLangGrammarVisitor
 	method *BuildInMethod
 	vars   map[string]interface{}
 }
@@ -20,8 +20,8 @@ func NewVisitor() *Visitor {
 		vars: map[string]interface{}{
 			"PI": math.Pi,
 		},
-		method:               NewBuildInMethod(),
-		BaseMyGrammarVisitor: &parsing.BaseMyGrammarVisitor{},
+		method:                      NewBuildInMethod(),
+		BaseAsaliLangGrammarVisitor: &parsing.BaseAsaliLangGrammarVisitor{},
 	}
 }
 
@@ -61,7 +61,7 @@ func (v *Visitor) VisitAssignment(ctx *parsing.AssignmentContext) interface{} {
 }
 
 func (v *Visitor) VisitMethodCallExpr(ctx *parsing.MethodCallExprContext) interface{} {
-	return v.Visit(ctx.MethodCall())
+	return v.Visit(ctx.InlineMethodCall())
 }
 
 func (v *Visitor) VisitPowExpr(ctx *parsing.PowExprContext) interface{} {
@@ -87,11 +87,11 @@ func (v *Visitor) VisitMultiplicationExpr(ctx *parsing.MultiplicationExprContext
 	right := v.Visit(ctx.Expr(1)).(float64)
 
 	switch ctx.GetOp().GetTokenType() {
-	case parsing.MuLexerMULT:
+	case parsing.AsaliLangGrammarLexerMULT:
 		return left * right
-	case parsing.MuLexerDIV:
+	case parsing.AsaliLangGrammarLexerDIV:
 		return left / right
-	case parsing.MuLexerMOD:
+	case parsing.AsaliLangGrammarLexerMOD:
 		return math.Mod(left, right)
 	}
 
@@ -103,14 +103,14 @@ func (v *Visitor) VisitAdditiveExpr(ctx *parsing.AdditiveExprContext) interface{
 	right := v.Visit(ctx.Expr(1))
 
 	switch ctx.GetOp().GetTokenType() {
-	case parsing.MuLexerPLUS:
+	case parsing.AsaliLangGrammarLexerPLUS:
 		valLeft, okLeft := left.(float64)
 		valRight, okRight := left.(float64)
 		if okRight && okLeft {
 			return valRight + valLeft
 		}
 		return fmt.Sprintf("%v", left) + fmt.Sprintf("%v", right)
-	case parsing.MuLexerMINUS:
+	case parsing.AsaliLangGrammarLexerMINUS:
 		return left.(float64) - right.(float64)
 	}
 	panic("Undefined operator")
@@ -121,13 +121,13 @@ func (v *Visitor) VisitRelationalExpr(ctx *parsing.RelationalExprContext) interf
 	right := v.Visit(ctx.Expr(1)).(float64)
 
 	switch ctx.GetOp().GetTokenType() {
-	case parsing.MuLexerLT:
+	case parsing.AsaliLangGrammarLexerLT:
 		return left < right
-	case parsing.MuLexerLTEQ:
+	case parsing.AsaliLangGrammarLexerLTEQ:
 		return left <= right
-	case parsing.MuLexerGT:
+	case parsing.AsaliLangGrammarLexerGT:
 		return left > right
-	case parsing.MuLexerGTEQ:
+	case parsing.AsaliLangGrammarLexerGTEQ:
 		return left >= right
 	}
 	panic("Undefined operator")
@@ -138,9 +138,9 @@ func (v *Visitor) VisitEqualityExpr(ctx *parsing.EqualityExprContext) interface{
 	right := v.Visit(ctx.Expr(1))
 
 	switch ctx.GetOp().GetTokenType() {
-	case parsing.MuLexerEQ:
+	case parsing.AsaliLangGrammarLexerEQ:
 		return left == right
-	case parsing.MuLexerNEQ:
+	case parsing.AsaliLangGrammarLexerNEQ:
 		return left != right
 	}
 	panic("Undefined operator")
@@ -198,8 +198,17 @@ func (v *Visitor) VisitBooleanAtom(ctx *parsing.BooleanAtomContext) interface{} 
 }
 
 func (v *Visitor) VisitMethodCall(ctx *parsing.MethodCallContext) interface{} {
-	args := v.Visit(ctx.MethodCallArguments()).([]interface{})
 	methodName := ctx.ID().GetText()
+	return v.handleMethodCall(methodName, ctx.MethodCallArguments())
+}
+
+func (v *Visitor) VisitInlineMethodCall(ctx *parsing.InlineMethodCallContext) interface{} {
+	id := ctx.ID().GetText()
+	return v.handleMethodCall(id, ctx.MethodCallArguments())
+}
+
+func (v *Visitor) handleMethodCall(methodName string, argsContext parsing.IMethodCallArgumentsContext) interface{} {
+	args := v.Visit(argsContext).([]interface{})
 	if methodName == "print" {
 		v.method.print(args...)
 	} else if methodName == "sin" {

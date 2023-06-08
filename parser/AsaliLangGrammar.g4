@@ -57,13 +57,17 @@ methodCallStat
  : ID methodCallArguments
  ;
 
+ inlineMethodCall
+ : ID OPAR methodCallArguments CPAR
+ ;
+
 methodCallArguments
  : // No arguments
  | expr (',' expr)*  // Some arguments
  ;
 
 expr
- : methodCall                           #methodCallExpr
+ : inlineMethodCall                       #methodCallExpr
  |<assoc=right> expr POW expr           #powExpr
  | MINUS expr                           #unaryMinusExpr
  | NOT expr                             #notExpr

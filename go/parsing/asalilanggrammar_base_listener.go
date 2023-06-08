@@ -92,6 +92,12 @@ func (s *BaseAsaliLangGrammarListener) EnterMethodCall(ctx *MethodCallContext) {
 // ExitMethodCall is called when production methodCall is exited.
 func (s *BaseAsaliLangGrammarListener) ExitMethodCall(ctx *MethodCallContext) {}
 
+// EnterInlineMethodCall is called when production inlineMethodCall is entered.
+func (s *BaseAsaliLangGrammarListener) EnterInlineMethodCall(ctx *InlineMethodCallContext) {}
+
+// ExitInlineMethodCall is called when production inlineMethodCall is exited.
+func (s *BaseAsaliLangGrammarListener) ExitInlineMethodCall(ctx *InlineMethodCallContext) {}
+
 // EnterMethodCallArguments is called when production methodCallArguments is entered.
 func (s *BaseAsaliLangGrammarListener) EnterMethodCallArguments(ctx *MethodCallArgumentsContext) {}
 

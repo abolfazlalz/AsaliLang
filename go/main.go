@@ -11,9 +11,9 @@ import (
 
 func main() {
 	input, _ := antlr.NewFileStream(os.Args[1])
-	lexer := parsing.NewMyGrammarLexer(input)
+	lexer := parsing.NewAsaliLangGrammarLexer(input)
 	stream := antlr.NewCommonTokenStream(lexer, 0)
-	p := parsing.NewMyGrammarParser(stream)
+	p := parsing.NewAsaliLangGrammarParser(stream)
 	p.BuildParseTrees = true
 	tree := p.Parse()
 	v := project.NewVisitor()

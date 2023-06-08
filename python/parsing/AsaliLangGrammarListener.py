@@ -112,6 +112,15 @@ class AsaliLangGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AsaliLangGrammarParser#inlineMethodCall.
+    def enterInlineMethodCall(self, ctx):
+        pass
+
+    # Exit a parse tree produced by AsaliLangGrammarParser#inlineMethodCall.
+    def exitInlineMethodCall(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by AsaliLangGrammarParser#methodCallArguments.
     def enterMethodCallArguments(self, ctx):
         pass

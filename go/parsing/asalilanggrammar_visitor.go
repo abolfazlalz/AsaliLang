@@ -43,6 +43,9 @@ type AsaliLangGrammarVisitor interface {
 	// Visit a parse tree produced by AsaliLangGrammarParser#methodCall.
 	VisitMethodCall(ctx *MethodCallContext) interface{}
 
+	// Visit a parse tree produced by AsaliLangGrammarParser#inlineMethodCall.
+	VisitInlineMethodCall(ctx *InlineMethodCallContext) interface{}
+
 	// Visit a parse tree produced by AsaliLangGrammarParser#methodCallArguments.
 	VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{}
 
