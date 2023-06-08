@@ -1,7 +1,7 @@
 a= 4;
 while a > 0 do begin
     if a % 2 == 1 then
-        log "a is odd: "+ a;
+        print "a is odd: ", a;
     else
-        log "a is even: "+ a;
+        print "a is even: ", a;
 a = a - 1; end

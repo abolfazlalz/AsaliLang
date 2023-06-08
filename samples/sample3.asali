@@ -1,5 +1,5 @@
 for a=1:4 do
 begin
     if a % 2 == 1 then
-        log "a is odd: " + a;
+        print "a is odd: ", a;
 end
