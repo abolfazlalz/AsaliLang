@@ -65,6 +65,11 @@ class AsaliLangGrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by AsaliLangGrammarParser#returnState.
+    def visitReturnState(self, ctx):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by AsaliLangGrammarParser#methodCall.
     def visitMethodCall(self, ctx):
         return self.visitChildren(ctx)

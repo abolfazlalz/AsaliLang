@@ -10,6 +10,10 @@ import (
 	"strings"
 )
 
+type Return struct {
+	value interface{}
+}
+
 type Method struct {
 	name  string
 	block parsing.IStatBlockContext
@@ -34,30 +38,40 @@ func NewVisitor() *Visitor {
 }
 
 func (v *Visitor) Visit(tree antlr.ParseTree) interface{} {
+	defer func() {
+		err := recover()
+		if err == nil {
+			return
+		}
+		fmt.Println(err)
+	}()
 	return tree.Accept(v)
 }
 
 func (v *Visitor) VisitBlock(ctx *parsing.BlockContext) interface{} {
 	for _, c := range ctx.AllStat() {
-		v.Visit(c)
+		result := v.Visit(c)
+		if d, ok := result.(Return); ok {
+			return d
+		}
 	}
+
 	return nil
 }
 
 func (v *Visitor) VisitStatBlock(ctx *parsing.StatBlockContext) interface{} {
 	if ctx.Stat() != nil {
-		v.Visit(ctx.Stat())
-		return nil
+		result := v.Visit(ctx.Stat())
+		if val, ok := result.(Return); ok {
+			return val.value
+		}
+		return result
 	}
-	for _, c := range ctx.Block().AllStat() {
-		v.Visit(c)
-	}
-	return nil
+	return v.Visit(ctx.Block())
 }
 
 func (v *Visitor) VisitParse(ctx *parsing.ParseContext) interface{} {
-	v.Visit(ctx.Block())
-	return nil
+	return v.Visit(ctx.Block())
 }
 func (v *Visitor) VisitStat(ctx *parsing.StatContext) interface{} {
 	return v.Visit(ctx.GetChild(0).(antlr.ParseTree))
@@ -113,7 +127,8 @@ func (v *Visitor) VisitAdditiveExpr(ctx *parsing.AdditiveExprContext) interface{
 	switch ctx.GetOp().GetTokenType() {
 	case parsing.AsaliLangGrammarLexerPLUS:
 		valLeft, okLeft := left.(float64)
-		valRight, okRight := left.(float64)
+		valRight, okRight := right.(float64)
+
 		if okRight && okLeft {
 			return valRight + valLeft
 		}
@@ -230,7 +245,12 @@ func (v *Visitor) handleMethodCall(methodName string, argsContext parsing.IMetho
 			for i, arg := range method.args {
 				v.vars[arg] = args[i]
 			}
-			return v.Visit(method.block)
+			lastVars := v.vars
+			result := v.Visit(method.block).(Return).value
+			for _, arg := range method.args {
+				v.vars[arg] = lastVars[arg]
+			}
+			return result
 		}
 	}
 
@@ -303,21 +323,22 @@ func (v *Visitor) VisitWhileStat(ctx *parsing.WhileStatContext) interface{} {
 
 func (v *Visitor) VisitIfStat(ctx *parsing.IfStatContext) interface{} {
 	conditions := ctx.AllConditionBlock()
+	var result interface{}
 	evaluatedBlock := false
 	for _, condition := range conditions {
 		evaluated := v.Visit(condition.Expr())
 		if toBoolean(evaluated) {
 			evaluatedBlock = true
-			v.Visit(condition.StatBlock())
+			result = v.Visit(condition.StatBlock())
 			break
 		}
 	}
 
 	if !evaluatedBlock && ctx.StatBlock() != nil {
-		v.Visit(ctx.StatBlock())
+		result = v.Visit(ctx.StatBlock())
 	}
 
-	return nil
+	return result
 }
 
 func (v *Visitor) VisitDefineFuncStats(ctx *parsing.DefineFuncStatsContext) interface{} {
@@ -338,4 +359,22 @@ func (v *Visitor) VisitDefineFuncArguments(ctx *parsing.DefineFuncArgumentsConte
 		idsString[i] = id.GetText()
 	}
 	return idsString
+}
+
+func (v *Visitor) VisitReturnState(ctx *parsing.ReturnStateContext) interface{} {
+	parent := ctx.GetParent()
+	isInMethodStat := false
+	for parent != nil {
+		if _, ok := parent.(*parsing.DefineFuncStatsContext); ok {
+			isInMethodStat = true
+			break
+		}
+		parent = parent.GetParent()
+	}
+
+	if !isInMethodStat {
+		panic("Return must called in a method statement")
+	}
+
+	return Return{v.Visit(ctx.Expr())}
 }

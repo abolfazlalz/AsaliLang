@@ -16,6 +16,7 @@ stat
  | forStat
  | loopStat
  | defineFuncStats
+ | returnState
  ;
 
 assignment
@@ -55,6 +56,10 @@ methodCallStat
 
 defineFuncStats
  : FUNC ID OPAR defineFuncArguments CPAR statBlock
+ ;
+
+returnState
+ : RETURN expr? SCOL
  ;
 
  methodCall
@@ -137,6 +142,7 @@ WHILE : 'while';
 FOR : 'for';
 LOOP : 'loop';
 FUNC : 'func';
+RETURN : 'return';
 
 ID
  : [a-zA-Z_] [a-zA-Z_0-9]*

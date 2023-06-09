@@ -43,6 +43,9 @@ type AsaliLangGrammarListener interface {
 	// EnterDefineFuncStats is called when entering the defineFuncStats production.
 	EnterDefineFuncStats(c *DefineFuncStatsContext)
 
+	// EnterReturnState is called when entering the returnState production.
+	EnterReturnState(c *ReturnStateContext)
+
 	// EnterMethodCall is called when entering the methodCall production.
 	EnterMethodCall(c *MethodCallContext)
 
@@ -141,6 +144,9 @@ type AsaliLangGrammarListener interface {
 
 	// ExitDefineFuncStats is called when exiting the defineFuncStats production.
 	ExitDefineFuncStats(c *DefineFuncStatsContext)
+
+	// ExitReturnState is called when exiting the returnState production.
+	ExitReturnState(c *ReturnStateContext)
 
 	// ExitMethodCall is called when exiting the methodCall production.
 	ExitMethodCall(c *MethodCallContext)

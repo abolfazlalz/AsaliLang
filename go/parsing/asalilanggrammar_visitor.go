@@ -43,6 +43,9 @@ type AsaliLangGrammarVisitor interface {
 	// Visit a parse tree produced by AsaliLangGrammarParser#defineFuncStats.
 	VisitDefineFuncStats(ctx *DefineFuncStatsContext) interface{}
 
+	// Visit a parse tree produced by AsaliLangGrammarParser#returnState.
+	VisitReturnState(ctx *ReturnStateContext) interface{}
+
 	// Visit a parse tree produced by AsaliLangGrammarParser#methodCall.
 	VisitMethodCall(ctx *MethodCallContext) interface{}
 

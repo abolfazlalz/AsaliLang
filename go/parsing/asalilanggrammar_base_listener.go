@@ -92,6 +92,12 @@ func (s *BaseAsaliLangGrammarListener) EnterDefineFuncStats(ctx *DefineFuncStats
 // ExitDefineFuncStats is called when production defineFuncStats is exited.
 func (s *BaseAsaliLangGrammarListener) ExitDefineFuncStats(ctx *DefineFuncStatsContext) {}
 
+// EnterReturnState is called when production returnState is entered.
+func (s *BaseAsaliLangGrammarListener) EnterReturnState(ctx *ReturnStateContext) {}
+
+// ExitReturnState is called when production returnState is exited.
+func (s *BaseAsaliLangGrammarListener) ExitReturnState(ctx *ReturnStateContext) {}
+
 // EnterMethodCall is called when production methodCall is entered.
 func (s *BaseAsaliLangGrammarListener) EnterMethodCall(ctx *MethodCallContext) {}
 
