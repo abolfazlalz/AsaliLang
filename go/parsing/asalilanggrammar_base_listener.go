@@ -1,4 +1,4 @@
-// Code generated from AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from ./AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parsing // AsaliLangGrammar
 import "github.com/antlr4-go/antlr/v4"
@@ -86,6 +86,12 @@ func (s *BaseAsaliLangGrammarListener) EnterMethodCallStat(ctx *MethodCallStatCo
 // ExitMethodCallStat is called when production methodCallStat is exited.
 func (s *BaseAsaliLangGrammarListener) ExitMethodCallStat(ctx *MethodCallStatContext) {}
 
+// EnterDefineFuncStats is called when production defineFuncStats is entered.
+func (s *BaseAsaliLangGrammarListener) EnterDefineFuncStats(ctx *DefineFuncStatsContext) {}
+
+// ExitDefineFuncStats is called when production defineFuncStats is exited.
+func (s *BaseAsaliLangGrammarListener) ExitDefineFuncStats(ctx *DefineFuncStatsContext) {}
+
 // EnterMethodCall is called when production methodCall is entered.
 func (s *BaseAsaliLangGrammarListener) EnterMethodCall(ctx *MethodCallContext) {}
 
@@ -103,6 +109,12 @@ func (s *BaseAsaliLangGrammarListener) EnterMethodCallArguments(ctx *MethodCallA
 
 // ExitMethodCallArguments is called when production methodCallArguments is exited.
 func (s *BaseAsaliLangGrammarListener) ExitMethodCallArguments(ctx *MethodCallArgumentsContext) {}
+
+// EnterDefineFuncArguments is called when production defineFuncArguments is entered.
+func (s *BaseAsaliLangGrammarListener) EnterDefineFuncArguments(ctx *DefineFuncArgumentsContext) {}
+
+// ExitDefineFuncArguments is called when production defineFuncArguments is exited.
+func (s *BaseAsaliLangGrammarListener) ExitDefineFuncArguments(ctx *DefineFuncArgumentsContext) {}
 
 // EnterMethodCallExpr is called when production methodCallExpr is entered.
 func (s *BaseAsaliLangGrammarListener) EnterMethodCallExpr(ctx *MethodCallExprContext) {}

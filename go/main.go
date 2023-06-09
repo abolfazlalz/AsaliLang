@@ -1,10 +1,10 @@
 package main
 
 import (
-	"asalicompiler/project"
+	"github.com/abolfazlalz/asalilang/project"
 	"os"
 
-	"asalicompiler/parsing"
+	"github.com/abolfazlalz/asalilang/parsing"
 
 	"github.com/antlr4-go/antlr/v4"
 )

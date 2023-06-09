@@ -1,4 +1,4 @@
-// Code generated from AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from ./AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parsing // AsaliLangGrammar
 import "github.com/antlr4-go/antlr/v4"
@@ -40,6 +40,9 @@ type AsaliLangGrammarListener interface {
 	// EnterMethodCallStat is called when entering the methodCallStat production.
 	EnterMethodCallStat(c *MethodCallStatContext)
 
+	// EnterDefineFuncStats is called when entering the defineFuncStats production.
+	EnterDefineFuncStats(c *DefineFuncStatsContext)
+
 	// EnterMethodCall is called when entering the methodCall production.
 	EnterMethodCall(c *MethodCallContext)
 
@@ -48,6 +51,9 @@ type AsaliLangGrammarListener interface {
 
 	// EnterMethodCallArguments is called when entering the methodCallArguments production.
 	EnterMethodCallArguments(c *MethodCallArgumentsContext)
+
+	// EnterDefineFuncArguments is called when entering the defineFuncArguments production.
+	EnterDefineFuncArguments(c *DefineFuncArgumentsContext)
 
 	// EnterMethodCallExpr is called when entering the methodCallExpr production.
 	EnterMethodCallExpr(c *MethodCallExprContext)
@@ -133,6 +139,9 @@ type AsaliLangGrammarListener interface {
 	// ExitMethodCallStat is called when exiting the methodCallStat production.
 	ExitMethodCallStat(c *MethodCallStatContext)
 
+	// ExitDefineFuncStats is called when exiting the defineFuncStats production.
+	ExitDefineFuncStats(c *DefineFuncStatsContext)
+
 	// ExitMethodCall is called when exiting the methodCall production.
 	ExitMethodCall(c *MethodCallContext)
 
@@ -141,6 +150,9 @@ type AsaliLangGrammarListener interface {
 
 	// ExitMethodCallArguments is called when exiting the methodCallArguments production.
 	ExitMethodCallArguments(c *MethodCallArgumentsContext)
+
+	// ExitDefineFuncArguments is called when exiting the defineFuncArguments production.
+	ExitDefineFuncArguments(c *DefineFuncArgumentsContext)
 
 	// ExitMethodCallExpr is called when exiting the methodCallExpr production.
 	ExitMethodCallExpr(c *MethodCallExprContext)

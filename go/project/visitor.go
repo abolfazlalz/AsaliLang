@@ -1,18 +1,26 @@
 package project
 
 import (
-	"asalicompiler/parsing"
 	"fmt"
+	"github.com/abolfazlalz/asalilang/parsing"
 	"github.com/antlr4-go/antlr/v4"
 	"math"
+	"reflect"
 	"strconv"
 	"strings"
 )
 
+type Method struct {
+	name  string
+	block parsing.IStatBlockContext
+	args  []string
+}
+
 type Visitor struct {
 	*parsing.BaseAsaliLangGrammarVisitor
-	method *BuildInMethod
-	vars   map[string]interface{}
+	buildInMethod *BuildInMethod
+	methods       []*Method
+	vars          map[string]interface{}
 }
 
 func NewVisitor() *Visitor {
@@ -20,7 +28,7 @@ func NewVisitor() *Visitor {
 		vars: map[string]interface{}{
 			"PI": math.Pi,
 		},
-		method:                      NewBuildInMethod(),
+		buildInMethod:               NewBuildInMethod(),
 		BaseAsaliLangGrammarVisitor: &parsing.BaseAsaliLangGrammarVisitor{},
 	}
 }
@@ -209,11 +217,36 @@ func (v *Visitor) VisitInlineMethodCall(ctx *parsing.InlineMethodCallContext) in
 
 func (v *Visitor) handleMethodCall(methodName string, argsContext parsing.IMethodCallArgumentsContext) interface{} {
 	args := v.Visit(argsContext).([]interface{})
-	if methodName == "print" {
-		v.method.print(args...)
-	} else if methodName == "sin" {
-		return v.method.sin(args...)
+
+	for _, method := range v.methods {
+		if method.name == methodName {
+			if len(method.args) > len(args) {
+				panic(fmt.Sprintf("not enough arguments to call method, required %d", len(method.args)))
+			} else if len(method.args) == 0 && len(args) != 0 {
+				panic(fmt.Sprintf("%s method does'nt have arguments.", method.name))
+			} else if len(method.args) < len(args) {
+				panic(fmt.Sprintf("%s required %d input, given %d", method.name, len(method.args), len(args)))
+			}
+			for i, arg := range method.args {
+				v.vars[arg] = args[i]
+			}
+			return v.Visit(method.block)
+		}
 	}
+
+	if methodName == "print" {
+		v.buildInMethod.print(args...)
+		return nil
+	} else if methodName == "sin" {
+		return v.buildInMethod.sin(args...)
+	} else if methodName == "time" {
+		return v.buildInMethod.time()
+	} else if methodName == "type" {
+		return reflect.TypeOf(args[0])
+	} else if methodName == "format" {
+		return v.buildInMethod.format(args...)
+	}
+	panic(fmt.Sprintf("Undefined method %s", methodName))
 	return nil
 }
 
@@ -285,4 +318,24 @@ func (v *Visitor) VisitIfStat(ctx *parsing.IfStatContext) interface{} {
 	}
 
 	return nil
+}
+
+func (v *Visitor) VisitDefineFuncStats(ctx *parsing.DefineFuncStatsContext) interface{} {
+	methodName := ctx.ID().GetText()
+	args := v.Visit(ctx.DefineFuncArguments()).([]string)
+	v.methods = append(v.methods, &Method{
+		name:  methodName,
+		block: ctx.StatBlock(),
+		args:  args,
+	})
+	return nil
+}
+
+func (v *Visitor) VisitDefineFuncArguments(ctx *parsing.DefineFuncArgumentsContext) interface{} {
+	ids := ctx.AllID()
+	idsString := make([]string, len(ids))
+	for i, id := range ids {
+		idsString[i] = id.GetText()
+	}
+	return idsString
 }

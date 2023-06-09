@@ -1,4 +1,4 @@
-// Code generated from AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from ./AsaliLangGrammar.g4 by ANTLR 4.13.0. DO NOT EDIT.
 
 package parsing // AsaliLangGrammar
 import "github.com/antlr4-go/antlr/v4"
@@ -51,6 +51,10 @@ func (v *BaseAsaliLangGrammarVisitor) VisitMethodCallStat(ctx *MethodCallStatCon
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseAsaliLangGrammarVisitor) VisitDefineFuncStats(ctx *DefineFuncStatsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseAsaliLangGrammarVisitor) VisitMethodCall(ctx *MethodCallContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -60,6 +64,10 @@ func (v *BaseAsaliLangGrammarVisitor) VisitInlineMethodCall(ctx *InlineMethodCal
 }
 
 func (v *BaseAsaliLangGrammarVisitor) VisitMethodCallArguments(ctx *MethodCallArgumentsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseAsaliLangGrammarVisitor) VisitDefineFuncArguments(ctx *DefineFuncArgumentsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

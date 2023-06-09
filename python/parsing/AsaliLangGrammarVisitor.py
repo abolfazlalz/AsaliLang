@@ -1,4 +1,4 @@
-# Generated from AsaliLangGrammar.g4 by ANTLR 4.13.0
+# Generated from ./AsaliLangGrammar.g4 by ANTLR 4.13.0
 from antlr4 import *
 
 # This class defines a complete generic visitor for a parse tree produced by AsaliLangGrammarParser.
@@ -60,6 +60,11 @@ class AsaliLangGrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by AsaliLangGrammarParser#defineFuncStats.
+    def visitDefineFuncStats(self, ctx):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by AsaliLangGrammarParser#methodCall.
     def visitMethodCall(self, ctx):
         return self.visitChildren(ctx)
@@ -72,6 +77,11 @@ class AsaliLangGrammarVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by AsaliLangGrammarParser#methodCallArguments.
     def visitMethodCallArguments(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AsaliLangGrammarParser#defineFuncArguments.
+    def visitDefineFuncArguments(self, ctx):
         return self.visitChildren(ctx)
 
 

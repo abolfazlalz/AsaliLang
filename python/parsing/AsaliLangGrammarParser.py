@@ -1,4 +1,4 @@
-# Generated from AsaliLangGrammar.g4 by ANTLR 4.13.0
+# Generated from ./AsaliLangGrammar.g4 by ANTLR 4.13.0
 # encoding: utf-8
 from __future__ import print_function
 from antlr4 import *
@@ -7,67 +7,75 @@ import sys
 
 def serializedATN():
     return [
-        4,1,41,174,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,42,197,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
-        2,14,7,14,2,15,7,15,1,0,1,0,1,0,1,1,5,1,37,8,1,10,1,12,1,40,9,1,
-        1,2,1,2,1,2,1,2,1,2,1,2,3,2,48,8,2,1,3,1,3,1,3,1,3,1,3,1,4,1,4,1,
-        4,1,4,1,4,5,4,60,8,4,10,4,12,4,63,9,4,1,4,1,4,3,4,67,8,4,1,5,1,5,
-        1,5,1,6,1,6,1,6,1,6,1,6,3,6,77,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,
-        6,86,8,6,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,9,1,9,
-        1,9,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,1,11,1,12,1,12,1,12,1,12,
-        1,12,1,13,1,13,1,13,1,13,5,13,121,8,13,10,13,12,13,124,9,13,3,13,
-        126,8,13,1,14,1,14,1,14,1,14,1,14,1,14,1,14,3,14,135,8,14,1,14,1,
-        14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,
-        14,1,14,1,14,1,14,1,14,1,14,1,14,5,14,158,8,14,10,14,12,14,161,9,
-        14,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,3,15,172,8,15,1,
-        15,0,1,28,16,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,0,6,1,0,
-        12,14,1,0,10,11,1,0,6,9,1,0,4,5,1,0,37,38,1,0,28,29,186,0,32,1,0,
-        0,0,2,38,1,0,0,0,4,47,1,0,0,0,6,49,1,0,0,0,8,54,1,0,0,0,10,68,1,
-        0,0,0,12,85,1,0,0,0,14,87,1,0,0,0,16,91,1,0,0,0,18,99,1,0,0,0,20,
-        105,1,0,0,0,22,108,1,0,0,0,24,111,1,0,0,0,26,125,1,0,0,0,28,134,
-        1,0,0,0,30,171,1,0,0,0,32,33,3,2,1,0,33,34,5,0,0,1,34,1,1,0,0,0,
-        35,37,3,4,2,0,36,35,1,0,0,0,37,40,1,0,0,0,38,36,1,0,0,0,38,39,1,
-        0,0,0,39,3,1,0,0,0,40,38,1,0,0,0,41,48,3,6,3,0,42,48,3,8,4,0,43,
-        48,3,14,7,0,44,48,3,20,10,0,45,48,3,16,8,0,46,48,3,18,9,0,47,41,
-        1,0,0,0,47,42,1,0,0,0,47,43,1,0,0,0,47,44,1,0,0,0,47,45,1,0,0,0,
-        47,46,1,0,0,0,48,5,1,0,0,0,49,50,5,36,0,0,50,51,5,19,0,0,51,52,3,
-        28,14,0,52,53,5,17,0,0,53,7,1,0,0,0,54,55,5,31,0,0,55,61,3,10,5,
-        0,56,57,5,32,0,0,57,58,5,31,0,0,58,60,3,10,5,0,59,56,1,0,0,0,60,
-        63,1,0,0,0,61,59,1,0,0,0,61,62,1,0,0,0,62,66,1,0,0,0,63,61,1,0,0,
-        0,64,65,5,32,0,0,65,67,3,12,6,0,66,64,1,0,0,0,66,67,1,0,0,0,67,9,
-        1,0,0,0,68,69,3,28,14,0,69,70,3,12,6,0,70,11,1,0,0,0,71,72,5,22,
-        0,0,72,73,3,2,1,0,73,74,5,23,0,0,74,86,1,0,0,0,75,77,5,26,0,0,76,
-        75,1,0,0,0,76,77,1,0,0,0,77,78,1,0,0,0,78,79,5,24,0,0,79,80,3,2,
-        1,0,80,81,5,25,0,0,81,86,1,0,0,0,82,86,3,4,2,0,83,84,5,27,0,0,84,
-        86,3,2,1,0,85,71,1,0,0,0,85,76,1,0,0,0,85,82,1,0,0,0,85,83,1,0,0,
-        0,86,13,1,0,0,0,87,88,5,33,0,0,88,89,3,28,14,0,89,90,3,12,6,0,90,
-        15,1,0,0,0,91,92,5,34,0,0,92,93,5,36,0,0,93,94,5,19,0,0,94,95,3,
-        28,14,0,95,96,5,18,0,0,96,97,3,28,14,0,97,98,3,12,6,0,98,17,1,0,
-        0,0,99,100,5,35,0,0,100,101,5,36,0,0,101,102,5,18,0,0,102,103,3,
-        28,14,0,103,104,3,12,6,0,104,19,1,0,0,0,105,106,3,22,11,0,106,107,
-        5,17,0,0,107,21,1,0,0,0,108,109,5,36,0,0,109,110,3,26,13,0,110,23,
-        1,0,0,0,111,112,5,36,0,0,112,113,5,20,0,0,113,114,3,26,13,0,114,
-        115,5,21,0,0,115,25,1,0,0,0,116,126,1,0,0,0,117,122,3,28,14,0,118,
-        119,5,1,0,0,119,121,3,28,14,0,120,118,1,0,0,0,121,124,1,0,0,0,122,
-        120,1,0,0,0,122,123,1,0,0,0,123,126,1,0,0,0,124,122,1,0,0,0,125,
-        116,1,0,0,0,125,117,1,0,0,0,126,27,1,0,0,0,127,128,6,14,-1,0,128,
-        135,3,24,12,0,129,130,5,11,0,0,130,135,3,28,14,9,131,132,5,16,0,
-        0,132,135,3,28,14,8,133,135,3,30,15,0,134,127,1,0,0,0,134,129,1,
-        0,0,0,134,131,1,0,0,0,134,133,1,0,0,0,135,159,1,0,0,0,136,137,10,
-        10,0,0,137,138,5,15,0,0,138,158,3,28,14,10,139,140,10,7,0,0,140,
-        141,7,0,0,0,141,158,3,28,14,8,142,143,10,6,0,0,143,144,7,1,0,0,144,
-        158,3,28,14,7,145,146,10,5,0,0,146,147,7,2,0,0,147,158,3,28,14,6,
-        148,149,10,4,0,0,149,150,7,3,0,0,150,158,3,28,14,5,151,152,10,3,
-        0,0,152,153,5,3,0,0,153,158,3,28,14,4,154,155,10,2,0,0,155,156,5,
-        2,0,0,156,158,3,28,14,3,157,136,1,0,0,0,157,139,1,0,0,0,157,142,
-        1,0,0,0,157,145,1,0,0,0,157,148,1,0,0,0,157,151,1,0,0,0,157,154,
-        1,0,0,0,158,161,1,0,0,0,159,157,1,0,0,0,159,160,1,0,0,0,160,29,1,
-        0,0,0,161,159,1,0,0,0,162,163,5,20,0,0,163,164,3,28,14,0,164,165,
-        5,21,0,0,165,172,1,0,0,0,166,172,7,4,0,0,167,172,7,5,0,0,168,172,
-        5,36,0,0,169,172,5,39,0,0,170,172,5,30,0,0,171,162,1,0,0,0,171,166,
-        1,0,0,0,171,167,1,0,0,0,171,168,1,0,0,0,171,169,1,0,0,0,171,170,
-        1,0,0,0,172,31,1,0,0,0,12,38,47,61,66,76,85,122,125,134,157,159,
-        171
+        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,1,0,1,0,1,0,1,1,5,1,41,8,
+        1,10,1,12,1,44,9,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,53,8,2,1,3,1,
+        3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,1,4,5,4,65,8,4,10,4,12,4,68,9,4,1,
+        4,1,4,3,4,72,8,4,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,3,6,82,8,6,1,6,
+        1,6,1,6,1,6,1,6,1,6,1,6,3,6,91,8,6,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,
+        8,1,8,1,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,
+        11,1,11,1,11,1,11,1,11,1,11,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,
+        13,1,14,1,14,1,14,1,14,5,14,133,8,14,10,14,12,14,136,9,14,3,14,138,
+        8,14,1,15,1,15,1,15,1,15,5,15,144,8,15,10,15,12,15,147,9,15,3,15,
+        149,8,15,1,16,1,16,1,16,1,16,1,16,1,16,1,16,3,16,158,8,16,1,16,1,
+        16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,
+        16,1,16,1,16,1,16,1,16,1,16,1,16,5,16,181,8,16,10,16,12,16,184,9,
+        16,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,3,17,195,8,17,1,
+        17,0,1,32,18,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,0,
+        6,1,0,12,14,1,0,10,11,1,0,6,9,1,0,4,5,1,0,38,39,1,0,28,29,210,0,
+        36,1,0,0,0,2,42,1,0,0,0,4,52,1,0,0,0,6,54,1,0,0,0,8,59,1,0,0,0,10,
+        73,1,0,0,0,12,90,1,0,0,0,14,92,1,0,0,0,16,96,1,0,0,0,18,104,1,0,
+        0,0,20,110,1,0,0,0,22,113,1,0,0,0,24,120,1,0,0,0,26,123,1,0,0,0,
+        28,137,1,0,0,0,30,148,1,0,0,0,32,157,1,0,0,0,34,194,1,0,0,0,36,37,
+        3,2,1,0,37,38,5,0,0,1,38,1,1,0,0,0,39,41,3,4,2,0,40,39,1,0,0,0,41,
+        44,1,0,0,0,42,40,1,0,0,0,42,43,1,0,0,0,43,3,1,0,0,0,44,42,1,0,0,
+        0,45,53,3,6,3,0,46,53,3,8,4,0,47,53,3,14,7,0,48,53,3,20,10,0,49,
+        53,3,16,8,0,50,53,3,18,9,0,51,53,3,22,11,0,52,45,1,0,0,0,52,46,1,
+        0,0,0,52,47,1,0,0,0,52,48,1,0,0,0,52,49,1,0,0,0,52,50,1,0,0,0,52,
+        51,1,0,0,0,53,5,1,0,0,0,54,55,5,37,0,0,55,56,5,19,0,0,56,57,3,32,
+        16,0,57,58,5,17,0,0,58,7,1,0,0,0,59,60,5,31,0,0,60,66,3,10,5,0,61,
+        62,5,32,0,0,62,63,5,31,0,0,63,65,3,10,5,0,64,61,1,0,0,0,65,68,1,
+        0,0,0,66,64,1,0,0,0,66,67,1,0,0,0,67,71,1,0,0,0,68,66,1,0,0,0,69,
+        70,5,32,0,0,70,72,3,12,6,0,71,69,1,0,0,0,71,72,1,0,0,0,72,9,1,0,
+        0,0,73,74,3,32,16,0,74,75,3,12,6,0,75,11,1,0,0,0,76,77,5,22,0,0,
+        77,78,3,2,1,0,78,79,5,23,0,0,79,91,1,0,0,0,80,82,5,26,0,0,81,80,
+        1,0,0,0,81,82,1,0,0,0,82,83,1,0,0,0,83,84,5,24,0,0,84,85,3,2,1,0,
+        85,86,5,25,0,0,86,91,1,0,0,0,87,91,3,4,2,0,88,89,5,27,0,0,89,91,
+        3,2,1,0,90,76,1,0,0,0,90,81,1,0,0,0,90,87,1,0,0,0,90,88,1,0,0,0,
+        91,13,1,0,0,0,92,93,5,33,0,0,93,94,3,32,16,0,94,95,3,12,6,0,95,15,
+        1,0,0,0,96,97,5,34,0,0,97,98,5,37,0,0,98,99,5,19,0,0,99,100,3,32,
+        16,0,100,101,5,18,0,0,101,102,3,32,16,0,102,103,3,12,6,0,103,17,
+        1,0,0,0,104,105,5,35,0,0,105,106,5,37,0,0,106,107,5,18,0,0,107,108,
+        3,32,16,0,108,109,3,12,6,0,109,19,1,0,0,0,110,111,3,24,12,0,111,
+        112,5,17,0,0,112,21,1,0,0,0,113,114,5,36,0,0,114,115,5,37,0,0,115,
+        116,5,20,0,0,116,117,3,30,15,0,117,118,5,21,0,0,118,119,3,12,6,0,
+        119,23,1,0,0,0,120,121,5,37,0,0,121,122,3,28,14,0,122,25,1,0,0,0,
+        123,124,5,37,0,0,124,125,5,20,0,0,125,126,3,28,14,0,126,127,5,21,
+        0,0,127,27,1,0,0,0,128,138,1,0,0,0,129,134,3,32,16,0,130,131,5,1,
+        0,0,131,133,3,32,16,0,132,130,1,0,0,0,133,136,1,0,0,0,134,132,1,
+        0,0,0,134,135,1,0,0,0,135,138,1,0,0,0,136,134,1,0,0,0,137,128,1,
+        0,0,0,137,129,1,0,0,0,138,29,1,0,0,0,139,149,1,0,0,0,140,145,5,37,
+        0,0,141,142,5,1,0,0,142,144,5,37,0,0,143,141,1,0,0,0,144,147,1,0,
+        0,0,145,143,1,0,0,0,145,146,1,0,0,0,146,149,1,0,0,0,147,145,1,0,
+        0,0,148,139,1,0,0,0,148,140,1,0,0,0,149,31,1,0,0,0,150,151,6,16,
+        -1,0,151,158,3,26,13,0,152,153,5,11,0,0,153,158,3,32,16,9,154,155,
+        5,16,0,0,155,158,3,32,16,8,156,158,3,34,17,0,157,150,1,0,0,0,157,
+        152,1,0,0,0,157,154,1,0,0,0,157,156,1,0,0,0,158,182,1,0,0,0,159,
+        160,10,10,0,0,160,161,5,15,0,0,161,181,3,32,16,10,162,163,10,7,0,
+        0,163,164,7,0,0,0,164,181,3,32,16,8,165,166,10,6,0,0,166,167,7,1,
+        0,0,167,181,3,32,16,7,168,169,10,5,0,0,169,170,7,2,0,0,170,181,3,
+        32,16,6,171,172,10,4,0,0,172,173,7,3,0,0,173,181,3,32,16,5,174,175,
+        10,3,0,0,175,176,5,3,0,0,176,181,3,32,16,4,177,178,10,2,0,0,178,
+        179,5,2,0,0,179,181,3,32,16,3,180,159,1,0,0,0,180,162,1,0,0,0,180,
+        165,1,0,0,0,180,168,1,0,0,0,180,171,1,0,0,0,180,174,1,0,0,0,180,
+        177,1,0,0,0,181,184,1,0,0,0,182,180,1,0,0,0,182,183,1,0,0,0,183,
+        33,1,0,0,0,184,182,1,0,0,0,185,186,5,20,0,0,186,187,3,32,16,0,187,
+        188,5,21,0,0,188,195,1,0,0,0,189,195,7,4,0,0,190,195,7,5,0,0,191,
+        195,5,37,0,0,192,195,5,40,0,0,193,195,5,30,0,0,194,185,1,0,0,0,194,
+        189,1,0,0,0,194,190,1,0,0,0,194,191,1,0,0,0,194,192,1,0,0,0,194,
+        193,1,0,0,0,195,35,1,0,0,0,14,42,52,66,71,81,90,134,137,145,148,
+        157,180,182,194
     ]
 
 class AsaliLangGrammarParser ( Parser ):
@@ -85,7 +93,8 @@ class AsaliLangGrammarParser ( Parser ):
                      u"'/'", u"'%'", u"'^'", u"'!'", u"';'", u"':'", u"'='", 
                      u"'('", u"')'", u"'{'", u"'}'", u"'begin'", u"'end'", 
                      u"'do'", u"'then'", u"'true'", u"'false'", u"'nil'", 
-                     u"'if'", u"'else'", u"'while'", u"'for'", u"'loop'" ]
+                     u"'if'", u"'else'", u"'while'", u"'for'", u"'loop'", 
+                     u"'func'" ]
 
     symbolicNames = [ u"<INVALID>", u"<INVALID>", u"OR", u"AND", u"EQ", 
                       u"NEQ", u"GT", u"LT", u"GTEQ", u"LTEQ", u"PLUS", u"MINUS", 
@@ -93,7 +102,8 @@ class AsaliLangGrammarParser ( Parser ):
                       u"COL", u"ASSIGN", u"OPAR", u"CPAR", u"OBRACE", u"CBRACE", 
                       u"BEGIN", u"END", u"DO", u"THEN", u"TRUE", u"FALSE", 
                       u"NIL", u"IF", u"ELSE", u"WHILE", u"FOR", u"LOOP", 
-                      u"ID", u"INT", u"FLOAT", u"STRING", u"COMMENT", u"SPACE" ]
+                      u"FUNC", u"ID", u"INT", u"FLOAT", u"STRING", u"COMMENT", 
+                      u"SPACE" ]
 
     RULE_parse = 0
     RULE_block = 1
@@ -106,16 +116,19 @@ class AsaliLangGrammarParser ( Parser ):
     RULE_forStat = 8
     RULE_loopStat = 9
     RULE_methodCallStat = 10
-    RULE_methodCall = 11
-    RULE_inlineMethodCall = 12
-    RULE_methodCallArguments = 13
-    RULE_expr = 14
-    RULE_atom = 15
+    RULE_defineFuncStats = 11
+    RULE_methodCall = 12
+    RULE_inlineMethodCall = 13
+    RULE_methodCallArguments = 14
+    RULE_defineFuncArguments = 15
+    RULE_expr = 16
+    RULE_atom = 17
 
     ruleNames =  [ u"parse", u"block", u"stat", u"assignment", u"ifStat", 
                    u"conditionBlock", u"statBlock", u"whileStat", u"forStat", 
-                   u"loopStat", u"methodCallStat", u"methodCall", u"inlineMethodCall", 
-                   u"methodCallArguments", u"expr", u"atom" ]
+                   u"loopStat", u"methodCallStat", u"defineFuncStats", u"methodCall", 
+                   u"inlineMethodCall", u"methodCallArguments", u"defineFuncArguments", 
+                   u"expr", u"atom" ]
 
     EOF = Token.EOF
     T__0=1
@@ -153,12 +166,13 @@ class AsaliLangGrammarParser ( Parser ):
     WHILE=33
     FOR=34
     LOOP=35
-    ID=36
-    INT=37
-    FLOAT=38
-    STRING=39
-    COMMENT=40
-    SPACE=41
+    FUNC=36
+    ID=37
+    INT=38
+    FLOAT=39
+    STRING=40
+    COMMENT=41
+    SPACE=42
 
     def __init__(self, input, output=sys.stdout):
         super(AsaliLangGrammarParser, self).__init__(input, output=output)
@@ -208,9 +222,9 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 0, self.RULE_parse)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 32
+            self.state = 36
             self.block()
-            self.state = 33
+            self.state = 37
             self.match(AsaliLangGrammarParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -260,14 +274,14 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 2, self.RULE_block)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 38
+            self.state = 42
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,0,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 35
+                    self.state = 39
                     self.stat() 
-                self.state = 40
+                self.state = 44
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,0,self._ctx)
 
@@ -310,6 +324,10 @@ class AsaliLangGrammarParser ( Parser ):
             return self.getTypedRuleContext(AsaliLangGrammarParser.LoopStatContext,0)
 
 
+        def defineFuncStats(self):
+            return self.getTypedRuleContext(AsaliLangGrammarParser.DefineFuncStatsContext,0)
+
+
         def getRuleIndex(self):
             return AsaliLangGrammarParser.RULE_stat
 
@@ -335,43 +353,49 @@ class AsaliLangGrammarParser ( Parser ):
         localctx = AsaliLangGrammarParser.StatContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_stat)
         try:
-            self.state = 47
+            self.state = 52
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,1,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 41
+                self.state = 45
                 self.assignment()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 42
+                self.state = 46
                 self.ifStat()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 43
+                self.state = 47
                 self.whileStat()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 44
+                self.state = 48
                 self.methodCallStat()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 45
+                self.state = 49
                 self.forStat()
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 46
+                self.state = 50
                 self.loopStat()
+                pass
+
+            elif la_ == 7:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 51
+                self.defineFuncStats()
                 pass
 
 
@@ -429,13 +453,13 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 49
+            self.state = 54
             self.match(AsaliLangGrammarParser.ID)
-            self.state = 50
+            self.state = 55
             self.match(AsaliLangGrammarParser.ASSIGN)
-            self.state = 51
+            self.state = 56
             self.expr(0)
-            self.state = 52
+            self.state = 57
             self.match(AsaliLangGrammarParser.SCOL)
         except RecognitionException as re:
             localctx.exception = re
@@ -501,32 +525,32 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_ifStat)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 54
+            self.state = 59
             self.match(AsaliLangGrammarParser.IF)
-            self.state = 55
+            self.state = 60
             self.conditionBlock()
-            self.state = 61
+            self.state = 66
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 56
+                    self.state = 61
                     self.match(AsaliLangGrammarParser.ELSE)
-                    self.state = 57
+                    self.state = 62
                     self.match(AsaliLangGrammarParser.IF)
-                    self.state = 58
+                    self.state = 63
                     self.conditionBlock() 
-                self.state = 63
+                self.state = 68
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
 
-            self.state = 66
+            self.state = 71
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
-                self.state = 64
+                self.state = 69
                 self.match(AsaliLangGrammarParser.ELSE)
-                self.state = 65
+                self.state = 70
                 self.statBlock()
 
 
@@ -579,9 +603,9 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_conditionBlock)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
+            self.state = 73
             self.expr(0)
-            self.state = 69
+            self.state = 74
             self.statBlock()
         except RecognitionException as re:
             localctx.exception = re
@@ -650,45 +674,45 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_statBlock)
         self._la = 0 # Token type
         try:
-            self.state = 85
+            self.state = 90
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [22]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 71
+                self.state = 76
                 self.match(AsaliLangGrammarParser.OBRACE)
-                self.state = 72
+                self.state = 77
                 self.block()
-                self.state = 73
+                self.state = 78
                 self.match(AsaliLangGrammarParser.CBRACE)
                 pass
             elif token in [24, 26]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 76
+                self.state = 81
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==26:
-                    self.state = 75
+                    self.state = 80
                     self.match(AsaliLangGrammarParser.DO)
 
 
-                self.state = 78
+                self.state = 83
                 self.match(AsaliLangGrammarParser.BEGIN)
-                self.state = 79
+                self.state = 84
                 self.block()
-                self.state = 80
+                self.state = 85
                 self.match(AsaliLangGrammarParser.END)
                 pass
-            elif token in [31, 33, 34, 35, 36]:
+            elif token in [31, 33, 34, 35, 36, 37]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 82
+                self.state = 87
                 self.stat()
                 pass
             elif token in [27]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 83
+                self.state = 88
                 self.match(AsaliLangGrammarParser.THEN)
-                self.state = 84
+                self.state = 89
                 self.block()
                 pass
             else:
@@ -746,11 +770,11 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_whileStat)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 87
+            self.state = 92
             self.match(AsaliLangGrammarParser.WHILE)
-            self.state = 88
+            self.state = 93
             self.expr(0)
-            self.state = 89
+            self.state = 94
             self.statBlock()
         except RecognitionException as re:
             localctx.exception = re
@@ -816,19 +840,19 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_forStat)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 91
-            self.match(AsaliLangGrammarParser.FOR)
-            self.state = 92
-            self.match(AsaliLangGrammarParser.ID)
-            self.state = 93
-            self.match(AsaliLangGrammarParser.ASSIGN)
-            self.state = 94
-            self.expr(0)
-            self.state = 95
-            self.match(AsaliLangGrammarParser.COL)
             self.state = 96
-            self.expr(0)
+            self.match(AsaliLangGrammarParser.FOR)
             self.state = 97
+            self.match(AsaliLangGrammarParser.ID)
+            self.state = 98
+            self.match(AsaliLangGrammarParser.ASSIGN)
+            self.state = 99
+            self.expr(0)
+            self.state = 100
+            self.match(AsaliLangGrammarParser.COL)
+            self.state = 101
+            self.expr(0)
+            self.state = 102
             self.statBlock()
         except RecognitionException as re:
             localctx.exception = re
@@ -888,15 +912,15 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_loopStat)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 99
+            self.state = 104
             self.match(AsaliLangGrammarParser.LOOP)
-            self.state = 100
+            self.state = 105
             self.match(AsaliLangGrammarParser.ID)
-            self.state = 101
+            self.state = 106
             self.match(AsaliLangGrammarParser.COL)
-            self.state = 102
+            self.state = 107
             self.expr(0)
-            self.state = 103
+            self.state = 108
             self.statBlock()
         except RecognitionException as re:
             localctx.exception = re
@@ -946,10 +970,83 @@ class AsaliLangGrammarParser ( Parser ):
         self.enterRule(localctx, 20, self.RULE_methodCallStat)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 105
+            self.state = 110
             self.methodCall()
-            self.state = 106
+            self.state = 111
             self.match(AsaliLangGrammarParser.SCOL)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class DefineFuncStatsContext(ParserRuleContext):
+
+        def __init__(self, parser, parent=None, invokingState=-1):
+            super(AsaliLangGrammarParser.DefineFuncStatsContext, self).__init__(parent, invokingState)
+            self.parser = parser
+
+        def FUNC(self):
+            return self.getToken(AsaliLangGrammarParser.FUNC, 0)
+
+        def ID(self):
+            return self.getToken(AsaliLangGrammarParser.ID, 0)
+
+        def OPAR(self):
+            return self.getToken(AsaliLangGrammarParser.OPAR, 0)
+
+        def defineFuncArguments(self):
+            return self.getTypedRuleContext(AsaliLangGrammarParser.DefineFuncArgumentsContext,0)
+
+
+        def CPAR(self):
+            return self.getToken(AsaliLangGrammarParser.CPAR, 0)
+
+        def statBlock(self):
+            return self.getTypedRuleContext(AsaliLangGrammarParser.StatBlockContext,0)
+
+
+        def getRuleIndex(self):
+            return AsaliLangGrammarParser.RULE_defineFuncStats
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterDefineFuncStats"):
+                listener.enterDefineFuncStats(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitDefineFuncStats"):
+                listener.exitDefineFuncStats(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitDefineFuncStats"):
+                return visitor.visitDefineFuncStats(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def defineFuncStats(self):
+
+        localctx = AsaliLangGrammarParser.DefineFuncStatsContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 22, self.RULE_defineFuncStats)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 113
+            self.match(AsaliLangGrammarParser.FUNC)
+            self.state = 114
+            self.match(AsaliLangGrammarParser.ID)
+            self.state = 115
+            self.match(AsaliLangGrammarParser.OPAR)
+            self.state = 116
+            self.defineFuncArguments()
+            self.state = 117
+            self.match(AsaliLangGrammarParser.CPAR)
+            self.state = 118
+            self.statBlock()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -995,12 +1092,12 @@ class AsaliLangGrammarParser ( Parser ):
     def methodCall(self):
 
         localctx = AsaliLangGrammarParser.MethodCallContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_methodCall)
+        self.enterRule(localctx, 24, self.RULE_methodCall)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 108
+            self.state = 120
             self.match(AsaliLangGrammarParser.ID)
-            self.state = 109
+            self.state = 121
             self.methodCallArguments()
         except RecognitionException as re:
             localctx.exception = re
@@ -1053,16 +1150,16 @@ class AsaliLangGrammarParser ( Parser ):
     def inlineMethodCall(self):
 
         localctx = AsaliLangGrammarParser.InlineMethodCallContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_inlineMethodCall)
+        self.enterRule(localctx, 26, self.RULE_inlineMethodCall)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 111
+            self.state = 123
             self.match(AsaliLangGrammarParser.ID)
-            self.state = 112
+            self.state = 124
             self.match(AsaliLangGrammarParser.OPAR)
-            self.state = 113
+            self.state = 125
             self.methodCallArguments()
-            self.state = 114
+            self.state = 126
             self.match(AsaliLangGrammarParser.CPAR)
         except RecognitionException as re:
             localctx.exception = re
@@ -1109,29 +1206,103 @@ class AsaliLangGrammarParser ( Parser ):
     def methodCallArguments(self):
 
         localctx = AsaliLangGrammarParser.MethodCallArgumentsContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_methodCallArguments)
+        self.enterRule(localctx, 28, self.RULE_methodCallArguments)
         self._la = 0 # Token type
         try:
-            self.state = 125
+            self.state = 137
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [17, 21]:
                 self.enterOuterAlt(localctx, 1)
 
                 pass
-            elif token in [11, 16, 20, 28, 29, 30, 36, 37, 38, 39]:
+            elif token in [11, 16, 20, 28, 29, 30, 37, 38, 39, 40]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 117
+                self.state = 129
                 self.expr(0)
-                self.state = 122
+                self.state = 134
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==1:
-                    self.state = 118
+                    self.state = 130
                     self.match(AsaliLangGrammarParser.T__0)
-                    self.state = 119
+                    self.state = 131
                     self.expr(0)
-                    self.state = 124
+                    self.state = 136
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class DefineFuncArgumentsContext(ParserRuleContext):
+
+        def __init__(self, parser, parent=None, invokingState=-1):
+            super(AsaliLangGrammarParser.DefineFuncArgumentsContext, self).__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self, i=None):
+            if i is None:
+                return self.getTokens(AsaliLangGrammarParser.ID)
+            else:
+                return self.getToken(AsaliLangGrammarParser.ID, i)
+
+        def getRuleIndex(self):
+            return AsaliLangGrammarParser.RULE_defineFuncArguments
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterDefineFuncArguments"):
+                listener.enterDefineFuncArguments(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitDefineFuncArguments"):
+                listener.exitDefineFuncArguments(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitDefineFuncArguments"):
+                return visitor.visitDefineFuncArguments(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def defineFuncArguments(self):
+
+        localctx = AsaliLangGrammarParser.DefineFuncArgumentsContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 30, self.RULE_defineFuncArguments)
+        self._la = 0 # Token type
+        try:
+            self.state = 148
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [21]:
+                self.enterOuterAlt(localctx, 1)
+
+                pass
+            elif token in [37]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 140
+                self.match(AsaliLangGrammarParser.ID)
+                self.state = 145
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while _la==1:
+                    self.state = 141
+                    self.match(AsaliLangGrammarParser.T__0)
+                    self.state = 142
+                    self.match(AsaliLangGrammarParser.ID)
+                    self.state = 147
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
@@ -1501,20 +1672,20 @@ class AsaliLangGrammarParser ( Parser ):
         _parentState = self.state
         localctx = AsaliLangGrammarParser.ExprContext(self, self._ctx, _parentState)
         _prevctx = localctx
-        _startState = 28
-        self.enterRecursionRule(localctx, 28, self.RULE_expr, _p)
+        _startState = 32
+        self.enterRecursionRule(localctx, 32, self.RULE_expr, _p)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 134
+            self.state = 157
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,10,self._ctx)
             if la_ == 1:
                 localctx = AsaliLangGrammarParser.MethodCallExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
 
-                self.state = 128
+                self.state = 151
                 self.inlineMethodCall()
                 pass
 
@@ -1522,9 +1693,9 @@ class AsaliLangGrammarParser ( Parser ):
                 localctx = AsaliLangGrammarParser.UnaryMinusExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 129
+                self.state = 152
                 self.match(AsaliLangGrammarParser.MINUS)
-                self.state = 130
+                self.state = 153
                 self.expr(9)
                 pass
 
@@ -1532,9 +1703,9 @@ class AsaliLangGrammarParser ( Parser ):
                 localctx = AsaliLangGrammarParser.NotExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 131
+                self.state = 154
                 self.match(AsaliLangGrammarParser.NOT)
-                self.state = 132
+                self.state = 155
                 self.expr(8)
                 pass
 
@@ -1542,44 +1713,44 @@ class AsaliLangGrammarParser ( Parser ):
                 localctx = AsaliLangGrammarParser.AtomExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 133
+                self.state = 156
                 self.atom()
                 pass
 
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 159
+            self.state = 182
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,10,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,12,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 157
+                    self.state = 180
                     self._errHandler.sync(self)
-                    la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
+                    la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
                     if la_ == 1:
                         localctx = AsaliLangGrammarParser.PowExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 136
+                        self.state = 159
                         if not self.precpred(self._ctx, 10):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 10)")
-                        self.state = 137
+                        self.state = 160
                         self.match(AsaliLangGrammarParser.POW)
-                        self.state = 138
+                        self.state = 161
                         self.expr(10)
                         pass
 
                     elif la_ == 2:
                         localctx = AsaliLangGrammarParser.MultiplicationExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 139
+                        self.state = 162
                         if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
-                        self.state = 140
+                        self.state = 163
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 28672) != 0)):
@@ -1587,18 +1758,18 @@ class AsaliLangGrammarParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 141
+                        self.state = 164
                         self.expr(8)
                         pass
 
                     elif la_ == 3:
                         localctx = AsaliLangGrammarParser.AdditiveExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 142
+                        self.state = 165
                         if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
-                        self.state = 143
+                        self.state = 166
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==10 or _la==11):
@@ -1606,18 +1777,18 @@ class AsaliLangGrammarParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 144
+                        self.state = 167
                         self.expr(7)
                         pass
 
                     elif la_ == 4:
                         localctx = AsaliLangGrammarParser.RelationalExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 145
+                        self.state = 168
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 146
+                        self.state = 169
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 960) != 0)):
@@ -1625,18 +1796,18 @@ class AsaliLangGrammarParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 147
+                        self.state = 170
                         self.expr(6)
                         pass
 
                     elif la_ == 5:
                         localctx = AsaliLangGrammarParser.EqualityExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 148
+                        self.state = 171
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 149
+                        self.state = 172
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==4 or _la==5):
@@ -1644,40 +1815,40 @@ class AsaliLangGrammarParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 150
+                        self.state = 173
                         self.expr(5)
                         pass
 
                     elif la_ == 6:
                         localctx = AsaliLangGrammarParser.AndExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 151
+                        self.state = 174
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
-                        self.state = 152
+                        self.state = 175
                         self.match(AsaliLangGrammarParser.AND)
-                        self.state = 153
+                        self.state = 176
                         self.expr(4)
                         pass
 
                     elif la_ == 7:
                         localctx = AsaliLangGrammarParser.OrExprContext(self, AsaliLangGrammarParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 154
+                        self.state = 177
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
-                        self.state = 155
+                        self.state = 178
                         self.match(AsaliLangGrammarParser.OR)
-                        self.state = 156
+                        self.state = 179
                         self.expr(3)
                         pass
 
              
-                self.state = 161
+                self.state = 184
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,10,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,12,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1861,28 +2032,28 @@ class AsaliLangGrammarParser ( Parser ):
     def atom(self):
 
         localctx = AsaliLangGrammarParser.AtomContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_atom)
+        self.enterRule(localctx, 34, self.RULE_atom)
         self._la = 0 # Token type
         try:
-            self.state = 171
+            self.state = 194
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [20]:
                 localctx = AsaliLangGrammarParser.ParExprContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 162
+                self.state = 185
                 self.match(AsaliLangGrammarParser.OPAR)
-                self.state = 163
+                self.state = 186
                 self.expr(0)
-                self.state = 164
+                self.state = 187
                 self.match(AsaliLangGrammarParser.CPAR)
                 pass
-            elif token in [37, 38]:
+            elif token in [38, 39]:
                 localctx = AsaliLangGrammarParser.NumberAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 166
+                self.state = 189
                 _la = self._input.LA(1)
-                if not(_la==37 or _la==38):
+                if not(_la==38 or _la==39):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -1891,7 +2062,7 @@ class AsaliLangGrammarParser ( Parser ):
             elif token in [28, 29]:
                 localctx = AsaliLangGrammarParser.BooleanAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 167
+                self.state = 190
                 _la = self._input.LA(1)
                 if not(_la==28 or _la==29):
                     self._errHandler.recoverInline(self)
@@ -1899,22 +2070,22 @@ class AsaliLangGrammarParser ( Parser ):
                     self._errHandler.reportMatch(self)
                     self.consume()
                 pass
-            elif token in [36]:
+            elif token in [37]:
                 localctx = AsaliLangGrammarParser.IdAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 168
+                self.state = 191
                 self.match(AsaliLangGrammarParser.ID)
                 pass
-            elif token in [39]:
+            elif token in [40]:
                 localctx = AsaliLangGrammarParser.StringAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 169
+                self.state = 192
                 self.match(AsaliLangGrammarParser.STRING)
                 pass
             elif token in [30]:
                 localctx = AsaliLangGrammarParser.NilAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 170
+                self.state = 193
                 self.match(AsaliLangGrammarParser.NIL)
                 pass
             else:
@@ -1933,7 +2104,7 @@ class AsaliLangGrammarParser ( Parser ):
     def sempred(self, localctx, ruleIndex, predIndex):
         if self._predicates == None:
             self._predicates = dict()
-        self._predicates[14] = self.expr_sempred
+        self._predicates[16] = self.expr_sempred
         pred = self._predicates.get(ruleIndex, None)
         if pred is None:
             raise Exception("No predicate with index:" + str(ruleIndex))

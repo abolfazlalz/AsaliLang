@@ -15,6 +15,7 @@ stat
  | methodCallStat
  | forStat
  | loopStat
+ | defineFuncStats
  ;
 
 assignment
@@ -52,6 +53,10 @@ methodCallStat
  : methodCall SCOL
  ;
 
+defineFuncStats
+ : FUNC ID OPAR defineFuncArguments CPAR statBlock
+ ;
+
  methodCall
  : ID methodCallArguments
  ;
@@ -64,6 +69,12 @@ methodCallArguments
  : // No arguments
  | expr (',' expr)*  // Some arguments
  ;
+
+defineFuncArguments
+ : // No arguments
+ | ID (',' ID)*
+ ;
+
 
 expr
  : inlineMethodCall                       #methodCallExpr
@@ -125,6 +136,7 @@ ELSE : 'else';
 WHILE : 'while';
 FOR : 'for';
 LOOP : 'loop';
+FUNC : 'func';
 
 ID
  : [a-zA-Z_] [a-zA-Z_0-9]*

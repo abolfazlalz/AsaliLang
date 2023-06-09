@@ -1,4 +1,4 @@
-module asalicompiler
+module github.com/abolfazlalz/asalilang
 
 go 1.20
 

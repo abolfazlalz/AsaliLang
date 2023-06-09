@@ -1,4 +1,4 @@
-# Generated from AsaliLangGrammar.g4 by ANTLR 4.13.0
+# Generated from ./AsaliLangGrammar.g4 by ANTLR 4.13.0
 from antlr4 import *
 
 # This class defines a complete listener for a parse tree produced by AsaliLangGrammarParser.
@@ -103,6 +103,15 @@ class AsaliLangGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AsaliLangGrammarParser#defineFuncStats.
+    def enterDefineFuncStats(self, ctx):
+        pass
+
+    # Exit a parse tree produced by AsaliLangGrammarParser#defineFuncStats.
+    def exitDefineFuncStats(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by AsaliLangGrammarParser#methodCall.
     def enterMethodCall(self, ctx):
         pass
@@ -127,6 +136,15 @@ class AsaliLangGrammarListener(ParseTreeListener):
 
     # Exit a parse tree produced by AsaliLangGrammarParser#methodCallArguments.
     def exitMethodCallArguments(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by AsaliLangGrammarParser#defineFuncArguments.
+    def enterDefineFuncArguments(self, ctx):
+        pass
+
+    # Exit a parse tree produced by AsaliLangGrammarParser#defineFuncArguments.
+    def exitDefineFuncArguments(self, ctx):
         pass
 
 
