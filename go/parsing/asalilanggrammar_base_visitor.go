@@ -51,6 +51,10 @@ func (v *BaseAsaliLangGrammarVisitor) VisitMethodCallStat(ctx *MethodCallStatCon
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseAsaliLangGrammarVisitor) VisitExitStat(ctx *ExitStatContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseAsaliLangGrammarVisitor) VisitMethodCall(ctx *MethodCallContext) interface{} {
 	return v.VisitChildren(ctx)
 }

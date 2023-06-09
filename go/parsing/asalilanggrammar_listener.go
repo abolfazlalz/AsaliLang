@@ -40,6 +40,9 @@ type AsaliLangGrammarListener interface {
 	// EnterMethodCallStat is called when entering the methodCallStat production.
 	EnterMethodCallStat(c *MethodCallStatContext)
 
+	// EnterExitStat is called when entering the exitStat production.
+	EnterExitStat(c *ExitStatContext)
+
 	// EnterMethodCall is called when entering the methodCall production.
 	EnterMethodCall(c *MethodCallContext)
 
@@ -132,6 +135,9 @@ type AsaliLangGrammarListener interface {
 
 	// ExitMethodCallStat is called when exiting the methodCallStat production.
 	ExitMethodCallStat(c *MethodCallStatContext)
+
+	// ExitExitStat is called when exiting the exitStat production.
+	ExitExitStat(c *ExitStatContext)
 
 	// ExitMethodCall is called when exiting the methodCall production.
 	ExitMethodCall(c *MethodCallContext)

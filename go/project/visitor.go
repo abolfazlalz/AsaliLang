@@ -9,6 +9,17 @@ import (
 	"strings"
 )
 
+type ExitType string
+
+var (
+	ContinueExit ExitType = "break"
+	BreakExit    ExitType = "continue"
+)
+
+type ExitStat struct {
+	Type ExitType
+}
+
 type Visitor struct {
 	*parsing.BaseAsaliLangGrammarVisitor
 	method *BuildInMethod
@@ -31,25 +42,24 @@ func (v *Visitor) Visit(tree antlr.ParseTree) interface{} {
 
 func (v *Visitor) VisitBlock(ctx *parsing.BlockContext) interface{} {
 	for _, c := range ctx.AllStat() {
-		v.Visit(c)
+		value := v.Visit(c)
+		if _, ok := value.(ExitStat); ok {
+			return value
+		}
 	}
 	return nil
 }
 
 func (v *Visitor) VisitStatBlock(ctx *parsing.StatBlockContext) interface{} {
 	if ctx.Stat() != nil {
-		v.Visit(ctx.Stat())
-		return nil
+		return v.Visit(ctx.Stat())
 	}
-	for _, c := range ctx.Block().AllStat() {
-		v.Visit(c)
-	}
-	return nil
+	result := v.Visit(ctx.Block())
+	return result
 }
 
 func (v *Visitor) VisitParse(ctx *parsing.ParseContext) interface{} {
-	v.Visit(ctx.Block())
-	return nil
+	return v.Visit(ctx.Block())
 }
 func (v *Visitor) VisitStat(ctx *parsing.StatContext) interface{} {
 	return v.Visit(ctx.GetChild(0).(antlr.ParseTree))
@@ -236,8 +246,15 @@ func (v *Visitor) VisitForStat(ctx *parsing.ForStatContext) interface{} {
 	end := newValue(v.Visit(ctx.Expr(1))).asFloat()
 	lastVariable := v.vars[varName]
 	for v.vars[varName] = start; toFloat(v.vars[varName]) < end; {
-		v.Visit(ctx.StatBlock())
+		result := v.Visit(ctx.StatBlock())
 		v.vars[varName] = toFloat(v.vars[varName]) + 1
+		if exit, ok := result.(ExitStat); ok {
+			if exit.Type == BreakExit {
+				break
+			} else if exit.Type == ContinueExit {
+				continue
+			}
+		}
 	}
 	v.vars[varName] = lastVariable
 	return nil
@@ -250,8 +267,15 @@ func (v *Visitor) VisitLoopStat(ctx *parsing.LoopStatContext) interface{} {
 	lastVariable := v.vars[varName]
 
 	for v.vars[varName] = 0; toFloat(v.vars[varName]) < end; {
+		result := v.Visit(ctx.StatBlock())
 		v.vars[varName] = toFloat(v.vars[varName]) + 1
-		v.Visit(ctx.StatBlock())
+		if exit, ok := result.(ExitStat); ok {
+			if exit.Type == BreakExit {
+				break
+			} else if exit.Type == ContinueExit {
+				continue
+			}
+		}
 	}
 
 	v.vars[varName] = lastVariable
@@ -263,26 +287,41 @@ func (v *Visitor) VisitWhileStat(ctx *parsing.WhileStatContext) interface{} {
 	result := toBoolean(v.Visit(ctx.Expr()))
 	for result {
 		result = toBoolean(v.Visit(ctx.Expr()))
-		v.Visit(ctx.StatBlock())
+		result := v.Visit(ctx.StatBlock())
+		if exit, ok := result.(ExitStat); ok {
+			if exit.Type == BreakExit {
+				break
+			} else if exit.Type == ContinueExit {
+				continue
+			}
+		}
 	}
 	return nil
 }
 
 func (v *Visitor) VisitIfStat(ctx *parsing.IfStatContext) interface{} {
+	var result interface{}
 	conditions := ctx.AllConditionBlock()
 	evaluatedBlock := false
 	for _, condition := range conditions {
 		evaluated := v.Visit(condition.Expr())
 		if toBoolean(evaluated) {
 			evaluatedBlock = true
-			v.Visit(condition.StatBlock())
+			result = v.Visit(condition.StatBlock())
 			break
 		}
 	}
 
 	if !evaluatedBlock && ctx.StatBlock() != nil {
-		v.Visit(ctx.StatBlock())
+		result = v.Visit(ctx.StatBlock())
 	}
 
-	return nil
+	return result
+}
+
+func (v *Visitor) VisitExitStat(ctx *parsing.ExitStatContext) interface{} {
+	if ctx.CONTINUE() != nil {
+		return ExitStat{Type: ContinueExit}
+	}
+	return ExitStat{Type: BreakExit}
 }

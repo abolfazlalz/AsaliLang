@@ -103,6 +103,15 @@ class AsaliLangGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AsaliLangGrammarParser#exitStat.
+    def enterExitStat(self, ctx):
+        pass
+
+    # Exit a parse tree produced by AsaliLangGrammarParser#exitStat.
+    def exitExitStat(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by AsaliLangGrammarParser#methodCall.
     def enterMethodCall(self, ctx):
         pass

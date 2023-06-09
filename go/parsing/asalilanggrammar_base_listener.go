@@ -86,6 +86,12 @@ func (s *BaseAsaliLangGrammarListener) EnterMethodCallStat(ctx *MethodCallStatCo
 // ExitMethodCallStat is called when production methodCallStat is exited.
 func (s *BaseAsaliLangGrammarListener) ExitMethodCallStat(ctx *MethodCallStatContext) {}
 
+// EnterExitStat is called when production exitStat is entered.
+func (s *BaseAsaliLangGrammarListener) EnterExitStat(ctx *ExitStatContext) {}
+
+// ExitExitStat is called when production exitStat is exited.
+func (s *BaseAsaliLangGrammarListener) ExitExitStat(ctx *ExitStatContext) {}
+
 // EnterMethodCall is called when production methodCall is entered.
 func (s *BaseAsaliLangGrammarListener) EnterMethodCall(ctx *MethodCallContext) {}
 

@@ -15,6 +15,7 @@ stat
  | methodCallStat
  | forStat
  | loopStat
+ | exitStat
  ;
 
 assignment
@@ -52,11 +53,15 @@ methodCallStat
  : methodCall SCOL
  ;
 
- methodCall
+exitStat
+ : (BREAK | CONTINUE) SCOL
+ ;
+
+methodCall
  : ID methodCallArguments
  ;
 
- inlineMethodCall
+inlineMethodCall
  : ID OPAR methodCallArguments CPAR
  ;
 
@@ -116,6 +121,8 @@ BEGIN : 'begin';
 END : 'end';
 DO : 'do';
 THEN : 'then';
+BREAK : 'break';
+CONTINUE : 'continue';
 
 TRUE : 'true';
 FALSE : 'false';
