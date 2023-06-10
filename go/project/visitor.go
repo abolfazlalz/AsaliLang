@@ -105,7 +105,7 @@ func (v *Visitor) VisitAdditiveExpr(ctx *parsing.AdditiveExprContext) interface{
 	switch ctx.GetOp().GetTokenType() {
 	case parsing.AsaliLangGrammarLexerPLUS:
 		valLeft, okLeft := left.(float64)
-		valRight, okRight := left.(float64)
+		valRight, okRight := right.(float64)
 		if okRight && okLeft {
 			return valRight + valLeft
 		}
