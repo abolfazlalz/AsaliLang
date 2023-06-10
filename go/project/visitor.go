@@ -214,6 +214,10 @@ func (v *Visitor) handleMethodCall(methodName string, argsContext parsing.IMetho
 		v.method.print(args...)
 	} else if methodName == "sin" {
 		return v.method.sin(args...)
+	} else if methodName == "input" {
+		return v.method.input(args...)
+	} else if methodName == "float" {
+		return v.method.float(args...)
 	}
 	return nil
 }
